@@ -1,0 +1,149 @@
+ <!-- Discover Story Ends -->
+
+    <section class="instructions-performer">
+        <div class="container">
+            <div class="instuctions-performer-info-txt padding-rigth animate-left">
+                <h3 class="headline-howto">How to Busker <br> for Performers</h3>
+                <div class="instructions-perfomer-p-container">
+                    <p>Register as a performer</p>
+                    <p>Make up your profile</p>
+                    <p>Start tagging you appearance <br> on the map</p>
+                    <p>Get people to follow you</p>
+                    <p>Upload amazing pictures and inform <br> people through you posts</p>
+                </div>
+            </div>
+            <div class="instructions-performer-info-img animate-right">
+                <img src="./images/welcomePagePerformerPhoto.jpg" alt="">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Performer Instructions Ends Here -->
+
+    <section class="instructions-viewer">
+        <div class="container">
+            <div class="instuctions-viewer-info-txt padding-rigth animate-left">
+                <h3 class="headline-howto">How to Busker <br> for Viewers</h3>
+                <div class="instructions-viewer-p-container">
+                    <p>Register as a viewer</p>
+                    <p>Make up your profile</p>
+                    <p>Start discovering amazing buskers</p>
+                    <p>Start following your favourite artists</p>
+                    <p>Find company to join you through your posts and socials</p>
+                    <p>Schedule</p>
+                </div>
+            </div>
+            <div class="instructions-viewer-info-img animate-right">
+                <img src="./images/welcomePageViewerPhoto.jpg" alt="">
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+    /* Perfomer Section */
+    
+    .instructions-perfomer {
+        width: 100%;
+        height: 100vh;
+        background-color: var(--body-font-color);
+        background-size: cover;
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .instructions-performer>div {
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .headline-howto {
+        color: var(--base-font-color);
+        font-size: 2rem;
+    }
+    
+    .instructions-perfomer-p-container {
+        color: #444444;
+        font-family: var(--main-font);
+        justify-content: flex-start;
+        margin-top: 3rem;
+    }
+    
+    .instructions-perfomer-p-container>p {
+        font-size: 3rem;
+        margin-top: 3rem;
+    }
+    
+    .instructions-performer-info-img {}
+    /* Viewer Section */
+    
+    .instructions-viewer {
+        width: 100%;
+        height: 100vh;
+        background-color: #000000;
+        background-size: cover;
+    }
+    
+    .instructions-viewer>div {
+        display: flex;
+    }
+    
+    .headline-howto {
+        color: var(--base-font-color);
+        font-size: 2rem;
+        margin-top: 6.9rem;
+    }
+    
+    .instructions-viewer-p-container {
+        color: var(--body-font-color);
+        font-family: var(--main-font);
+        justify-content: flex-start;
+        margin-top: 3rem;
+    }
+    
+    .instructions-viewer-p-container>p {
+        font-size: 3rem;
+        margin-top: 3rem;
+    }
+    
+    .instructions-viewer-info-img {}
+
+
+      @keyframes fadeDownHeadline {
+        0% {
+            opacity: 0;
+            transform: translate(-50%, -70%);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+    
+    @keyframes fadeDown {
+        0% {
+            opacity: 0;
+            transform: translate(0%, -50%);
+        }
+        100% {
+            opacity: 1;
+            transform: translate(0%, 0%);
+        }
+    }
+    
+
+       @keyframes scale {
+        0% {
+            scale: 0;
+        }
+        100% {
+            scale: 1;
+        }
+    }
