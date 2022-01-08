@@ -1,6 +1,7 @@
 const env = process.env.NODE_ENV || 'development';
 
 const config = {
+    withCredentials: true,
     development: {
         port: process.env.PORT || 9999,
         dbUrl: 'mongodb://localhost:27017/Busker',
@@ -8,6 +9,7 @@ const config = {
         secret: 'SuperSecureSecret',
         saltRounds: 11
     }
+
 };
 
 module.exports = config[env];

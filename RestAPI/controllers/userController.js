@@ -20,6 +20,7 @@ module.exports = {
     post: {
         login(req, res, next) {
             const { username, password } = {...req.body };
+
             User
                 .findOne({ username })
                 .then((user) => {
@@ -35,7 +36,6 @@ module.exports = {
                     }
 
                     const token = jwt.createToken(user._id);
-
                     res
                         .status(200)
                         .cookie(cookieName, token, { maxAge: 3600000 })

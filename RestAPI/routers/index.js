@@ -1,6 +1,7 @@
 const routers = [
     { homeRouter: require('./homeRouter.js') },
-    { userRouter: require('./userRouter.js') }
+    { userRouter: require('./userRouter.js') },
+    { profileRouter: require('./profileRouter.js') }
 ];
 
 
