@@ -5,6 +5,7 @@ module.exports = (mongoose) => {
     const postSchema = new Schema({
         postedAt: {
             type: Date,
+            required: true
         },
         author: {
             type: ObjectId,

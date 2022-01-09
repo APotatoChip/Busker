@@ -1,6 +1,7 @@
 // Setup Express and Middlewares
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
+const { isAuth } = require('../utils');
 
 module.exports = (express, app) => {
 
@@ -12,5 +13,6 @@ module.exports = (express, app) => {
         credentials: true
     }));
     app.use(cookieParser());
+    app.use(isAuth);
 
 };

@@ -26,9 +26,7 @@ module.exports = {
     },
     post: {
         create(req, res, next) {
-            // , author: req.user._id
-
-            Post.create({...req.body, postedAt: Date.now() })
+            Post.create({...req.body, postedAt: Date.now(), author: req.user._id })
                 .then((createdPost) => {
                     res.json(createdPost);
                 })
