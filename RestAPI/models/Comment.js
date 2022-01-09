@@ -4,21 +4,25 @@ module.exports = (mongoose) => {
     const commentSchema = new Schema({
         author: {
             type: ObjectId,
-            ref: 'User'
+            ref: 'User',
+            required: true
         },
         postedAt: {
-            type: Date
+            type: Date,
+            required: true
         },
         postId: {
             type: ObjectId,
-            ref: 'Post'
+            ref: 'Post',
+            required: true
         },
         textContent: {
             type: String,
             required: true
         },
         likes: [{
-            type: Number
+            type: Number,
+            default: 0
         }],
         replyComments: [{
             type: ObjectId,
