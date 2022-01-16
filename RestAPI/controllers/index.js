@@ -3,6 +3,7 @@ const userController = require('./userController');
 const profileController = require('./profileController');
 const postController = require('./postController');
 const commentController = require('./commentController');
+const messageController = require('./messageController');
 
 
 
@@ -11,5 +12,6 @@ module.exports = {
     userController,
     profileController,
     postController,
-    commentController
+    commentController,
+    messageController
 }
