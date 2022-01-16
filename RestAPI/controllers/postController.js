@@ -4,6 +4,14 @@ module.exports = {
         post(req, res, next) {
             res.json("post");
         },
+        editPost(req, res, next) {
+
+        }
+    },
+    put: {
+        editPost(req, res, next) {
+
+        }
     },
     post: {
         create(req, res, next) {
@@ -12,5 +20,10 @@ module.exports = {
                     res.json(createdPost);
                 });
         },
+    },
+    delete: {
+        deletePost(req, res, next) {
+
+        }
     }
 }

@@ -6,5 +6,6 @@ module.exports = {
         message(req, res, next) {
             res.json("get current message");
         }
-    }
+    },
+    post: {}
 }

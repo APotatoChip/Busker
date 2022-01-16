@@ -15,6 +15,11 @@ module.exports = {
 
 
     },
+    put: {
+        editProfile(req, res, next) {
+
+        }
+    },
     post: {
 
     }

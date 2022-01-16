@@ -5,6 +5,12 @@ module.exports = {
             res.json('get all comments')
         }
     },
+    put: {
+        likeComment(req, res, next) {
+
+        },
+        likeReply(req, res, next) {}
+    },
     post: {
         comment(req, res, next) {
             const currPostId = req.params.postId;
@@ -56,6 +62,14 @@ module.exports = {
                                 })
                         })
                 })
+        }
+    },
+    delete: {
+        deleteComment(req, res, next) {
+
+        },
+        deleteReplyComment(req, res, next) {
+
         }
     }
 }
