@@ -1,4 +1,4 @@
-const { Post, Comment } = require("../models");
+const { Post, Comment, ReplyComment } = require("../models");
 
 module.exports = {
     get: {
@@ -44,8 +44,8 @@ module.exports = {
                 }).then(() => {
                     Post.findOne({ _id: currPostId })
                         .then((foundPost) => {
-
-                            commentsArr = foundPost.comments.push(currComment);
+                            foundPost.comments.push(currComment);
+                            commentsArr = foundPost.comments;
                         })
                         .then(() => {
                             Post.updateOne({ _id: currPostId }, { $set: { comments: commentsArr } })
@@ -57,6 +57,30 @@ module.exports = {
                         })
                 })
 
+        },
+        replyComment(req, res, next) {
+            const currCommentId = req.params.commentId;
+            let currReplyComment = "";
+            let replyCommentsArr = [];
+
+            ReplyComment.create({...req.body, author: req.user._id, postedAt: Date.now(), commentId: currCommentId })
+                .then((currentReplyComment) => {
+                    currReplyComment = currentReplyComment;
+                })
+                .then(() => {
+                    Comment.findOne({ _id: currCommentId })
+                        .then((foundComment) => {
+                            foundComment.replyComments.push(currReplyComment);
+                            replyCommentsArr = foundComment.replyComments;
+                        })
+                        .then(() => {
+                            Comment.updateOne({ _id: currCommentId }, { $set: { replyComments: replyCommentsArr } })
+                                .then((updates) => {
+                                    console.log(updates);
+                                    res.json('reply comment added');
+                                })
+                        })
+                })
         }
     }
 }

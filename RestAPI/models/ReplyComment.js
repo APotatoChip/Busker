@@ -1,7 +1,7 @@
 module.exports = (mongoose) => {
     const { Schema, model: Model } = mongoose;
     const { ObjectId, Date, String, Number } = Schema.Types;
-    const commentSchema = new Schema({
+    const replyCommentSchema = new Schema({
         author: {
             type: ObjectId,
             ref: 'User',
@@ -11,9 +11,9 @@ module.exports = (mongoose) => {
             type: Date,
             required: true
         },
-        postId: {
+        commentId: {
             type: ObjectId,
-            ref: 'Post',
+            ref: 'Comment',
             required: true
         },
         textContent: {
@@ -23,12 +23,8 @@ module.exports = (mongoose) => {
         likes: [{
             type: Number,
             default: 0
-        }],
-        replyComments: [{
-            type: ObjectId,
-            ref: 'ReplyComment'
         }]
     });
 
-    return Model('Comment', commentSchema);
+    return Model('ReplyComment', replyCommentSchema);
 }

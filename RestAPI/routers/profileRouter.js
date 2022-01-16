@@ -12,6 +12,7 @@ module.exports = (router) => {
     // router.put('/profile/edit', profileController.put.edit);
     router.post('/profile/post', profileController.post.create);
     router.post('/profile/:postId/comment', profileController.post.comment);
+    router.post('/profile/:postId/comment/:commentId', profileController.post.replyComment);
     // router.put('/profile/:postId',profileController.put.post);
 
     return router;
