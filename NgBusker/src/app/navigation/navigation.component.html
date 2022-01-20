@@ -1,1 +1,13 @@
-<p>navigation works!</p>
+<div class="container" fxFlex>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation">
+            <app-side-nav (sidenavClose)="sidenav.close()"></app-side-nav>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <app-header (sidenavToggle)="sidenav.toggle()"></app-header>
+
+            <router-outlet></router-outlet>
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

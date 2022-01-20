@@ -1,4 +1,34 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html {
+    scroll-behavior: smooth;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ :root {
+    --main-font: 'Montserrat', sans-serif;
+    --accent: #FF662B;
+    --base-font-color: #F2DABF;
+    --base-font-solor-third: #670404;
+    --body-font-color: #ffffff;
+    --body-color: #000000;
+    --body-color-secondary: #111111;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: var(--main-font);
+}

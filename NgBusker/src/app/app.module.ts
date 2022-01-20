@@ -12,9 +12,11 @@ import { PostComponent } from './post/post.component';
 import { CommentComponent } from './post/comment/comment.component';
 import { SearchComponent } from './search/search.component';
 import { MapComponent } from './map/map.component';
-import { SideNavComponent } from './navigation/side-nav/side-nav.component';
 import { HeroComponent } from './hero/hero.component';
-import { HeaderComponent } from './navigation/header/header.component';
+
+import { NavigationModule } from './navigation/navigation.module';
+import { MaterialModule } from './material/material.module';
+import { FlexLayoutModule } from '@angular/flex-layout'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
@@ -29,13 +31,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     CommentComponent,
     SearchComponent,
     MapComponent,
-    SideNavComponent,
     HeroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    FlexLayoutModule,
+    NavigationModule
   ],
   providers: [],
   bootstrap: [AppComponent,NavigationComponent,FooterComponent]

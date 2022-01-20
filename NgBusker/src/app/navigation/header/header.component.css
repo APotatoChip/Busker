@@ -1,0 +1,30 @@
+a {
+    text-decoration: none;
+    color: var(--base-font-color);
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+.navigation-items {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+mat-toolbar {
+    padding: 2.5rem;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0);
+    position: fixed;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1;
+}
+
+@media(max-width:959px) {
+    mat-toolbar {
+        border-radius: 0px;
+        background-color: #000;
+    }
+}
