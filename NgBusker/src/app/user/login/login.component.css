@@ -1,0 +1,185 @@
+.mat-form-field-label {
+    color: var(--base-font-color) !important;
+}
+
+.mat-form-field-underline {
+    background-color: var(--base-font-color) !important;
+    ;
+}
+
+.mat-form-field-ripple {
+    background-color: var(--accent) !important;
+}
+
+.mat-form-field input {
+    color: var(--base-font-color);
+    caret-color: var(--accent);
+}
+
+.mat-form-field-focused {
+    background-color: var(--accent) !important;
+}
+
+.mat-focused .mat-form-field-underline {
+    background-color: var(--accent) !important;
+}
+
+.mat-icon {
+    color: var(--base-font-color);
+}
+
+section {
+    padding: 0;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 122.5rem;
+    margin: 0;
+    padding: 0;
+    color: var(--body-font-color);
+}
+
+.background {
+    width: 100%;
+    height: 100vh;
+    background: url('../../../assets/photos/welcomePageFirstPhoto.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    background-color: #00000098;
+    width: 25vw;
+    height: 70vh;
+    position: absolute;
+    left: 50%;
+    top: 52.5%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-container {
+    animation: fade 0.3s forwards;
+}
+
+.card>h1 {
+    font-size: 2.5rem;
+    margin-top: 4rem;
+    color: var(--base-font-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+form {
+    margin-top: 3.5rem;
+}
+
+.fields-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mat-form-field {
+    width: 50%;
+    border-radius: 15%;
+    margin: 1rem;
+}
+
+.label {
+    color: var(--base-font-color);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.card>form>label>input {
+    margin-top: 2rem;
+    padding: 1rem;
+    border-style: solid;
+    border-color: var(--base-font-color);
+    background-color: #222222;
+    border-width: 1px;
+    border-radius: 10px;
+    font-family: var(--main-font);
+}
+
+button {
+    color: var(--base-font-color);
+    background-color: var(--accent);
+    width: 30%;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-style: solid;
+    border-color: var(--accent);
+    border-width: 1px;
+    border-radius: 0.7rem;
+    font-family: var(--main-font);
+    font-weight: bolder;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+}
+
+button:hover {
+    animation: bounce 1s ease-in;
+    cursor: pointer;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes scale {
+    0% {
+        scale: 0.5;
+    }
+    100% {
+        scale: 1;
+    }
+}
+
+@keyframes bounce {
+    0%,
+    20%,
+    60%,
+    100% {
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    40% {
+        -webkit-transform: translateY(-7px);
+        transform: translateY(-7px);
+    }
+    80% {
+        -webkit-transform: translateY(-3px);
+        transform: translateY(-3px);
+    }
+}

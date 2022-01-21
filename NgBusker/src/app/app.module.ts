@@ -1,37 +1,48 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NavigationComponent } from './navigation/navigation.component';
 import { FooterComponent } from './footer/footer.component';
-import { UserComponent } from './user/user.component';
-import { LoginComponent } from './user/login/login.component';
-import { RegisterComponent } from './user/register/register.component';
-import { PostComponent } from './post/post.component';
-import { CommentComponent } from './post/comment/comment.component';
-import { SearchComponent } from './search/search.component';
-import { MapComponent } from './map/map.component';
-import { HeroComponent } from './hero/hero.component';
-
-import { NavigationModule } from './navigation/navigation.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout'
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HeroComponent } from './hero/hero.component';
+import { LoginComponent } from './user/login/login.component';
+import { RegisterComponent } from './user/register/register.component';
+import { MapComponent } from './map/map.component';
+
+import { NavigationComponent } from './navigation/navigation.component';
+import { NavigationModule } from './navigation/navigation.module';
+import { UserComponent } from './user/user.component';
+import { UserModule } from './user/user.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { CommentsComponent } from './comments/comments.component';
+import { CommentboxComponent } from './comments/commentbox/commentbox.component';
+import { CommentsModule } from './comments/comments.module';
+
+
+
+
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavigationComponent,
     FooterComponent,
-    UserComponent,
-    LoginComponent,
-    RegisterComponent,
-    PostComponent,
-    CommentComponent,
-    SearchComponent,
-    MapComponent,
     HeroComponent,
+UserComponent,
+    MapComponent,
+    NavigationComponent,
+    UserComponent,
+    NotFoundComponent,
+    CommentsComponent
   ],
   imports: [
     BrowserModule,
@@ -39,9 +50,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    NavigationModule
+    NavigationModule,
+    CommentsModule
+
   ],
   providers: [],
-  bootstrap: [AppComponent,NavigationComponent,FooterComponent]
+  exports:[],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

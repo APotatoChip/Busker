@@ -5,11 +5,27 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
+
+
 export class FooterComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+  
+  }
 
   ngOnInit(): void {
   }
+
+  onActivate() {
+    let scrollToTop = window.setInterval(() => {
+       
+            window.scrollTo({behavior:'smooth',top:0}); // how far to scroll on each step
+        
+    });
+  
+}
+
+ 
 
 }

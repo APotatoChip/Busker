@@ -1,1 +1,40 @@
-<p>footer works!</p>
+<mat-toolbar color="primary" class="custom-toolbar">
+
+    <div class="container">
+        <div>
+            <span>© 2021 Busker</span>
+
+        </div>
+
+
+
+        <div class="back-to-top">
+            <div class="circle">
+                <a href="/#hero" (click)="onActivate()">
+                    <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
+                    </mat-icon>
+                </a>
+            </div>
+        </div>
+
+
+
+        <div class="icons">
+
+
+            <a href="/fb">
+                <mat-icon class="icon" fontSet="fab" fontIcon="fa-facebook">
+                </mat-icon>
+            </a>
+
+            <a href="/ig">
+                <mat-icon class="icon" fontSet="fab" fontIcon="fa-instagram"></mat-icon>
+            </a>
+            <a href="/tw">
+                <mat-icon class="icon" fontSet="fab" fontIcon="fa-twitter">
+                </mat-icon>
+            </a>
+        </div>
+    </div>
+
+</mat-toolbar>
