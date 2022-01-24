@@ -7,7 +7,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule, FlexLayoutModule
+    CommonModule, 
+    FlexLayoutModule
   ]
 })
 export class HeroModule { }

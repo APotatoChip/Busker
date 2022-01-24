@@ -1,32 +1,24 @@
-<mat-toolbar color="primary" class="custom-toolbar">
-
+<mat-toolbar class="custom-toolbar">
+    <!-- Copyright -->
     <div class="container">
         <div>
             <span>© 2021 Busker</span>
-
         </div>
 
-
-
+        <!-- Back to top arrow -->
         <div class="back-to-top">
-            <div class="circle">
-                <a href="/#hero" (click)="onActivate()">
-                    <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
-                    </mat-icon>
-                </a>
-            </div>
+            <a href="/#hero" (click)="onActivate()">
+                <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
+                </mat-icon>
+            </a>
         </div>
 
-
-
+        <!-- Social Medias -->
         <div class="icons">
-
-
             <a href="/fb">
                 <mat-icon class="icon" fontSet="fab" fontIcon="fa-facebook">
                 </mat-icon>
             </a>
-
             <a href="/ig">
                 <mat-icon class="icon" fontSet="fab" fontIcon="fa-instagram"></mat-icon>
             </a>
@@ -36,5 +28,4 @@
             </a>
         </div>
     </div>
-
 </mat-toolbar>

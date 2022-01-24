@@ -10,12 +10,18 @@ import { AppRoutingModule } from '../app-routing.module';
 
 
 @NgModule({
-  declarations: [HeaderComponent, SidenavListComponent],
+  declarations: [
+    HeaderComponent, 
+    SidenavListComponent
+  ],
   imports: [
     CommonModule,
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule
-  ],exports:[HeaderComponent,SidenavListComponent]
+  ],exports:[
+    HeaderComponent,
+    SidenavListComponent
+  ]
 })
 export class NavigationModule { }

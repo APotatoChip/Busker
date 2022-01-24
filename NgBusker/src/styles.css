@@ -23,12 +23,6 @@ html {
     --body-color-secondary: #111111;
 }
 
-html,
 body {
-    height: 100%;
-}
-
-body {
-    margin: 0;
     font-family: var(--main-font);
 }

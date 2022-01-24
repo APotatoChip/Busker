@@ -1,21 +1,15 @@
-@import "~@fortawesome/fontawesome-free/css/all.css";
 .custom-toolbar {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     background: var(--body-color);
     color: var(--base-font-color);
     font-family: 'Montserrat', sans-serif;
-    height: 5rem;
-}
-
-.custom-toolbar hr {
-    color: var(--base-font-color);
-    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 3em;
 }
 
 span {
-    padding-left: 2rem;
+    padding-left: 2em;
 }
 
 .container {
@@ -47,7 +41,7 @@ a:hover {
 }
 
 .icons>a {
-    margin-right: 2rem;
+    padding-right: 2rem;
 }
 
 @keyframes up {
@@ -60,5 +54,21 @@ a:hover {
     100% {
         opacity: 0;
         transform: translateY(-1rem);
+    }
+}
+
+@media screen and (max-width:800px) {
+    .custom-toolbar {
+        margin: 0;
+        padding: 0;
+    }
+    .icons>a {
+        padding-right: 0.5em;
+    }
+    span {
+        padding-left: 0;
+    }
+    .icon-arrow {
+        margin: 0 0.5em;
     }
 }

@@ -17,13 +17,13 @@ mat-toolbar {
     padding: 2.5rem;
     border-radius: 3px;
     background-color: rgba(0, 0, 0);
-    position: fixed;
     font-family: 'Montserrat', sans-serif;
     z-index: 1;
 }
 
 @media(max-width:959px) {
     mat-toolbar {
+        padding: 2.5;
         border-radius: 0px;
         background-color: #000;
     }
