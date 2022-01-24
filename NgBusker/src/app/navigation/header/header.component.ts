@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import * as AOS from 'aos';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,10 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-  }
+    AOS.init({
+      duration: 600,
+    });
+}
 
   public onToggleSidenav= () =>{
     this.sidenavToggle.emit();

@@ -1,10 +1,9 @@
 .mat-form-field-label {
-    color: var(--base-font-color) !important;
+    color: var(--base-font-color);
 }
 
 .mat-form-field-underline {
-    background-color: var(--base-font-color) !important;
-    ;
+    background-color: var(--base-font-color);
 }
 
 .mat-form-field-ripple {
@@ -17,84 +16,7 @@
 }
 
 .mat-form-field-focused {
-    background-color: var(--accent) !important;
-}
-
-section {
-    padding: 0;
-}
-
-img {
-    width: 100%;
-    max-width: 100%;
-}
-
-a {
-    text-decoration: none;
-}
-
-p {
-    font-size: 1.6rem;
-}
-
-.container {
-    width: 100%;
-    /* max-width: 122.5rem; */
-    margin: 0;
-    padding: 0;
-    color: var(--body-font-color);
-}
-
-.background {
-    width: 100%;
-    height: 100vh;
-    background: url('../../../assets/photos/welcomePageFirstPhoto.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.layer {
-    background-color: rgba(0, 0, 0, 0.7);
-    width: 100%;
-    height: 100%;
-}
-
-.card {
-    background-color: #00000098;
-    width: 25vw;
-    height: 70vh;
-    position: absolute;
-    left: 50%;
-    top: 52.5%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.card-container {
-    animation: fade 0.3s forwards;
-}
-
-.card>h1 {
-    font-size: 2.5rem;
-    margin-top: 4rem;
-    color: var(--base-font-color);
-    font-family: 'Montserrat', sans-serif;
-}
-
-form {
-    margin-top: 1.2rem;
-}
-
-.fields-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background-color: var(--accent);
 }
 
 .mat-form-field {
@@ -112,9 +34,69 @@ form {
     background-color: var(--accent);
 }
 
+section {
+    padding: 0;
+}
+
+p {
+    font-size: 1.6em;
+}
+
+.background {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 89.2vh;
+    background: url('../../../assets/photos/welcomePageFirstPhoto.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.layer {
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 100%;
+}
+
+.card {
+    background-color: #00000098;
+    position: absolute;
+    left: 50%;
+    top: 55%;
+    transform: translate(-50%, -50%);
+    width: 30%;
+    height: 80%;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-container {
+    animation: fade 0.3s forwards;
+}
+
+.card>h1 {
+    font-size: 2.5rem;
+    margin-top: 4rem;
+    color: var(--base-font-color);
+    font-family: var(--main-font);
+}
+
+form {
+    margin-top: 1.2rem;
+}
+
+.fields-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .label {
     color: var(--base-font-color);
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--main-font);
 }
 
 .card>form>label>input {
@@ -128,46 +110,20 @@ form {
     font-family: var(--main-font);
 }
 
-.card>form>button {
-    color: var(--body-font-color);
-    background-color: var(--accent);
-    margin-top: 1rem;
-    padding: 1rem;
-    border-style: solid;
-    border-color: var(--accent);
-    border-width: 1px;
-    border-radius: 10px;
-    font-family: var(--main-font);
-    font-weight: bolder;
-}
-
-.container-sign-in {
-    margin-top: 3.5rem;
-    color: var(--base-font-color);
-}
-
-.sign-in-a {
-    color: var(--accent);
-}
-
 button {
     color: var(--base-font-color);
     background-color: var(--accent);
     width: 30%;
     margin-top: 2rem;
     padding: 1rem;
-    border-style: solid;
-    border-color: var(--accent);
-    border-width: 1px;
+    border: 1px solid var(--accent);
     border-radius: 0.7rem;
     font-family: var(--main-font);
-    font-weight: bolder;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
+    font-size: 1.25em;
+    text-align: center;
 }
 
 button:hover {
-    animation: bounce 1s ease-in;
     cursor: pointer;
 }
 
@@ -189,26 +145,17 @@ button:hover {
     }
 }
 
-@keyframes bounce {
-    0%,
-    20%,
-    60%,
-    100% {
-        -webkit-transform: translateY(0);
-        transform: translateY(0);
-    }
-    40% {
-        -webkit-transform: translateY(-7px);
-        transform: translateY(-7px);
-    }
-    80% {
-        -webkit-transform: translateY(-3px);
-        transform: translateY(-3px);
+@media only screen and (max-width: 1200px) {
+    .card {
+        width: 40%;
     }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
     .card {
-        width: 90vw;
+        width: 60vw;
+    }
+    button {
+        width: 40%;
     }
 }
