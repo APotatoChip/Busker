@@ -16,6 +16,7 @@ import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { CommentsComponent } from './comments/comments.component';
 import { CommentsModule } from './comments/comments.module';
+import { ProfilesComponent } from './profiles/profiles.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ UserComponent,
     NavigationComponent,
     UserComponent,
     NotFoundComponent,
-    CommentsComponent
+    CommentsComponent,
+    ProfilesComponent
   ],
   imports: [
     BrowserModule,
