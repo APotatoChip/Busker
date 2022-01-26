@@ -11,6 +11,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { ProfilesModule } from '../profiles/profiles.module';
 
 
 
@@ -28,7 +29,8 @@ import { RegisterComponent } from './register/register.component';
     MatInputModule,
     MatRadioModule,
     ReactiveFormsModule,FormsModule,
-    PostModule
+    PostModule,
+    ProfilesModule
   ],
   exports:[
    
