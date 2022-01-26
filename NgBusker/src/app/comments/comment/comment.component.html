@@ -1,31 +1,93 @@
-<div class="comments" *ngIf="postComment!==undefined">
-    <h6 *ngIf="postComment.length<1">No Comments found</h6>
-    <ul *ngIf="postComment.length>0">
-        <li *ngFor="let post of postComment; let i = index;">
-            <div class="col-12 col-sm-12 comment-container">
-                <!-- <p>{{post.commentTxt}}</p> -->
-                <div class="actions">
-                    <!-- <span>{{post.currentDate | date: 'dd/MM/yyyy'}}</span> -->
-                    <span class="divider"></span>
-                    <button class="btn btn-sm btn-info" (click)="replyComment(i)">
-                            Reply
-                        </button>
-                    <span class="divider"></span>
-                    <button class="btn btn-sm btn-danger" (click)="removeComment(i)">
-                            <i class="fa fa-trash"></i>
-                        </button>
+<!-- Comment Section -->
+<div class="comments-container">
+    <h1>Comments</h1>
+
+
+    <ul id="comments-list" class="comments-list">
+        <li>
+            <div class="comment-main-level">
+                <!-- Avatar -->
+                <div class="comment-avatar"><img src="./pexels-caique-silva-1396538.jpg" alt=""></div>
+                <!-- Comment Content -->
+                <div class="comment-box">
+                    <div class="comment-head">
+                        <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                        <span>hace 20 minutos</span>
+                        <i class="fa fa-reply"></i>
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="comment-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                    </div>
                 </div>
-                <div class="childCommentBox">
-                    <div datacontainer></div>
-                    <!-- <ul *ngIf="post.replyComment.length>0">
-                        <li *ngFor="let rl of post.replyComment">
-                            <div class="col-12 col-sm-12 comment-container">
-                                <p>{{rl.commentTxt}}</p>
-                            </div>
-                        </li>
-                    </ul> -->
+            </div>
+            <!-- Responses -->
+            <ul class="comments-list reply-list">
+                <li>
+                    <!-- Avatar -->
+                    <div class="comment-avatar"><img src="./pexels-tony-jamesandersson-1674752.jpg" alt=""></div>
+                    <!-- Comment Content -->
+                    <div class="comment-box">
+                        <div class="comment-head">
+                            <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                            <span>hace 10 minutos</span>
+                            <i class="fa fa-reply"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="comment-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                        </div>
+                    </div>
+                </li>
+
+                <li>
+                    <!-- Avatar -->
+                    <div class="comment-avatar"><img src="./pexels-caique-silva-1396538.jpg" alt=""></div>
+                    <!-- Comment Content -->
+                    <div class="comment-box">
+                        <div class="comment-head">
+                            <h6 class="comment-name by-author"><a href="http://creaticode.com/blog">Agustin Ortiz</a></h6>
+                            <span>hace 10 minutos</span>
+                            <i class="fa fa-reply"></i>
+                            <i class="fa fa-heart"></i>
+                        </div>
+                        <div class="comment-content">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+        <li>
+            <div class="comment-main-level">
+
+                <!-- Avatar -->
+                <div class="comment-avatar"><img src="./pexels-tony-jamesandersson-1674752.jpg" alt=""></div>
+                <!-- Comment Content -->
+                <div class="comment-box">
+                    <div class="comment-head">
+                        <h6 class="comment-name"><a href="http://creaticode.com/blog">Lorena Rojero</a></h6>
+                        <span>hace 10 minutos</span>
+                        <i class="fa fa-reply"></i>
+                        <i class="fa fa-heart"></i>
+                    </div>
+                    <div class="comment-content">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit omnis animi et iure laudantium vitae, praesentium optio, sapiente distinctio illo?
+                    </div>
                 </div>
             </div>
         </li>
     </ul>
+    <!-- Add Comment -->
+    <!-- Avatar -->
+    <div class="add-comment-avatar"><img src="./pexels-caique-silva-1396538.jpg" alt=""></div>
+    <!-- Comment -->
+    <form>
+        <div class="add-comment-box">
+            <textarea class="add-comment-textarea" rows="3" placeholder="Enter your comment here..."></textarea>
+            <button class="add-comment-post">Post</button>
+        </div>
+    </form>
+
 </div>

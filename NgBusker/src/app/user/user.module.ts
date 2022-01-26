@@ -30,7 +30,8 @@ import { ProfilesModule } from '../profiles/profiles.module';
     MatRadioModule,
     ReactiveFormsModule,FormsModule,
     PostModule,
-    ProfilesModule
+    ProfilesModule,
+    PostModule
   ],
   exports:[
    
