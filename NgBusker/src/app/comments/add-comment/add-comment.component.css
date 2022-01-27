@@ -1,0 +1,72 @@
+/* add comment */
+
+.add-comment-avatar {
+    width: 65px;
+    height: 65px;
+    position: relative;
+    z-index: 99;
+    float: left;
+    border: 3px solid #cc4c19;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.add-comment-avatar img {
+    width: 100%;
+    height: 100%;
+}
+
+.add-comment-box {
+    display: inline-block;
+    position: relative;
+    right: -22px;
+    width: 680px
+}
+
+.add-comment-post {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.add-comment-textarea {
+    display: block;
+    border: 1px solid;
+    border-radius: 8px;
+    width: 100%;
+    resize: none;
+}
+
+.add-comment-textarea {
+    background: rgb(44, 44, 44);
+    color: #fff;
+    padding: 10px 10px;
+    border-radius: 8px;
+    font-family: 'Poppins';
+    caret-color: #cc4c19;
+    outline: none;
+}
+
+.add-comment-post {
+    background: rgba(255, 255, 255, 0.09);
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 10px;
+    border: 1px solid #fff;
+    border-radius: 8px;
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+.add-comment-post:hover {
+    background-color: #cc4c19;
+    border-color: #cc4c19;
+    color: #fff;
+    transition: all 0.5s;
+}

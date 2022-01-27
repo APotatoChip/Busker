@@ -1,19 +1,23 @@
 <div class='deck'>
-    <h1>Feed</h1>
+    <h1>Current Post</h1>
     <!-- Current Post -->
     <div class='card'>
         <header class='cardHeader'>
+            <!-- Post Creater and Date -->
             <span class='cardHeader_account'>@hongkongfp</span>
             <span class='cardHeader_date'>Jul 1 6:03</span>
         </header>
         <div class='cardBody'>
+            <!-- Post Text -->
             <p class='cardText'>On Tuesday, China's National People's Congress Standing Committee unanimously passed a controversial national security law for Hong Kong. The law, which criminalises acts of secession, subversion, foreign interference and terrorism, was promulgated
                 and gazetted on the same day with immediate effect. Details were only revealed late at night as it was directly inserted into the Annex III of the semi-autonomous region’s mini-constitution, bypassing the local legislature.
-                <span class='cardText_highlight'>#hongkong</span> <span class='cardText_highlight'>#china</span> <span class='cardText_highlight'>#humanrights</span> <span class='cardText_highlight'>#hk</span></p>
-            <section class='cardStats'>
-                <span class='cardStats_stat cardStats_stat-likes'>2155 <i class='far fa-heart fa-fw'></i></span>
-                <span class='cardStats_stat cardStats_stat-comments'>87 <i class='far fa-comment fa-fw'></i></span>
-            </section>
+                <!-- Post Stats -->
+                <section class='cardStats'>
+                    <span class='cardStats_stat cardStats_stat-likes'>2155 <i class='far fa-heart fa-fw'></i></span>
+                    <span class='cardStats_stat cardStats_stat-comments'>87 <i class='far fa-comment fa-fw'></i></span>
+                </section>
         </div>
+        <!-- Comment Section -->
+        <app-comment></app-comment>
     </div>
 </div>

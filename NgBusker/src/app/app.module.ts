@@ -15,7 +15,7 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { NavigationModule } from './navigation/navigation.module';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { CommentsComponent } from './comments/comments.component';
+
 import { CommentsModule } from './comments/comments.module';
 import { ProfilesComponent } from './profiles/profiles.component';
 
@@ -29,7 +29,6 @@ UserComponent,
     NavigationComponent,
     UserComponent,
     NotFoundComponent,
-    CommentsComponent,
     ProfilesComponent
   ],
   imports: [

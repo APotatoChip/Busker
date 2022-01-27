@@ -20,7 +20,8 @@ import { ViewerViewerComponent } from './viewer-viewer/viewer-viewer.component';
     FontAwesomeModule
   ],
   exports:[
-    BuskerComponent
+    BuskerComponent,
+    BuskerViewerComponent
   ]
 })
 export class ProfilesModule { }
