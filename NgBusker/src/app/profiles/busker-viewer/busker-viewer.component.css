@@ -17,6 +17,13 @@
     font-size: 1.5em;
 }
 
+.info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .card-image {
     height: 160px;
     width: 160px;
@@ -24,6 +31,10 @@
     border-radius: 50%;
     margin-top: 50px;
     box-shadow: 0 10px 50px #cc4c19;
+}
+
+p {
+    text-align: center;
 }
 
 .draw-border {
@@ -116,7 +127,6 @@
 .social-icons {
     padding: 0;
     list-style: none;
-    margin: 1em;
 }
 
 .social-icons li {
@@ -163,4 +173,28 @@ fa-icon {
     color: #cc4c19;
     -webkit-text-fill-color: transparent;
     transition: all 265ms ease-in;
+}
+
+@media screen and (max-width:980px) {
+    .card-profile {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        width: 100%;
+        height: 40%;
+        box-shadow: rgba(0, 0, 0, 0.7);
+        color: var(--base-font-color);
+        font-family: var(--main-font);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+        background-color: #000;
+    }
+    .btn-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .card-image {
+        margin-top: 1em;
+    }
 }
