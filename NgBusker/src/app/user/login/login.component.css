@@ -1,9 +1,9 @@
 .mat-form-field-label {
-    color: var(--base-font-color)
+    color: #fff
 }
 
 .mat-form-field-underline {
-    background-color: var(--base-font-color)
+    background-color: #fff
 }
 
 .mat-form-field-ripple {
@@ -11,7 +11,7 @@
 }
 
 .mat-form-field input {
-    color: var(--base-font-color);
+    color: #fff;
     caret-color: var(--accent);
 }
 
@@ -24,7 +24,7 @@
 }
 
 .mat-icon {
-    color: var(--base-font-color);
+    color: #fff;
 }
 
 .mat-form-field {
@@ -78,7 +78,7 @@ p {
 }
 
 .card>h1 {
-    color: var(--base-font-color);
+    color: #fff;
     font-family: var(--main-font);
     font-size: 2.5em;
     margin-top: 4rem;
@@ -91,7 +91,7 @@ p {
 }
 
 .label {
-    color: var(--base-font-color);
+    color: #fff;
     font-family: var(--main-font);
 }
 
@@ -100,12 +100,12 @@ input {
     background-color: #222222;
     margin-top: 2rem;
     padding: 1rem;
-    border: 1px solid var(--base-font-color);
+    border: 1px solid #fff;
     border-radius: 10px;
 }
 
 button {
-    color: var(--base-font-color);
+    color: #fff;
     background-color: var(--accent);
     width: 30%;
     margin-top: 2rem;

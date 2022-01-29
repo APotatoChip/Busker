@@ -1,6 +1,6 @@
 .custom-toolbar {
     background: var(--body-color);
-    color: var(--base-font-color);
+    color: #fff;
     font-family: 'Montserrat', sans-serif;
     display: flex;
     flex-direction: column;

@@ -1,10 +1,10 @@
 a {
     text-decoration: none;
-    color: var(--base-font-color);
+    color: #fff;
 }
 
 span {
-    color: var(--base-font-color);
+    color: #fff;
 }
 
 a:hover {
@@ -19,6 +19,6 @@ a:hover {
 .mat-button,
 .mat-icon-button,
 .mat-stroked-button {
-    color: var(--base-font-color);
+    color: #fff;
     background: transparent
 }

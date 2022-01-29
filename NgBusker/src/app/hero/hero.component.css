@@ -28,7 +28,7 @@ p {
     font-size: 3rem;
     font-family: var(--main-font);
     font-weight: bold;
-    color: var(--base-font-color);
+    color: #fff;
     max-width: 80%;
     letter-spacing: 2px;
     text-align: center;
@@ -54,7 +54,7 @@ p {
 }
 
 .headline-discover {
-    color: var(--base-font-color);
+    color: #fff;
     font-size: 2.5rem;
     font-family: var(--main-font);
     font-weight: 100;
@@ -87,7 +87,7 @@ p {
 }
 
 .join-us-txt {
-    color: var(--base-font-color);
+    color: #fff;
     position: absolute;
     font-size: 2.5rem;
     font-family: var(--main-font);

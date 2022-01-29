@@ -6,7 +6,7 @@ mat-toolbar {
 
 a {
     text-decoration: none;
-    color: var(--base-font-color);
+    color: #fff;
 }
 
 a:hover {
