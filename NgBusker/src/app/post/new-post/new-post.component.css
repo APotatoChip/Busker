@@ -6,7 +6,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 3.05rem 0 3rem 36.5rem;
+    margin: 0rem 0 1.05rem 36.5rem;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
@@ -16,9 +16,10 @@ form {
     font-family: var(--main-font);
 }
 
-h2 {
+h1 {
     margin: 2rem 0rem;
-    color: rgb(255, 255, 255);
+    color: var(--accent);
+    font-family: var(--main-font);
 }
 
 hr {
@@ -96,4 +97,39 @@ hr {
     border-color: #cc4c19;
     color: #fff;
     transition: all 0.5s;
+}
+
+@media screen and (max-width:1380px) {
+    .create-post-container {
+        width: 60%;
+        margin: 2rem 0 2rem 27rem;
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .create-post-container {
+        width: 60%;
+        margin: 2rem 0 2rem 24rem;
+    }
+}
+
+@media screen and (max-width:1180px) {
+    .create-post-container {
+        width: 60%;
+        margin: 2rem 0 2rem 22rem;
+    }
+}
+
+@media screen and (max-width:980px) {
+    .create-post-container {
+        width: 60%;
+        margin: 2rem 0 2rem 9.5rem;
+    }
+}
+
+@media screen and (max-width:780px) {
+    .create-post-container {
+        width: 60%;
+        margin: 2rem 0 2rem 6rem;
+    }
 }
