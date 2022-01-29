@@ -1,5 +1,8 @@
 .container {
     background-color: black;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
 @media screen and (max-width:980px) {
