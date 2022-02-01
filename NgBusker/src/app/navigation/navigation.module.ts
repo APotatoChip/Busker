@@ -4,8 +4,8 @@ import { HeaderComponent } from './header/header.component';
 import { MaterialModule } from '../material/material.module';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { Router } from '@angular/router';
 import { AppRoutingModule } from '../app-routing.module';
+import { UserService } from '../user/user.service';
 
 
 
@@ -19,6 +19,8 @@ import { AppRoutingModule } from '../app-routing.module';
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule
+  ],providers:[
+    UserService
   ],exports:[
     HeaderComponent,
     SidenavListComponent

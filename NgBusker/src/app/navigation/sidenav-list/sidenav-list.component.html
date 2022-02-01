@@ -24,10 +24,26 @@
     </a>
 
     <!-- Nav Buttons -->
-    <a mat-list-item routerLink="/user/login" (click)="onSidenavClose()">
-        <span class="nav-caption">Login</span>
-    </a>
-    <a mat-list-item routerLink="/user/register" (click)="onSidenavClose()">
-        <span class="nav-caption">Register</span>
-    </a>
+    <div *ngIf="!isLogged">
+        <a mat-list-item routerLink="/user/login" (click)="loginHandler()" (click)="onSidenavClose()">
+            <span class="nav-caption">Login</span>
+        </a>
+        <a mat-list-item routerLink="/user/register" (click)="onSidenavClose()">
+            <span class="nav-caption">Register</span>
+        </a>
+    </div>
+    <div *ngIf="isLogged">
+        <a mat-list-item routerLink="/map" (click)="onSidenavClose()">
+            <span class="nav-caption">Map</span>
+        </a>
+        <a mat-list-item routerLink="/profile" (click)="onSidenavClose()">
+            <span class="nav-caption">Profile</span>
+        </a>
+        <a mat-list-item routerLink="/search" (click)="onSidenavClose()">
+            <span class="nav-caption">Search</span>
+        </a>
+        <a mat-list-item routerLink="/home" (click)="logoutHandler()" (click)="onSidenavClose()">
+            <span class="nav-caption">Logout</span>
+        </a>
+    </div>
 </mat-nav-list>

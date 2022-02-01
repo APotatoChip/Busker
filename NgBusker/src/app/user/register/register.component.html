@@ -18,6 +18,11 @@
                             </mat-error>
                         </mat-form-field>
 
+                        <mat-form-field class="username-input" appearance="fill">
+                            <mat-label class="label">Input</mat-label>
+                            <input placeholder="Ex. David Fincher" matInput>
+                        </mat-form-field>
+
                         <mat-form-field class="password-input" appearance="fill">
                             <mat-label class="label">Password</mat-label>
                             <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">

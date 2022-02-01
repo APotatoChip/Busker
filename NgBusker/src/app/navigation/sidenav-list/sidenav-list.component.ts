@@ -1,5 +1,7 @@
-import { Component, OnInit,Output,EventEmitter } from '@angular/core';
+import { Component,Output,EventEmitter } from '@angular/core';
 import { ViewEncapsulation } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
+
 
 @Component({
   selector: 'app-sidenav-list',
@@ -7,15 +9,23 @@ import { ViewEncapsulation } from '@angular/core';
   styleUrls: ['./sidenav-list.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class SidenavListComponent implements OnInit {
+export class SidenavListComponent  {
 
   @Output() sidenavClose = new EventEmitter();
 
-  constructor() { }
+  get isLogged():boolean {
+    return this.userService.isLogged;
+  }
+  constructor(public userService:UserService) { }
 
-  ngOnInit(): void {
+  
+  loginHandler():void {
+    this.userService.login();
   }
 
+  logoutHandler():void {
+    this.userService.logout();
+  }
   public onSidenavClose=()=>{
     
     
