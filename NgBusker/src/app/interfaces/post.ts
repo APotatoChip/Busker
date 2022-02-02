@@ -1,7 +1,9 @@
+import { IUser } from ".";
+
 export interface IPost {
     _id:string;
     postedAt:string;
-    author:string;
+    author:IUser;
     textContent:string;
     likes:number;
     comments:string[];

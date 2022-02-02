@@ -7,11 +7,14 @@ import { CommentsModule } from '../comments/comments.module';
 import { CommentComponent } from '../comments/comment/comment.component';
 import { PostListItemComponent } from './post-list-item/post-list-item.component';
 import { NewPostComponent } from './new-post/new-post.component';
+import { PostService } from '../post.service';
+import { PostListComponent } from './post-list/post-list.component';
 
 
 @NgModule({
   declarations: [
     PostComponent,
+    PostListComponent,
     PostListItemComponent,
     NewPostComponent
   ],
@@ -21,8 +24,12 @@ import { NewPostComponent } from './new-post/new-post.component';
     CommentsModule
   
   ],
+  providers:[
+    PostService
+  ],
   exports:[
     PostComponent,
+    PostListComponent,
     PostListItemComponent,
     NewPostComponent
   ]
