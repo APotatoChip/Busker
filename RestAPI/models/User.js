@@ -28,6 +28,10 @@ module.exports = (mongoose, bcrypt) => {
             type: String,
             possibleValues: ['performer', 'viewer']
         },
+        posts: [{
+            type: ObjectId,
+            ref: 'Post'
+        }],
         followes: [{
             type: Schema.ObjectId,
             ref: 'User'

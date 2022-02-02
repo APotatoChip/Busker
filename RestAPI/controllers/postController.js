@@ -2,7 +2,7 @@ const { Post } = require("../models");
 module.exports = {
     get: {
         post(req, res, next) {
-            res.json("post");
+            res.json("get post");
         },
         editPost(req, res, next) {
 
