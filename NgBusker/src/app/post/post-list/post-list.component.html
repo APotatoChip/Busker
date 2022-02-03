@@ -1,7 +1,6 @@
 <div class="deck">
     <h1>Feed</h1>
-    <div *ngFor="let post of postList">
+    <div class='card' *ngFor="let post of postList">
         <app-post-list-item [post]="post"></app-post-list-item>
     </div>
-
 </div>
