@@ -1,17 +1,21 @@
 /* add comment */
 
+.add-comment {
+    display: flex;
+}
+
+.add-comment form {
+    width: 80%;
+}
+
 .add-comment-avatar {
-    width: 65px;
-    height: 65px;
+    width: 50px;
+    height: 50px;
     position: relative;
     z-index: 99;
     float: left;
     border: 3px solid #cc4c19;
-    -webkit-border-radius: 50%;
-    -moz-border-radius: 50%;
     border-radius: 50%;
-    -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-    -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
     overflow: hidden;
 }
@@ -25,7 +29,7 @@
     display: inline-block;
     position: relative;
     right: -22px;
-    width: 680px
+    width: 100%
 }
 
 .add-comment-post {
@@ -48,9 +52,9 @@
     color: #fff;
     padding: 10px 10px;
     border-radius: 8px;
-    font-family: 'Poppins';
     caret-color: #cc4c19;
     outline: none;
+    font-family: var(--main-font);
 }
 
 .add-comment-post {
@@ -60,7 +64,7 @@
     padding: 10px 10px;
     border: 1px solid #fff;
     border-radius: 8px;
-    font-family: 'Poppins';
+    font-family: var(--main-font);
     font-weight: 700;
 }
 

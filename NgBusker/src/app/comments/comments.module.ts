@@ -3,15 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { CommentComponent } from './comment/comment.component';
+import { CommentListComponent } from './comment-list/comment-list.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
+import { CommentListItemComponent } from './comment-list-item/comment-list-item.component';
 
 
 
 @NgModule({
   declarations: [
-  CommentComponent,
-  AddCommentComponent
+    CommentListComponent,
+  AddCommentComponent,
+  CommentListItemComponent,
+  CommentListItemComponent
 ],
   imports: [
 
@@ -21,7 +24,8 @@ import { AddCommentComponent } from './add-comment/add-comment.component';
    
   ],
   exports:[
-CommentComponent
+    CommentListComponent,
+    CommentListItemComponent
   ]
 })
 export class CommentsModule { }
