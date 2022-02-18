@@ -1,5 +1,6 @@
-export interface IUser{
-  _id:string;
+import { IBase } from "."; 
+
+export interface IUser extends IBase{
   username:string;
   password:string;
   email:string;  
@@ -9,5 +10,4 @@ export interface IUser{
   posts:string[];
   followers:string[];
   following:string[];
-  _v:number;
 }

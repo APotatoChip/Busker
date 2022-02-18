@@ -6,6 +6,14 @@ module.exports = {
                 .then(posts => res.json(posts));
             // res.json("get post");
         },
+        currentPost(req, res, next) {
+            const id = req.path.split("/")[2];
+            Post.findOne({ id })
+                .then((post) => {
+                    res.json(post);
+                })
+        },
+
         editPost(req, res, next) {
 
         }

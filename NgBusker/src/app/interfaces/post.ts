@@ -1,11 +1,9 @@
-import { IUser } from ".";
+import { IBase, IUser } from ".";
 
-export interface IPost {
-    _id:string;
+export interface IPost extends IBase{
     postedAt:string;
     author:IUser;
     textContent:string;
     likes:number;
     comments:string[];
-    _v:number;
 }

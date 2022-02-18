@@ -1,12 +1,10 @@
-import { IUser,IPost } from ".";
+import { IUser,IPost, IBase } from ".";
 
-export interface IComment{
-    _id:string;
+export interface IComment extends IBase{
     author:IUser;
     postedAd:string;
     postId:IPost;
     textContent:string;
     likes:number;
     replyComments:IComment[];
-    _v:number;
 }

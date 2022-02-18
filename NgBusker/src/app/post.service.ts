@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IPost } from './interfaces';
+import { IComment, IPost } from './interfaces';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -15,5 +15,12 @@ export class PostService {
 
   loadProfilePosts():Observable<IPost[]> {
     return this.http.get<IPost[]>(`${apiUrl}/profile/post`);
+  }
+  loadCurrentPost(postId:string):Observable<IPost>{
+    return this.http.get<IPost>(`${apiUrl}/profile/${postId}`)
+  }
+  loadCurrentComments(postId:string):Observable<IComment[]>{
+    
+    return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment`)
   }
 }

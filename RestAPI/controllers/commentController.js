@@ -1,9 +1,14 @@
+const res = require("express/lib/response");
 const { Post, Comment, ReplyComment } = require("../models");
 module.exports = {
     get: {
         comments(req, res, next) {
-            res.json('get all comments')
+            Comment.find()
+
+            .then(cmts => res.json(cmts))
+                // res.json("cmts");
         }
+
     },
     put: {
         likeComment(req, res, next) {
