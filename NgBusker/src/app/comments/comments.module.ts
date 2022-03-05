@@ -7,6 +7,7 @@ import { CommentListComponent } from './comment-list/comment-list.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { CommentListItemComponent } from './comment-list-item/comment-list-item.component';
 import { CommonModule } from '@angular/common';
+import { ReplyCommentItemComponent } from './reply-comment-item/reply-comment-item.component';
 
 
 
@@ -15,7 +16,8 @@ import { CommonModule } from '@angular/common';
     CommentListComponent,
   AddCommentComponent,
   CommentListItemComponent,
-  CommentListItemComponent
+  CommentListItemComponent,
+  ReplyCommentItemComponent
 ],
   imports: [
 

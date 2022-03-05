@@ -12,6 +12,7 @@ module.exports = (router) => {
 
     router.get('/profile/:postId', postController.get.currentPost);
     router.get('/profile/:postId/comment', commentController.get.postComments);
+    router.get('/profile/:postId/comment/:commentId', commentController.get.replyComment);
 
 
     router.get('/profile/messages', messageController.get.messages);
@@ -22,6 +23,7 @@ module.exports = (router) => {
     router.put('/profile/edit', profileController.put.editProfile);
     router.post('/profile/post', postController.post.create);
     router.post('/profile/:postId/comment', commentController.post.comment);
+
     router.post('/profile/:postId/comment/:commentId', commentController.post.replyComment);
     router.put('/profile/:postId', postController.put.editPost);
 

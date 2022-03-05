@@ -7,7 +7,20 @@ module.exports = {
             Comment.find({ postId: id })
                 .then(cmts => res.json(cmts))
                 // res.json("cmts");
+        },
+        replyComment(req, res, next) {
+            const id = req.path.split("/")[4];
+            console.log(id);
+
+            ReplyComment.find({ _id: id })
+                .then((cmt) => {
+                    console.log(cmt)
+                    res.json(cmt);
+                })
+
+            // res.json("cmts");
         }
+
 
     },
     put: {

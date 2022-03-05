@@ -8,9 +8,13 @@ import { IComment } from 'src/app/interfaces';
 })
 export class CommentListItemComponent implements OnInit {
   @Input() comment?:IComment;
+
   constructor() { }
 
   ngOnInit(): void {
+   
+
+
   }
 
 }

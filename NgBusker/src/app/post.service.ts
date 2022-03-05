@@ -22,4 +22,7 @@ export class PostService {
   loadCurrentComments(postId:string):Observable<IComment[]>{
     return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment`)
   }
+  loadReplyComment(postId:string,commentId:string):Observable<IComment[]>{
+    return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment/${commentId}`)
+  }
 }

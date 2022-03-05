@@ -13,6 +13,7 @@ import { PostService } from 'src/app/post.service';
 
 export class CommentListComponent implements OnInit {
   commentsList:IComment[];
+
     
 pathId:string;
 
@@ -20,6 +21,7 @@ pathId:string;
     private postService:PostService,
     private route:ActivatedRoute) {
     this.commentsList=[];
+
     this.pathId="";
    }
 
@@ -29,6 +31,7 @@ pathId:string;
     })
     this.postService.loadCurrentComments(this.pathId).subscribe(cmts=>{
       this.commentsList=cmts;
+    
       
     })
   }

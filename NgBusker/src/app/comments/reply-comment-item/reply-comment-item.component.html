@@ -1,4 +1,4 @@
-<div class="comment-main-level">
+<div *ngFor="let reply of replyCommentsList" class="comment-main-level">
     <!-- Avatar -->
     <div class="comment-avatar">
         <img src="../../../assets/photos/profile-busker.jpg" alt="">
@@ -14,7 +14,7 @@
             <i class="fa fa-heart"></i>
         </div>
         <div class="comment-content">
-            {{comment?.textContent}}
+            {{reply?.textContent}}
         </div>
     </div>
 </div>

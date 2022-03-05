@@ -2,12 +2,13 @@
 <div class="comments-container">
     <h1>Comments</h1>
     <ul id="comments-list" class="comments-list">
+        <!-- Comments -->
         <li *ngFor="let comment of commentsList">
             <app-comment-list-item [comment]="comment"></app-comment-list-item>
             <!-- Responses -->
-            <ul class="comments-list reply-list">
-                <li>
-                    <app-comment-list-item></app-comment-list-item>
+            <ul *ngIf="comment.replyComments" class="comments-list reply-list">
+                <li *ngFor="let reply of comment.replyComments">
+                    <app-reply-comment-item [reply]="reply"></app-reply-comment-item>
                 </li>
             </ul>
         </li>
