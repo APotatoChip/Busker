@@ -6,11 +6,13 @@ module.exports = (router) => {
     router.get('/profile/following', profileController.get.following);
 
     router.get('/profile/edit', profileController.get.edit);
-    router.get('/profile/:postId', postController.get.currentPost);
-    router.get('/profile/:postId/comment', commentController.get.comments);
 
-    router.get('/profile/post', postController.get.post);
+    router.get('/profile/post', postController.get.allPosts);
     router.get('/profile/post/edit', postController.get.editPost);
+
+    router.get('/profile/:postId', postController.get.currentPost);
+    router.get('/profile/:postId/comment', commentController.get.postComments);
+
 
     router.get('/profile/messages', messageController.get.messages);
     router.get('/profile/messages/:messageId', messageController.get.message);

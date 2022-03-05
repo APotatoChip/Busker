@@ -1,11 +1,11 @@
-const res = require("express/lib/response");
 const { Post, Comment, ReplyComment } = require("../models");
 module.exports = {
     get: {
-        comments(req, res, next) {
-            Comment.find()
+        postComments(req, res, next) {
+            const id = req.path.split("/")[2];
 
-            .then(cmts => res.json(cmts))
+            Comment.find({ postId: id })
+                .then(cmts => res.json(cmts))
                 // res.json("cmts");
         }
 

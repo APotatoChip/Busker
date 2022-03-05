@@ -1,7 +1,7 @@
 const { Post } = require("../models");
 module.exports = {
     get: {
-        post(req, res, next) {
+        allPosts(req, res, next) {
             Post.find()
                 .then(posts => res.json(posts));
             // res.json("get post");

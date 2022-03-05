@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { AddCommentComponent } from './add-comment/add-comment.component';
 import { CommentListItemComponent } from './comment-list-item/comment-list-item.component';
+import { CommonModule } from '@angular/common';
 
 
 
@@ -21,6 +22,7 @@ import { CommentListItemComponent } from './comment-list-item/comment-list-item.
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    CommonModule
    
   ],
   exports:[

@@ -2,8 +2,8 @@
 <div class="comments-container">
     <h1>Comments</h1>
     <ul id="comments-list" class="comments-list">
-        <li>
-            <app-comment-list-item></app-comment-list-item>
+        <li *ngFor="let comment of commentsList">
+            <app-comment-list-item [comment]="comment"></app-comment-list-item>
             <!-- Responses -->
             <ul class="comments-list reply-list">
                 <li>

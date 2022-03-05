@@ -13,14 +13,13 @@ export class PostService {
 
   constructor(private http:HttpClient) { }
 
-  loadProfilePosts():Observable<IPost[]> {
+  loadProfilePosts():Observable<IPost[]> {    
     return this.http.get<IPost[]>(`${apiUrl}/profile/post`);
   }
   loadCurrentPost(postId:string):Observable<IPost>{
     return this.http.get<IPost>(`${apiUrl}/profile/${postId}`)
   }
   loadCurrentComments(postId:string):Observable<IComment[]>{
-    
     return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment`)
   }
 }
