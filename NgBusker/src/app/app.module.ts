@@ -5,15 +5,15 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FooterComponent } from './footer/footer.component';
+import { FooterComponent } from './core/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout'
+import { CoreModule, FlexLayoutModule } from '@angular/flex-layout'
 import { HeroComponent } from './hero/hero.component';
 import { MapComponent } from './map/map.component';
 
-import { NavigationComponent } from './navigation/navigation.component';
-import { NavigationModule } from './navigation/navigation.module';
+import { NavigationComponent } from './core/navigation/navigation.component';
+import { NavigationModule } from './core/navigation/navigation.module';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 
@@ -41,7 +41,8 @@ UserComponent,
     MaterialModule,
     FlexLayoutModule,
     NavigationModule,
-    CommentsModule
+    CommentsModule,
+    CoreModule
 
   ],
   providers: [],

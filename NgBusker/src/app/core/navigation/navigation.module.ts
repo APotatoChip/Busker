@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from './header/header.component';
-import { MaterialModule } from '../material/material.module';
+import { MaterialModule } from '../../material/material.module';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { AppRoutingModule } from '../app-routing.module';
-import { UserService } from '../user/user.service';
+import { AppRoutingModule } from '../../app-routing.module';
+import { UserService } from '../../user/user.service';
 
 
 
