@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BuskerComponent } from './busker/busker.component';
-import { ViewerComponent } from './viewer/viewer.component';
 import { BuskerViewerComponent } from './busker-viewer/busker-viewer.component';
+import { ViewerComponent } from './viewer/viewer.component';
 import { ViewerViewerComponent } from './viewer-viewer/viewer-viewer.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
 @NgModule({
   declarations: [
     BuskerComponent,
-    ViewerComponent,
     BuskerViewerComponent,
+    ViewerComponent,
     ViewerViewerComponent
   ],
   imports: [
@@ -21,7 +21,9 @@ import { ViewerViewerComponent } from './viewer-viewer/viewer-viewer.component';
   ],
   exports:[
     BuskerComponent,
-    BuskerViewerComponent
+    BuskerViewerComponent,
+    ViewerComponent,
+    ViewerViewerComponent
   ]
 })
 export class ProfilesModule { }

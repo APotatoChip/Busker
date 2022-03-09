@@ -8,7 +8,8 @@ import { PostListItemComponent } from './post-list-item/post-list-item.component
 import { NewPostComponent } from './new-post/new-post.component';
 import { PostService } from '../post.service';
 import { PostListComponent } from './post-list/post-list.component';
-import { ProfilesModule } from '../profiles/profiles.module';
+import { CoreModule } from '../core/core.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -16,13 +17,15 @@ import { ProfilesModule } from '../profiles/profiles.module';
     PostComponent,
     PostListComponent,
     PostListItemComponent,
-    NewPostComponent
+    NewPostComponent,
+    
   ],
   imports: [
     CommonModule,
     PostRoutingModule,
     CommentsModule,
-    ProfilesModule
+    CoreModule,
+    SharedModule
   
   ],
   providers:[
