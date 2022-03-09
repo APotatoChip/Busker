@@ -1,8 +1,8 @@
 
 import { Component,Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IComment } from 'src/app/interfaces';
-import { PostService } from 'src/app/post.service';
+import { IComment } from 'src/app/shared/interfaces';
+import { PostService } from '../../shared/post.service';
 
 @Component({
   selector: 'app-reply-comment-item',

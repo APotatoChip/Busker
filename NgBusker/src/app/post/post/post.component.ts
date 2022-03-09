@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IComment, IPost } from 'src/app/interfaces';
-import { PostService } from 'src/app/post.service';
+import { IComment, IPost } from 'src/app/shared/interfaces';
+import { PostService } from '../../shared/post.service';
 import { ActivatedRoute} from '@angular/router';
 
 @Component({

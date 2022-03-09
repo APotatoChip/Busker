@@ -1,22 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-import { UserRoutingModule } from './user-routing.module';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
-
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
-import { LoginComponent } from './login/login.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { RegisterComponent } from './register/register.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 import { PostModule } from '../post/post.module';
+import { UserRoutingModule } from './user-routing.module';
+
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 import { ProfileComponent } from './profile/profile.component';
-import { ProfilesComponent } from '../shared/profiles/profiles.component';
-import { ProfilesModule } from '../shared/profiles/profiles.module';
+
 
 
 
