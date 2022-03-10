@@ -7,6 +7,7 @@ import { MapComponent } from './map/map.component';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 
 
@@ -22,18 +23,22 @@ const routes: Routes = [
   },
   {
     path:"map",
-    component:MapComponent
+    component:MapComponent,
+    data:{isLogged:true},
+    canActivate:[AuthGuard]
   },{
     path:'user',
     loadChildren:()=>import('./user/user.module').then(m=>m.UserModule),
-    component:UserComponent
+    component:UserComponent,
+  
   },
   {
     path:'search',
-    component:SearchComponent
+    component:SearchComponent,
+    data:{isLogged:true},
+    canActivate:[AuthGuard]
   }
- ,
-  {
+ ,{
     path:'**',
     component:NotFoundComponent,
     data:{

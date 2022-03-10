@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../core/guards/auth.guard';
 import { PostComponent } from './post/post.component';
 
 const routes: Routes = [
@@ -10,7 +11,9 @@ const routes: Routes = [
   },
   {
     path:'profile/:postId/comment',
-    component:PostComponent
+    component:PostComponent,
+    data:{isLogged:true},
+    canActivate:[AuthGuard]
   },
 ];
 

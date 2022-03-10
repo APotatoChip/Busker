@@ -9,6 +9,9 @@ import { NavigationModule } from './navigation/navigation.module';
 import { FooterComponent } from './footer/footer.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
+import { UserService } from '../user/user.service';
+import { AuthGuard } from './guards/auth.guard';
+
 
 
 @NgModule({
@@ -22,6 +25,10 @@ import { NavigationComponent } from './navigation/navigation.component';
     MaterialModule,
     FlexLayoutModule,
     UserRoutingModule
+  ],
+  providers:[
+    UserService,
+    AuthGuard
   ],
   exports:[
     FooterComponent,

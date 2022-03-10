@@ -11,7 +11,7 @@ isLogged=true;
   constructor(private userService:UserService) { }
 
   ngDoCheck(): void {
-     // this.isLogged=this.userService.isLogged;
+      this.isLogged=this.userService.isLogged;
   }
 
   ngOnInit(): void {

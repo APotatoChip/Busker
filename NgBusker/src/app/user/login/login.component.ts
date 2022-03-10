@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     const {email ,password}=this.form;
     this.userService.login({email,password}).subscribe(()=>{
       this.isLoading=false;
-      this.router.navigate(['/']);
+      this.router.navigate(['/user/profile']);
     },(err:any)=>{
       this.errMsg="Eror";
       this.isLoading=false;
