@@ -25,7 +25,8 @@
 
     <!-- Nav Buttons -->
     <div *ngIf="!isLogged">
-        <a mat-list-item routerLink="/user/login" (click)="loginHandler()" (click)="onSidenavClose()">
+        <a mat-list-item routerLink="/user/login" (click)="onSidenavClose()">
+            <!-- (click)="loginHandler()" -->
             <span class="nav-caption">Login</span>
         </a>
         <a mat-list-item routerLink="/user/register" (click)="onSidenavClose()">
@@ -42,7 +43,8 @@
         <a mat-list-item routerLink="/search" (click)="onSidenavClose()">
             <span class="nav-caption">Search</span>
         </a>
-        <a mat-list-item routerLink="/home" (click)="logoutHandler()" (click)="onSidenavClose()">
+        <a mat-list-item routerLink="/home" (click)="onSidenavClose()">
+            <!-- (click)="logoutHandler()" -->
             <span class="nav-caption">Logout</span>
         </a>
     </div>

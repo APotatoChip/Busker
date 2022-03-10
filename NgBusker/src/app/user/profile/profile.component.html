@@ -1,5 +1,6 @@
-<div class="container">
+<div *ngIf="isLogged" class="container">
     <app-profiles></app-profiles>
+    <app-new-post></app-new-post>
     <div class="posts">
         <app-post-list></app-post-list>
     </div>

@@ -24,7 +24,7 @@ export class HeaderComponent implements OnInit {
 }
 
 loginHandler():void {
-  this.userService.login();
+  //this.userService.login();
 }
 
 logoutHandler():void {

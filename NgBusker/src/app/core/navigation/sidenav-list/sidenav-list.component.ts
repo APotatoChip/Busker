@@ -20,7 +20,7 @@ export class SidenavListComponent  {
 
   
   loginHandler():void {
-    this.userService.login();
+    //this.userService.login();
   }
 
   logoutHandler():void {

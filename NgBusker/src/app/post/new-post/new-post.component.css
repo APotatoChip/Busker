@@ -1,30 +1,30 @@
 .create-post-container {
     background: rgba(255, 255, 255, 0.09);
-    width: 51%;
-    height: 100%;
+    width: 50%;
+    /* height: 30vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     margin: 0rem 0 1.05rem 36.5rem;
     border: 2px solid rgba(255, 255, 255, 0.2);
     border-radius: 10px;
 }
 
 form {
-    width: 80%;
+    width: 85%;
     font-family: var(--main-font);
 }
 
 h1 {
-    margin: 2rem 0rem;
+    margin: 1rem 0rem;
     color: var(--accent);
     font-family: var(--main-font);
 }
 
 hr {
     width: 100%;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
 .name {
@@ -38,17 +38,18 @@ hr {
 .profile-info {
     width: 100%;
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    align-items: flex-end;
-    margin-bottom: 24px;
-    margin-left: 9rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
     font-family: var(--main-font);
 }
 
 .create-post-avatar {
     width: 65px;
     height: 65px;
-    margin-right: 0.7rem;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
     border: 3px solid #cc4c19;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
@@ -64,6 +65,10 @@ hr {
     height: 100%;
 }
 
+.create-post-box {
+    display: flex;
+}
+
 .create-post-textarea {
     display: block;
     border-radius: 8px;
@@ -71,6 +76,7 @@ hr {
     resize: none;
     background: rgba(0, 0, 0, 0.109);
     color: #fff;
+    margin: .5rem;
     padding: 10px 10px;
     font-family: var(--main-font);
     caret-color: #cc4c19;
@@ -79,16 +85,16 @@ hr {
 }
 
 .create-post-btn {
-    margin: 3rem 1rem;
+    margin: 1rem 1rem;
     background: rgba(255, 255, 255, 0.09);
     color: #fff;
     text-decoration: none;
-    padding: 1rem 2rem;
+    padding: .75rem 1.5rem;
     border: 1px solid #fff;
     border-radius: 8px;
     font-family: var(--main-font);
     font-weight: 700;
-    cursor: pointer;
+    cursor: pointer
 }
 
 .create-post-btn:hover {

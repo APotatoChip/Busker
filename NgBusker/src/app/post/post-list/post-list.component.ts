@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component,  OnInit  } from '@angular/core';
 import { IPost } from 'src/app/shared/interfaces';
+import { UserService } from 'src/app/user/user.service';
 import { PostService } from '../../shared/post.service';
 
 @Component({
@@ -12,9 +13,12 @@ export class PostListComponent implements OnInit {
   postList:IPost[];
 
 
-  constructor(private postService:PostService) {
+  constructor(
+    private postService:PostService,
+    ) {
      this.postList=[];
    }
+ 
 
   ngOnInit(): void {
     this.postService.loadProfilePosts().subscribe(postList=>{

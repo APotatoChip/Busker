@@ -1,23 +1,25 @@
-<app-profiles></app-profiles>
-<div class='deck'>
-    <h1>Current Post</h1>
-    <!-- Current Post -->
-    <div class='card'>
-        <header class='cardHeader'>
-            <!-- Post Creater and Date -->
-            <span class='cardHeader_account'>{{post?.author}}</span>
-            <span class='cardHeader_date'>{{post?.postedAt}}</span>
-        </header>
-        <div class='cardBody'>
-            <!-- Post Text -->
-            <p class='cardText'> {{post?.textContent}}
-                <!-- Post Stats -->
-                <section class='cardStats'>
-                    <span class='cardStats_stat cardStats_stat-likes'>{{post?.likes}} <i class='far fa-heart fa-fw'></i></span>
-                    <span class='cardStats_stat cardStats_stat-comments'>{{post?.comments?.length}} <i class='far fa-comment fa-fw'></i></span>
-                </section>
+<div>
+    <app-profiles></app-profiles>
+    <div class='deck'>
+        <h1>Current Post</h1>
+        <!-- Current Post -->
+        <div class='card'>
+            <header class='cardHeader'>
+                <!-- Post Creater and Date -->
+                <span class='cardHeader_account'>{{post?.author}}</span>
+                <span class='cardHeader_date'>{{post?.postedAt}}</span>
+            </header>
+            <div class='cardBody'>
+                <!-- Post Text -->
+                <p class='cardText'> {{post?.textContent}}
+                    <!-- Post Stats -->
+                    <section class='cardStats'>
+                        <span class='cardStats_stat cardStats_stat-likes'>{{post?.likes}} <i class='far fa-heart fa-fw'></i></span>
+                        <span class='cardStats_stat cardStats_stat-comments'>{{post?.comments?.length}} <i class='far fa-comment fa-fw'></i></span>
+                    </section>
+            </div>
+            <!-- Comment Section -->
+            <app-comment-list></app-comment-list>
         </div>
-        <!-- Comment Section -->
-        <app-comment-list></app-comment-list>
     </div>
 </div>

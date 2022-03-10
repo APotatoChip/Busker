@@ -5,12 +5,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { UserRoutingModule } from '../user/user-routing.module';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfilesModule } from './profiles/profiles.module';
+import { LoaderComponent } from './loader/loader.component';
 
 
 
 @NgModule({
   declarations: [
-    ProfilesComponent
+    ProfilesComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,
@@ -19,7 +21,8 @@ import { ProfilesModule } from './profiles/profiles.module';
     ProfilesModule
   ],
   exports:[
-  ProfilesComponent
+  ProfilesComponent,
+  LoaderComponent
   ]
 })
 export class SharedModule { }

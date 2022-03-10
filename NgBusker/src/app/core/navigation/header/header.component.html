@@ -30,7 +30,8 @@
         <ul class="navigation-items">
             <div fxFlex fxLayout="row" fxLayoutGap="15px" *ngIf="!isLogged">
                 <li>
-                    <a routerLink="/user/login" (click)="loginHandler()">Login</a>
+                    <a routerLink="/user/login">Login</a>
+                    <!-- (click)="loginHandler()" -->
                 </li>
                 <li>
                     <a routerLink="/user/register">Register</a>
@@ -48,7 +49,8 @@
                     <a routerLink="/search">Search</a>
                 </li>
                 <li>
-                    <a routerLink="/home" (click)="logoutHandler()">Logout</a>
+                    <a routerLink="/home">Logout</a>
+                    <!-- (click)="logoutHandler()" -->
                 </li>
             </div>
         </ul>
