@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatRadioModule} from '@angular/material/radio';
@@ -31,7 +31,6 @@ import { ProfileComponent } from './profile/profile.component';
     MatIconModule, 
     MatInputModule,
     MatRadioModule,
-    ReactiveFormsModule,
     FormsModule,
     UserRoutingModule,
     SharedModule,

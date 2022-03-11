@@ -4,56 +4,72 @@
             <div class="register-card">
                 <!-- Title -->
                 <h1 class="title">Sign Up</h1>
-                <form action="">
+                <!-- Register Form -->
+                <form #f="ngForm" (ngSubmit)="sumbitFormHandler(f.value)">
                     <!-- Fields and Button -->
                     <div class="fields-container">
+                        <!-- Email input -->
                         <mat-form-field class="email-input" appearance="fill">
                             <mat-label class="label">Email</mat-label>
-                            <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
-                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            <input matInput #userEmail="ngModel" type="email" name="email" id="email" required pattern="^[a-zA-Z\.-]{6,}@\w+\.(com|bg)$" placeholder="Ex. patrick@example.com" ngModel>
+                            <!-- Email Validators -->
+                            <mat-error *ngIf="userEmail.touched && userEmail.errors?.pattern">
                                 Please enter a valid email address
                             </mat-error>
-                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                            <mat-error *ngIf="userEmail.touched && userEmail.errors?.required">
                                 Email is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
-
+                        <!-- Username input -->
                         <mat-form-field class="username-input" appearance="fill">
-                            <mat-label class="label">Input</mat-label>
-                            <input placeholder="Ex. David Fincher" matInput>
+                            <mat-label class="label">Name</mat-label>
+                            <input #userName="ngModel" type="text" name="username" id="username" placeholder="Ex. David Fincher" matInput required pattern="^[a-z ,.'-]+$" ngModel>
+                            <!-- Username Validators -->
+                            <mat-error *ngIf="userName.touched && userName.errors?.pattern">
+                                Please enter a valid name
+                            </mat-error>
+                            <mat-error *ngIf="userName.touched && userName.errors?.required">
+                                Name is <strong>required</strong>
+                            </mat-error>
                         </mat-form-field>
-
+                        <!-- Password Input -->
                         <mat-form-field class="password-input" appearance="fill">
                             <mat-label class="label">Password</mat-label>
-                            <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
-                            <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
-                                Please enter a valid password
+                            <input matInput #userPassword="ngModel" type="password" name="password" id="password" placeholder="********" ngModel required minlength="8">
+                            <!-- Password Validators -->
+                            <mat-error *ngIf="userPassword.touched && userPassword.errors?.minlength">
+                                Password should be at least 8 characters long
                             </mat-error>
-                            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            <mat-error *ngIf="userPassword.touched && userPassword.errors?.required">
                                 Password is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
+                        <!-- RePassword Input -->
                         <mat-form-field class="rePassword-input" appearance="fill">
                             <mat-label class="label">Repeat Password</mat-label>
-                            <input type="password" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
-                            <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
-                                Please enter a valid password
+                            <input matInput #rePassword="ngModel" type="password" name="rePassword" id="rePassword" placeholder="********" ngModel required appRePasswordValidator>
+                            <!-- RePassword Validators -->
+                            <mat-error *ngIf="userPassword.touched && userPassword.errors?.appRePasswordValidator">
+                                Passwords should match
                             </mat-error>
-                            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            <mat-error *ngIf="userPassword.touched && userPassword.errors?.required">
                                 Password is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
+                        <!-- Options -->
                         <mat-radio-group aria-label="select-option">
                             <mat-radio-button value="performer"> Performer</mat-radio-button>
                             <mat-radio-button value="viewer">Viewer</mat-radio-button>
                             <div class="line-box">
                                 <div class="line"></div>
                             </div>
+                            <!-- Options Validators-->
                         </mat-radio-group>
-
+                        <!-- Submit Button     -->
                         <button mat-raised-button>Register</button>
                     </div>
-
+                    <!-- Loader -->
+                    <app-loader [isLoading]="isLoading"></app-loader>
                 </form>
 
             </div>

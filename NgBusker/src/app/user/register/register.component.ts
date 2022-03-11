@@ -1,42 +1,39 @@
 import { Component, OnInit } from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
-import {ErrorStateMatcher} from '@angular/material/core';
 import { ViewEncapsulation } from '@angular/core';
-
-
-/** Error when invalid control is dirty, touched, or submitted. */
-export class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
+import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None //for input fields to show properly css
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  isLoading=false;
+  errMsg:string='null';
+
+  form = {
+    email:"",
+    userName:"",
+    password:"",
+    rePassword:""
+  }
+
+  constructor(private userService:UserService, private router:Router) { }
 
   ngOnInit(): void {
   }
 
-  emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
 
-  passwordFormControl = new FormControl('',[
-    Validators.required,
-    Validators.minLength(8)
-      
-  ]);
-
-  matcher = new MyErrorStateMatcher();
+  sumbitFormHandler(formValue:{email:string, userName:string, password:string, rePassword:string}):void{
+    this.isLoading=true;
+   
+    
+    const {email,userName} = this.form;
+    //register userservice
+  }
 
 }

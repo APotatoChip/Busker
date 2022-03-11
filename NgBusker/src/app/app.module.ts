@@ -6,6 +6,7 @@ import { MaterialModule } from './material/material.module';
 import {  FlexLayoutModule } from '@angular/flex-layout'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 

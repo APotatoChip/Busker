@@ -6,13 +6,15 @@ import { UserRoutingModule } from '../user/user-routing.module';
 import { ProfilesComponent } from './profiles/profiles.component';
 import { ProfilesModule } from './profiles/profiles.module';
 import { LoaderComponent } from './loader/loader.component';
+import { RePasswordValidatorDirective } from './re-password-validator.directive';
 
 
 
 @NgModule({
   declarations: [
     ProfilesComponent,
-    LoaderComponent
+    LoaderComponent,
+    RePasswordValidatorDirective
   ],
   imports: [
     CommonModule,
@@ -22,7 +24,8 @@ import { LoaderComponent } from './loader/loader.component';
   ],
   exports:[
   ProfilesComponent,
-  LoaderComponent
+  LoaderComponent,
+  RePasswordValidatorDirective
   ]
 })
 export class SharedModule { }

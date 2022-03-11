@@ -4,38 +4,48 @@
             <div class="login-card">
                 <!-- Title -->
                 <h1 class="title">Sign In</h1>
-                <form action="">
+                <!-- Login Form -->
+                <form #f="ngForm" (ngSubmit)="submitFormHandler(f.value)">
+                    <!-- Fields and Button -->
                     <div class="fields-container">
-                        <!-- Fields and Button -->
+                        <!-- Email input -->
                         <mat-form-field class="email-input" appearance="fill">
                             <mat-label class="label">Email</mat-label>
-                            <input type="email" #userEmail (keyup)="updateInputValue('email',userEmail.value)" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher" placeholder="Ex. pat@example.com">
+                            <input matInput #userEmail="ngModel" type="email" name="email" id="email" placeholder="Ex. pat@example.com" ngModel required pattern="^[a-zA-Z\.-]{6,}@\w+\.(com|bg)$">
+                            <!-- Email Icon -->
                             <mat-icon matSuffix fontSet="fas" fontIcon="fa-envelope"></mat-icon>
-                            <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                            <!-- Email Validators -->
+                            <mat-error *ngIf="userEmail.touched && userEmail.errors?.pattern">
                                 Please enter a valid email address
                             </mat-error>
-                            <mat-error *ngIf="emailFormControl.hasError('required')">
+                            <mat-error *ngIf="userEmail.touched && userEmail.errors?.required">
                                 Email is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
-
+                        <!-- Password Input -->
                         <mat-form-field class="password-input" appearance="fill">
                             <mat-label class="label">Password</mat-label>
-                            <input type="password" #userPassword (keyup)="updateInputValue('password', userPassword.value)" matInput [formControl]="passwordFormControl" [errorStateMatcher]="matcher">
+                            <input matInput #userPassword="ngModel" type="password" name="password" id="password" placeholder="********" ngModel required minlength="8">
+                            <!-- Password Icon -->
                             <mat-icon matSuffix fontSet="fas" fontIcon="fa-key"></mat-icon>
-                            <mat-error *ngIf="passwordFormControl.hasError('password') && !passwordFormControl.hasError('required')">
+                            <!-- Password Validators -->
+                            <mat-error *ngIf="userPassword.touched && userPassword.errors?.minlength">
                                 Please enter a valid password
                             </mat-error>
-                            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                            <mat-error *ngIf="userPassword.touched && userPassword.errors?.required">
                                 Password is <strong>required</strong>
                             </mat-error>
                         </mat-form-field>
                     </div>
-                    <button mat-raised-button (click)="submitFormHandler()">Login</button>
+                    <!-- Submit Button     -->
+                    <button mat-raised-button [disabled]="f.invalid">Login</button>
+                    <!-- Loader -->
                     <app-loader [isLoading]="isLoading"></app-loader>
                 </form>
             </div>
         </div>
+
+        <!-- Layer -->
         <div class="layer">
         </div>
     </div>
