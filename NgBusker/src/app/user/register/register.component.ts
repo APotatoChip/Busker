@@ -14,7 +14,8 @@ export class RegisterComponent implements OnInit {
 
   isLoading=false;
   errMsg:string='null';
-
+selectedRadio:any;
+radioOptions=[{name:"Busker", id:1,checked:false}, {name:"Viewer", id:2,checked:false}];
   form = {
     email:"",
     userName:"",
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
 
 
   sumbitFormHandler(formValue:{email:string, userName:string, password:string, rePassword:string}):void{
+    
     this.isLoading=true;
    
     

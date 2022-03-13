@@ -19,6 +19,11 @@
     background-color: var(--accent);
 }
 
+.radio-container {
+    display: flex;
+    flex-direction: row;
+}
+
 .mat-form-field {
     width: 50%;
     border-radius: 15%;
@@ -36,6 +41,11 @@
 
 section {
     padding: 0;
+}
+
+#mat-error-0 {
+    height: 0;
+    font-size: smaller;
 }
 
 .background {
