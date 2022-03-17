@@ -1,6 +1,7 @@
 const express = require('express');
 const { port } = require('./config');
 
+
 const app = express();
 const appString = `Server is listening on port: ${port}...`;
 
@@ -10,5 +11,6 @@ require('./config/database')().then(() => {
     require('./config/routes')(express, app);
 
     app.listen(port, console.log(appString));
+
 
 }).catch((e) => console.log(e));

@@ -19,12 +19,13 @@ module.exports = {
     },
     post: {
         login(req, res, next) {
+
             const { username, password } = {...req.body };
+
 
             User
                 .findOne({ username })
                 .then((user) => {
-
                     return Promise.all([
                         user.comparePasswords(password),
                         user,
@@ -43,6 +44,7 @@ module.exports = {
                 })
                 .catch((e) => {
                     console.log(e);
+                    throw new Error('Wrong credentials');
                 })
 
         },
