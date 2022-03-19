@@ -58,8 +58,8 @@
                         </mat-form-field>
                         <!-- Options -->
                         <mat-radio-group aria-label="select-option">
-                            <mat-radio-button #performerRadio="ngModel" name="radioOptions" id="performer" value="performer" ngModel ngDefaultControl> Performer</mat-radio-button>
-                            <mat-radio-button #viewerRadio="ngModel" name="radioOptions" id="viewer" value="viewer" ngModel ngDefaultControl>Viewer</mat-radio-button>
+                            <mat-radio-button #performerRadio="ngModel" name="typeOptions" id="performer" value="performer" ngModel ngDefaultControl> Performer</mat-radio-button>
+                            <mat-radio-button #viewerRadio="ngModel" name="typeOptions" id="viewer" value="viewer" ngModel ngDefaultControl>Viewer</mat-radio-button>
                             <!-- Options Validators-->
                             <!-- Options Validators-->
                             <mat-error *ngIf="!performerRadio.dirty && !viewerRadio.dirty">

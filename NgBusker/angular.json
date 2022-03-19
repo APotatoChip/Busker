@@ -72,9 +72,11 @@
                     "configurations": {
                         "production": {
                             "browserTarget": "bukser:build:production"
+
                         },
                         "development": {
                             "browserTarget": "bukser:build:development"
+
                         }
                     },
                     "defaultConfiguration": "development"

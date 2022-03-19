@@ -14,8 +14,8 @@ export class RegisterComponent implements OnInit {
 
   isLoading=false;
   errMsg:string='null';
-selectedRadio:any;
-radioOptions=[{name:"Busker", id:1,checked:false}, {name:"Viewer", id:2,checked:false}];
+
+typeOptions=[{name:"Busker", id:1,checked:false}, {name:"Viewer", id:2,checked:false}];
   form = {
     email:"",
     userName:"",
@@ -29,13 +29,25 @@ radioOptions=[{name:"Busker", id:1,checked:false}, {name:"Viewer", id:2,checked:
   }
 
 
-  sumbitFormHandler(formValue:{email:string, userName:string, password:string, rePassword:string}):void{
+  sumbitFormHandler(formValue:{email:string, username:string, password:string,typeOptions:string}):void{
     
     this.isLoading=true;
-   
-    
-    const {email,userName} = this.form;
-    //register userservice
+  
+    const {email,username,password,typeOptions} = formValue;
+    console.log(email,username,password,typeOptions);
+
+    this.userService.register({email,username,password,typeOptions}).subscribe({
+      next:()=>{
+        this.isLoading=false;
+        
+      },
+      error:(err)=>{
+        console.error(err);
+        this.isLoading=false;
+        return err;
+      }
+    });
+ 
   }
 
 }

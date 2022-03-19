@@ -24,11 +24,24 @@ export class HeaderComponent implements OnInit {
 }
 
 loginHandler():void {
-  //this.userService.login();
+
+
+   
 }
 
 logoutHandler():void {
-  this.userService.logout();
+  this.userService.logout().subscribe({
+    next:()=>{
+    console.log("hi");
+    
+      
+    },
+    error:(err)=>{
+      console.error(err);
+    
+      return err;
+    }
+  });
 }
 
   public onToggleSidenav= () =>{

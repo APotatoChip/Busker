@@ -13,7 +13,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   isLoading=false;
-  errMsg:string='null';
+
+
   form = {
     email:"",
     password:""
@@ -31,17 +32,23 @@ export class LoginComponent implements OnInit {
   submitFormHandler(formValue:{email:string, password:string}):void{
 
     this.isLoading=true;
-    const {email ,password}=this.form;
-    this.userService.login({email,password}).subscribe(()=>{
-      this.isLoading=false;
-      this.router.navigate(['/user/profile']);
-    },(err:any)=>{
-      this.errMsg="Eror";
+    const {email ,password}=formValue;
+    
+    this.userService.login({email,password}).subscribe({
+    
+      next:()=>{
+        this.isLoading=false;
+  
+        this.router.navigate(['/user/profile']);
+      },
+    error:(err)=>{
+      console.error(err);
       this.isLoading=false;
       return err;
+    }    
+  });
+  console.log("Login Completed!");
+  
+}
 
-    });
-    
-    
-  }
 }
