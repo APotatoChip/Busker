@@ -20,12 +20,13 @@ module.exports = {
     post: {
         login(req, res, next) {
 
-            const { username, password } = {...req.body };
+            const { email, password } = {...req.body };
 
 
             User
-                .findOne({ username })
+                .findOne({ email })
                 .then((user) => {
+
                     return Promise.all([
                         user.comparePasswords(password),
                         user,
@@ -43,20 +44,23 @@ module.exports = {
                         .json("post login");
                 })
                 .catch((e) => {
-                    console.log(e);
-                    throw new Error('Wrong credentials');
+
+                    console.log(e)
+                    return new Error(e);
                 })
 
         },
         register(req, res, next) {
-            const { username, password, email, avatar, bio, typeOptions, followers, following } = {...req.body };
+
+            const { username, password, email, typeOptions } = {...req.body };
+
             User
                 .findOne({ username })
                 .then((user) => {
                     if (user) {
                         throw new Error('User already exists...');
                     }
-                    return User.create({ username, password, email, avatar, bio, typeOptions, followers, following });
+                    return User.create({ username, password, email, typeOptions });
                 })
                 .then((createdUser) => {
                     res.json("post register");

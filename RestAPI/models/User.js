@@ -19,14 +19,17 @@ module.exports = (mongoose, bcrypt) => {
             required: true
         },
         avatar: {
-            type: String
+            type: String,
+            default: ""
         },
         bio: {
-            type: String
+            type: String,
+            default: ""
         },
         typeOptions: {
             type: String,
-            possibleValues: ['performer', 'viewer']
+            required: true
+                // possibleValues: ['performer', 'viewer']
         },
         posts: [{
             type: ObjectId,
