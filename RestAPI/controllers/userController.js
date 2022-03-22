@@ -12,9 +12,12 @@ module.exports = {
             res.json("get register");
         },
         logout(req, res, next) {
+
+            // console.log(res);
+            // console.log(cookieName);
             res
                 .clearCookie(cookieName)
-                .json("get logout");
+                .json("get logout and cookie cleared");
         }
     },
     post: {
@@ -41,7 +44,7 @@ module.exports = {
                     res
                         .status(200)
                         .cookie(cookieName, token, { maxAge: 3600000 })
-                        .json("post login");
+                        .json(user)
                 })
                 .catch((e) => {
 
