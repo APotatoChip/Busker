@@ -19,9 +19,7 @@ export class FooterComponent implements OnInit {
 
   onActivate() {
     let scrollToTop = window.setInterval(() => {
-       
             window.scrollTo({behavior:'smooth',top:0}); // how far to scroll on each step
-        
     });
   
 }

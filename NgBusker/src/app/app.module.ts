@@ -16,6 +16,7 @@ import { MapComponent } from './map/map.component';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
+import { UserService } from './user/user.service';
 
 
 @NgModule({

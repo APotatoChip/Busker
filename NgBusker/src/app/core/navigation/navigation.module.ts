@@ -26,7 +26,7 @@ import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
     UserRoutingModule
 
   ],providers:[
-    UserService
+
   ],exports:[
     HeaderComponent,
     SidenavListComponent

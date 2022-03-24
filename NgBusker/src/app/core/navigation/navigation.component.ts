@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../../user/user.service';
+
 
 @Component({
   selector: 'app-navigation',
@@ -7,8 +7,11 @@ import { UserService } from '../../user/user.service';
   styleUrls: ['./navigation.component.css']
 })
 export class NavigationComponent implements OnInit {
-
-  constructor(public userService:UserService) { }
+ 
+  constructor() { 
+   
+    
+  }
 
   ngOnInit(): void {
   }

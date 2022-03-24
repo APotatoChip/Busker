@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NavigationStart, Router } from '@angular/router';
 import * as AOS from 'aos';
 import { UserService } from 'src/app/user/user.service';
 
@@ -11,11 +12,13 @@ export class HeaderComponent implements OnInit {
 
   @Output() public sidenavToggle = new EventEmitter();
 
+  
   get isLogged():boolean {
     return this.userService.isLogged;
   }
+  constructor(public userService:UserService,private router:Router) { 
 
-  constructor(public userService:UserService) { }
+  }
 
   ngOnInit(): void {
     AOS.init({
@@ -23,29 +26,16 @@ export class HeaderComponent implements OnInit {
     });
 }
 
-loginHandler():void {
-
-
-   
-}
 
 logoutHandler():void {
-  this.userService.logout().subscribe({
-    next:()=>{
-    console.log("hi");
-    
-      
-    },
-    error:(err)=>{
-      console.error(err);
-    
-      return err;
-    }
-  });
+  this.userService.logout().subscribe(() => this.router.navigate(['/user/login']));
 }
 
   public onToggleSidenav= () =>{
     this.sidenavToggle.emit();
+  }
+
+  ngOnDestroy(): void {
   }
 
 }

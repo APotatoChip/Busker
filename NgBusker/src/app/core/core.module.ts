@@ -27,7 +27,7 @@ import { AuthGuard } from './guards/auth.guard';
     UserRoutingModule
   ],
   providers:[
-    UserService,
+  
     AuthGuard
   ],
   exports:[

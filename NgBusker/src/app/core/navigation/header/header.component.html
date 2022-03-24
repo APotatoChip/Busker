@@ -28,9 +28,10 @@
     <!-- Header Menu Buttons -->
     <div fxFlex fxLayoutAlign="end" fxHide.xs>
         <ul class="navigation-items">
+
             <div fxFlex fxLayout="row" fxLayoutGap="15px" *ngIf="!isLogged">
                 <li>
-                    <a routerLink="/user/login" (click)="loginHandler()">Login</a>
+                    <a routerLink="/user/login">Login </a>
                 </li>
                 <li>
                     <a routerLink="/user/register">Register</a>
