@@ -22,7 +22,7 @@ export class UserService {
   }
   
  
-  login(data:Object):Observable<any>{
+  login(data:any):Observable<any>{
   
     return this.http.post(`${apiUrl}/login`, data,{withCredentials:true})
     // .pipe(
@@ -50,4 +50,7 @@ export class UserService {
     //   this.currentUser = null})
     // );
   }
-}
+
+ 
+  }
+

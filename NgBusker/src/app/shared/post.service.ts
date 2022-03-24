@@ -15,6 +15,21 @@ export class PostService {
 
   constructor(private http:HttpClient) { }
 
+  formatDateTime(unfromatedDate:any):String{
+    let date="";
+    let time="";
+
+  date =unfromatedDate.split("T")[0].replace("-","/").replace("-","/");
+   time = unfromatedDate.split("T")[1].split(".")[0].substring(0,5);
+   return date+" at "+time;
+  
+  }
+
+  getAuthorName(authorId:any):Observable<any>{
+    //  console.log(this.http.get(`${apiUrl}/profile`,authorId);
+     
+    return this.http.get(`${apiUrl}/profile`,authorId)
+}
   loadProfilePosts():Observable<IPost[]> {    
     return this.http.get<IPost[]>(`${apiUrl}/profile/post`);
   }
@@ -27,4 +42,5 @@ export class PostService {
   loadReplyComment(postId:string,commentId:string):Observable<IComment[]>{
     return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment/${commentId}`)
   }
+
 }
