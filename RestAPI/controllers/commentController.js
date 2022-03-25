@@ -10,11 +10,11 @@ module.exports = {
         },
         replyComment(req, res, next) {
             const id = req.path.split("/")[4];
-            console.log(id);
+            // console.log(id);
 
             ReplyComment.find({ _id: id })
                 .then((cmt) => {
-                    console.log(cmt)
+                    // console.log(cmt)
                     res.json(cmt);
                 })
 
@@ -49,7 +49,7 @@ module.exports = {
                         .then(() => {
                             Post.updateOne({ _id: currPostId }, { $set: { comments: commentsArr } })
                                 .then((updates) => {
-                                    console.log(updates);
+                                    // console.log(updates);
                                     res.json("comment added to the post")
                                 })
 
@@ -75,7 +75,7 @@ module.exports = {
                         .then(() => {
                             Comment.updateOne({ _id: currCommentId }, { $set: { replyComments: replyCommentsArr } })
                                 .then((updates) => {
-                                    console.log(updates);
+                                    //  console.log(updates);
                                     res.json('reply comment added');
                                 })
                         })

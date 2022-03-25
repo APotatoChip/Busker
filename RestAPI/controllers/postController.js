@@ -2,8 +2,12 @@ const { Post } = require("../models");
 module.exports = {
     get: {
         allPosts(req, res, next) {
+
             Post.find()
-                .then(posts => res.json(posts));
+                .then(posts => {
+                    res.json(posts)
+                    console.log(posts);
+                });
             // res.json("get post");
         },
         currentPost(req, res, next) {
@@ -25,6 +29,7 @@ module.exports = {
     },
     post: {
         create(req, res, next) {
+            console.log(req);
             Post.create({...req.body, postedAt: Date.now(), author: req.user._id })
                 .then((createdPost) => {
                     res.json(createdPost);

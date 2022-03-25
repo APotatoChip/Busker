@@ -48,7 +48,7 @@ module.exports = {
                 })
                 .catch((e) => {
 
-                    console.log(e)
+                    // console.log(e)
                     return new Error(e);
                 })
 
@@ -69,7 +69,7 @@ module.exports = {
                     res.json("post register");
                 })
                 .catch((e) => {
-                    console.log(e);
+                    // console.log(e);
 
                 });
 
