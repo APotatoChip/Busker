@@ -30,6 +30,10 @@ export class PostService {
      
     return this.http.get(`${apiUrl}/profile`,authorId)
 }
+
+  createPost(data:String):Observable<IPost>{
+    return this.http.post<IPost>(`${apiUrl}/profile/post`,data);
+  }
   loadProfilePosts():Observable<IPost[]> {    
     return this.http.get<IPost[]>(`${apiUrl}/profile/post`);
   }

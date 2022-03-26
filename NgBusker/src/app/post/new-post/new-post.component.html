@@ -5,11 +5,11 @@
         <div class="create-post-avatar"><img src="../../../assets/photos/profile-busker.jpg" alt=""></div>
         <form>
             <div class="create-post-box">
-                <textarea class="create-post-textarea" rows="3" placeholder="Share your thoughts..."></textarea>
+                <textarea #text class="create-post-textarea" rows="3" placeholder="Share your thoughts..."></textarea>
                 <!-- <textarea class="create-post-textarea" rows="2" placeholder="They say a picture tells a thousand words, share url if you have one..."></textarea> -->
             </div>
         </form>
     </div>
 
-    <button class="create-post-btn">Post</button>
+    <button class="create-post-btn" (click)="createPostHandler(text.value)">Post</button>
 </div>
