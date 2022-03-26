@@ -16,11 +16,11 @@ export class NewPostComponent implements OnInit {
 
   
 
-  createPostHandler(text:String){
+  createPostHandler(textContent:any){
     
     
-    this.postService.createPost(text).subscribe((res)=>{
-      console.log(res);
+    this.postService.createPost({textContent}).subscribe((res)=>{
+      //console.log(res);
       
     });
    

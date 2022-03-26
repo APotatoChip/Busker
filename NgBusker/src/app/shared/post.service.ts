@@ -26,8 +26,8 @@ export class PostService {
   }
 
  
-  createPost(data:String):Observable<IPost>{
-    return this.http.post<IPost>(`${apiUrl}/profile/post`,data);
+  createPost(data:any):Observable<IPost>{
+    return this.http.post<IPost>(`${apiUrl}/profile/post`,data, {withCredentials:true});
   }
   loadProfilePosts():Observable<any> {    
     return this.http.get<any>(`${apiUrl}/profile/post`);
