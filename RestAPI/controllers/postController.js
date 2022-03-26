@@ -6,11 +6,11 @@ module.exports = {
             let usernameArr = [];
             let user;
             const posts = await Post.find();
-            // console.log(posts);
+
 
             for (const post of posts) {
                 const id = post.author;
-                user = await User.findOne({ id });
+                user = await User.findOne({ _id: id });
                 usernameArr.push(user.username);
             }
             // console.log(usernameArr);
@@ -20,9 +20,9 @@ module.exports = {
         },
         async currentPost(req, res, next) {
             let id = req.path.split("/")[2];
-            const post = await Post.findOne({ id });
+            const post = await Post.findOne({ _id: id });
             id = post.author;
-            const user = await User.findOne({ id });
+            const user = await User.findOne({ _id: id });
             res.json({ post, user });
 
 
@@ -40,8 +40,8 @@ module.exports = {
     },
     post: {
         create(req, res, next) {
-            //   console.log(req);
-            Post.create({...req.body, postedAt: Date.now(), author: req.user._id })
+            console.log(req);
+            Post.create({ postedAt: Date.now(), author: req.user._id, ...req.body })
                 .then((createdPost) => {
                     res.json(createdPost);
                 });
