@@ -1,6 +1,4 @@
 import { Component,  OnInit  } from '@angular/core';
-import { IPost } from 'src/app/shared/interfaces';
-import { UserService } from 'src/app/user/user.service';
 import { PostService } from '../../shared/post.service';
 
 @Component({
@@ -10,20 +8,30 @@ import { PostService } from '../../shared/post.service';
 })
 export class PostListComponent implements OnInit {
 
-  postList:IPost[];
+  postList:any;
+  usernameList:any;
+  
 
 
   constructor(
     private postService:PostService,
     ) {
-     this.postList=[];
+     
    }
  
 
   ngOnInit(): void {
-    this.postService.loadProfilePosts().subscribe(postList=>{
-      this.postList=postList;
+    this.postService.loadProfilePosts().subscribe(res=>{
+      this.postList=res.posts;
+       this.usernameList=res.usernameArr;
+       let count=0
+       for (const post of this.postList) {
+         post.author=this.usernameList[count];
+         count++;
+        }  
     })
+
+   
   }
 
 }

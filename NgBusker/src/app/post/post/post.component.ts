@@ -9,14 +9,15 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-  post?:IPost;
+  post?:any;
   pathId:string;
-
+  postDate:String = "";
 
   constructor(
     private postService:PostService,
  private route:ActivatedRoute) { 
       this.pathId="";
+      this.post
       
   }
  
@@ -26,13 +27,17 @@ export class PostComponent implements OnInit {
       this.pathId=params["postId"];
     })
 
-     
-
+  
+    
     this.postService.loadCurrentPost(this.pathId).subscribe(post=>{
-      this.post=post;
-
+      this.post=post.post;
+      this.post.author=post.user.username;
       
+      this.postDate= this.postService.formatDateTime(this.post?.postedAt);
     })
+    
+
+   
 
   
     

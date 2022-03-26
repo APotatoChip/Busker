@@ -9,7 +9,7 @@ import { PostService } from 'src/app/shared/post.service';
   styleUrls: ['./post-list-item.component.css']
 })
 export class PostListItemComponent implements OnInit {
-  authorId = this.post?.author;
+  
   username="";
   postDate:String = "";
 
@@ -23,21 +23,10 @@ export class PostListItemComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
-    
-   this.postDate= this.postService.formatDateTime(this.post?.postedAt);
-  
 
+   this.postDate= this.postService.formatDateTime(this.post?.postedAt);
    
- 
-    
-    
   
-    
-   this.postService.getAuthorName(this.authorId).subscribe(user=>{
-     this.username=user.username;
-     
-   });
     
   }
 

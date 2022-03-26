@@ -25,20 +25,15 @@ export class PostService {
   
   }
 
-  getAuthorName(authorId:any):Observable<any>{
-    //  console.log(this.http.get(`${apiUrl}/profile`,authorId);
-     
-    return this.http.get(`${apiUrl}/profile`,authorId)
-}
-
+ 
   createPost(data:String):Observable<IPost>{
     return this.http.post<IPost>(`${apiUrl}/profile/post`,data);
   }
-  loadProfilePosts():Observable<IPost[]> {    
-    return this.http.get<IPost[]>(`${apiUrl}/profile/post`);
+  loadProfilePosts():Observable<any> {    
+    return this.http.get<any>(`${apiUrl}/profile/post`);
   }
-  loadCurrentPost(postId:string):Observable<IPost>{
-    return this.http.get<IPost>(`${apiUrl}/profile/${postId}`)
+  loadCurrentPost(postId:string):Observable<any>{
+    return this.http.get<any>(`${apiUrl}/profile/${postId}`)
   }
   loadCurrentComments(postId:string):Observable<IComment[]>{
     return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment`)
