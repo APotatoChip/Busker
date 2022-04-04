@@ -9,7 +9,7 @@ import { Loader } from "@googlemaps/js-api-loader"
 })
 export class MapComponent implements OnInit {
   @ViewChild("mapRef") mapRef?: ElementRef;
-  uluru: Object = { lat: -25.363, lng: 131.044 };
+  sofia: Object = { lat: 42.698334, lng: 23.319941 };
   map?: Object;
   marker?: Object;
   zoom?: number;
@@ -21,11 +21,11 @@ export class MapComponent implements OnInit {
 
     setTimeout(() => {
       this.map = new google.maps.Map(this.mapRef?.nativeElement, {
-        zoom: 4,
-        center: this.uluru as any
+        zoom: 12,
+        center: this.sofia as any
       });
       this.marker = new google.maps.Marker({
-        position: this.uluru as any,
+        position: this.sofia as any,
         map: this.map as any
       });
 
