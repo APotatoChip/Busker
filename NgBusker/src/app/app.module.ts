@@ -7,8 +7,10 @@ import {  FlexLayoutModule } from '@angular/flex-layout'
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
@@ -16,7 +18,6 @@ import { MapComponent } from './map/map.component';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
-import { UserService } from './user/user.service';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { UserService } from './user/user.service';
   ],
   imports: [
     BrowserModule,
+    GoogleMapsModule,
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,

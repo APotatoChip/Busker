@@ -5,6 +5,7 @@ import { BuskerViewerComponent } from './busker-viewer/busker-viewer.component';
 import { ViewerComponent } from './viewer/viewer.component';
 import { ViewerViewerComponent } from './viewer-viewer/viewer-viewer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { EditProfileComponent } from './edit-profile/edit-profile.component';
 
 
 
@@ -13,7 +14,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     BuskerComponent,
     BuskerViewerComponent,
     ViewerComponent,
-    ViewerViewerComponent
+    ViewerViewerComponent,
+    EditProfileComponent
   ],
   imports: [
     CommonModule,
