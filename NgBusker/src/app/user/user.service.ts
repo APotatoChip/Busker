@@ -14,7 +14,18 @@ export class UserService {
 
   currentUser?: IUser | null;
 
+  get isPerformer():boolean{
+
+   let option = this.currentUser?.typeOptions;
+   if (option==="viewer"){
+     return false;
+   }
+   return true;
+   
+  }
+
   get isLogged(): boolean{
+    
     return !!this.currentUser
 
   }

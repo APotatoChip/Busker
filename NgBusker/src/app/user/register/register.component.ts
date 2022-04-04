@@ -39,7 +39,7 @@ typeOptions=[{name:"Busker", id:1,checked:false}, {name:"Viewer", id:2,checked:f
     this.userService.register({email,username,password,typeOptions}).subscribe({
       next:()=>{
         this.isLoading=false;
-        
+        this.router.navigate(['/user/profile']);
       },
       error:(err)=>{
         console.error(err);

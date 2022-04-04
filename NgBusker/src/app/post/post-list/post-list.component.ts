@@ -7,29 +7,33 @@ import { PostService } from '../../shared/post.service';
   styleUrls: ['./post-list.component.css']
 })
 export class PostListComponent implements OnInit {
-
+postBool:boolean;
   postList:any;
-  usernameList:any;
+username:any;
   
 
 
   constructor(
     private postService:PostService,
     ) {
-     
+      this.postBool=false;
    }
  
 
   ngOnInit(): void {
     this.postService.loadProfilePosts().subscribe(res=>{
       this.postList=res.posts;
-       this.usernameList=res.usernameArr;
-       let count=0
-       for (const post of this.postList) {
-         post.author=this.usernameList[count];
-         count++;
-        }  
+      this.username=res.username;
+
+      if(this.postList.length===0){
+        this.postBool=false;
+      } else{
+        this.postBool=true;
+      }
+      
     })
+
+
 
    
   }

@@ -1,7 +1,12 @@
 <!-- Displays all posts by current user -->
 <div class="deck">
-    <h1>Feed</h1>
+    <h1>My Feed</h1>
+    <div *ngIf="!postBool">
+        <p>No posts yet</p>
+    </div>
     <a [routerLink]="[post._id,'comment']" class='card' *ngFor="let post of postList">
-        <app-post-list-item [post]="post"></app-post-list-item>
+        <app-post-list-item [post]="post" [username]="username"></app-post-list-item>
     </a>
+
+
 </div>

@@ -30,7 +30,7 @@ export class PostService {
     return this.http.post<IPost>(`${apiUrl}/profile/post`,data, {withCredentials:true});
   }
   loadProfilePosts():Observable<any> {    
-    return this.http.get<any>(`${apiUrl}/profile/post`);
+    return this.http.get<any>(`${apiUrl}/profile/post`,{withCredentials:true});
   }
   loadCurrentPost(postId:string):Observable<any>{
     return this.http.get<any>(`${apiUrl}/profile/${postId}`)

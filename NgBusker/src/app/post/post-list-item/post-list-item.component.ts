@@ -10,24 +10,21 @@ import { PostService } from 'src/app/shared/post.service';
 })
 export class PostListItemComponent implements OnInit {
   
-  username="";
+
   postDate:String = "";
 
   
 
   @Input() post?:IPost;
-
+  @Input() username?:String;
 
   constructor(private postService:PostService) { 
     
   }
 
   ngOnInit(): void {
-
    this.postDate= this.postService.formatDateTime(this.post?.postedAt);
-   
-  
-    
+
   }
 
   

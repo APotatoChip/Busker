@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {  faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { UserService } from 'src/app/user/user.service';
 @Component({
   selector: 'app-busker',
   templateUrl: './busker.component.html',
@@ -10,10 +11,11 @@ export class BuskerComponent implements OnInit {
   faFacebook=faFacebook;
   faTwitter=faTwitter;
   faYoutube=faYoutube;
-  constructor() { }
+  username?:String;
+  constructor(private userService:UserService) { }
 
   ngOnInit(): void {
-    
+    this.username=this.userService.currentUser?.username;
   }
 
 }

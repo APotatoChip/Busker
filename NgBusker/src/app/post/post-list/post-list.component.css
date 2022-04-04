@@ -14,6 +14,10 @@
     scrollbar-width: thin;
 }
 
+p {
+    color: #fff;
+}
+
 .deck>h1 {
     padding: 2rem;
     text-align: center;
@@ -44,7 +48,6 @@
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.3);
     transition: 200ms ease-in-out;
     cursor: pointer;
-    overflow: hidden;
 }
 
 .card+.card {
@@ -114,7 +117,6 @@
         right: 0;
         bottom: -1em;
         display: block;
-        border-bottom: 5px solid rgba(192, 57, 43, 0.6);
     }
 }
 

@@ -13,7 +13,8 @@ const routes: Routes = [
     path:'profile/:postId/comment',
     component:PostComponent,
     data:{isLogged:true},
-    canActivate:[AuthGuard]
+    canActivate:[AuthGuard],
+    
   },
 ];
 

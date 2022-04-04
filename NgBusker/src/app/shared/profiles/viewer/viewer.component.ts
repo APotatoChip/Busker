@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-viewer',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./viewer.component.css']
 })
 export class ViewerComponent implements OnInit {
-
-  constructor() { }
+username:any;
+  constructor(private userService:UserService) { 
+    this.username=this.userService.currentUser?.username;
+  }
 
   ngOnInit(): void {
+
+    
   }
 
 }

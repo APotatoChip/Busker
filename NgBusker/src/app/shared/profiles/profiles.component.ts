@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-profiles',
@@ -6,10 +7,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
-
-  constructor() { }
+isPerformerType?:boolean;
+  constructor(private userService:UserService) { 
+  
+  }
 
   ngOnInit(): void {
+    
+    this.isPerformerType = this.userService.isPerformer;
+   
   }
 
 }

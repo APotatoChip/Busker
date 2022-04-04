@@ -17,7 +17,7 @@ export class PostComponent implements OnInit {
     private postService:PostService,
  private route:ActivatedRoute) { 
       this.pathId="";
-      this.post
+      
       
   }
  
@@ -32,12 +32,12 @@ export class PostComponent implements OnInit {
     this.postService.loadCurrentPost(this.pathId).subscribe(post=>{
       this.post=post.post;
       this.post.author=post.user.username;
-      
+
+    
       this.postDate= this.postService.formatDateTime(this.post?.postedAt);
     })
     
 
-   
 
   
     

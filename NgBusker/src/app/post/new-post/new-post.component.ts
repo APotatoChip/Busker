@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PostService } from 'src/app/shared/post.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { PostService } from 'src/app/shared/post.service';
 })
 export class NewPostComponent implements OnInit {
 
-  constructor(private postService:PostService,private route:ActivatedRoute) { }
+  constructor(private postService:PostService,private route:ActivatedRoute, private router:Router) { }
 
   ngOnInit(): void {
   }
@@ -18,9 +18,13 @@ export class NewPostComponent implements OnInit {
 
   createPostHandler(textContent:any){
     
-    
+    let currUrl = this.router.url;
     this.postService.createPost({textContent}).subscribe((res)=>{
-      //console.log(res);
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currUrl]);
+        
+    });
+  
       
     });
    
