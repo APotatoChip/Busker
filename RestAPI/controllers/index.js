@@ -4,7 +4,7 @@ const profileController = require('./profileController');
 const postController = require('./postController');
 const commentController = require('./commentController');
 const messageController = require('./messageController');
-
+const locationController = require('./locationController');
 
 
 module.exports = {
@@ -13,5 +13,6 @@ module.exports = {
     profileController,
     postController,
     commentController,
-    messageController
+    messageController,
+    locationController
 }

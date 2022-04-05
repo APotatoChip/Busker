@@ -3,19 +3,22 @@ const { Post, User } = require("../models");
 module.exports = {
     get: {
         async allPosts(req, res, next) {
-            let usernameArr = [];
-            let user;
-            const posts = await Post.find();
+
+            let userId = req.user._id;
+            let username = req.user.username;
+            const posts = await Post.find({ author: userId });
+            res.json({ posts, username });
 
 
-            for (const post of posts) {
-                const id = post.author;
-                user = await User.findOne({ _id: id });
-                usernameArr.push(user.username);
-            }
+            //  let usernameArr = [];
+            // for (const post of posts) {
+            //     const id = post.author;
+            //     user = await User.findOne({ _id: id });
+            //     usernameArr.push(user.username);
+            // }
             // console.log(usernameArr);
 
-            res.json({ posts, usernameArr });
+            //res.json({ posts, usernameArr });
             // res.json("get post");
         },
         async currentPost(req, res, next) {
