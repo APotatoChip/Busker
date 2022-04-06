@@ -1,6 +1,6 @@
 module.exports = (mongoose) => {
     const { Schema, model: Model } = mongoose;
-    const { ObjectId, Date, Number } = Schema.Types;
+    const { ObjectId, Date, Point, String } = Schema.Types;
 
     const locationSchema = new Schema({
         busker: {
@@ -9,8 +9,8 @@ module.exports = (mongoose) => {
             required: true
         },
         location: {
-            lat: Number,
-            lng: Number
+            type: [String],
+            required: true
         },
         markedAt: {
             type: Date,

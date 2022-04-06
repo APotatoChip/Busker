@@ -9,9 +9,7 @@ module.exports = {
         map(req, res, next) {
             res.json("get map");
         },
-        tag(req, res, next) {
-            res.json("get tag");
-        },
+
 
     },
     // post: {

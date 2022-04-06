@@ -42,7 +42,12 @@ module.exports = (mongoose, bcrypt) => {
         following: [{
             type: Schema.ObjectId,
             ref: 'User'
-        }]
+        }],
+        location: {
+            type: Schema.ObjectId,
+            ref: 'Location',
+            default: ""
+        }
     });
 
     userSchema.methods = {
