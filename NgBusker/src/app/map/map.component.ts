@@ -17,8 +17,11 @@ export class MapComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
  
-   
-    this.mapService.initMap(this.mapRef?.nativeElement);
+    //hacking the problem with async loading (not a good practice wtf am I doin? check later)
+   setTimeout(()=>{
+
+     this.mapService.initMap(this.mapRef?.nativeElement);
+   },1000)
 
  
   }

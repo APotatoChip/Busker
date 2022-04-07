@@ -115,13 +115,26 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
               
     
     let coords= new google.maps.LatLng(res[0],res[1]);
+    const contentString = "<p>Yo</p>";
+  const infowindow = new google.maps.InfoWindow({
+    content: contentString,
+  });
+
   
+
       marker = new google.maps.Marker({
         position:coords,
       map:map
       })
-      
     
+      
+      marker.addListener("click", () => {
+        infowindow.open({
+          anchor: marker,
+          map,
+          shouldFocus: false,
+        });
+      });    
     
   }else{
    controlText.innerHTML="Tag Yourself"
@@ -151,7 +164,20 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
            controlUICancel.style.display="none";
           if(marker.getMap()!==null){
            this.locationService.postCurrentLocation([lat,lng]).subscribe((res)=>{
-       
+
+            const contentString = "<p>Yo</p>";
+        
+            const infowindow = new google.maps.InfoWindow({
+              content: contentString,
+            });
+            
+            marker.addListener("click", () => {
+              infowindow.open({
+                anchor: marker,
+                map,
+                shouldFocus: false,
+              });
+            }); 
          
              controlText.innerHTML="Untag Yourself"
            });
@@ -194,6 +220,7 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
                 lng = marker.getPosition()?.lng().toString()
              count=1;       
            }else{
+            
              mapsMouseEvent.stop();
            }
      });
@@ -201,7 +228,7 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
    }  
  }  
 }else{
- 
+  
  controlText.innerHTML="Untag Yourself"
  this.locationService.deleteCurrentMarker().subscribe((res)=>{
    controlText.innerHTML="Tag Yourself"
