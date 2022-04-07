@@ -16,8 +16,11 @@ export class LocationService {
   currentLocation?:ILocation | null;
 
   get isPerforming():boolean{
- 
-    
+this.getCurrentLocation().subscribe((res)=>{
+this.currentLocation=res;
+
+});
+
     return !!this.currentLocation;
   }
 
@@ -27,7 +30,8 @@ export class LocationService {
   getCurrentLocation(): Observable<any> {
     return this.http.get(`${apiUrl}/map/tag`, { withCredentials: true })
     .pipe(
-      tap(((location: any) => this.currentLocation = location)),
+      tap(((location: any) => {this.currentLocation = location
+      })),
       catchError(() => { this.currentLocation = null; return of(null); })
     );
   }
