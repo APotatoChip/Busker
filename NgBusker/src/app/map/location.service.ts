@@ -16,7 +16,7 @@ export class LocationService {
   currentLocation?:ILocation | null;
 
   get isPerforming():boolean{
-    console.log(!!this.currentLocation);
+ 
     
     return !!this.currentLocation;
   }
@@ -42,8 +42,11 @@ export class LocationService {
   }
 
   deleteCurrentMarker():Observable<any>{
-    this.currentLocation=null;
-    return this.http.delete(`${apiUrl}/map/tag`,{withCredentials:true});
+    return this.http.delete(`${apiUrl}/map/tag`,{withCredentials:true}).pipe(
+      tap((): void=>{
+        this.currentLocation = null; 
+      })
+    );
   }
 
 }
