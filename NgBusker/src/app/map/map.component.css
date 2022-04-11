@@ -71,9 +71,39 @@ p {
     width: 100%
 }
 
-.gm-style .gm-style-iw-d::-webkit-scrollbar-track,
-.gm-style .gm-style-iw-d::-webkit-scrollbar-track-piece,
-.gm-style .gm-style-iw-c,
-.gm-style .gm-style-iw-t::after {
+.gm-style-iw-d {
+    overflow: scroll;
+    scrollbar-color: #cc4c19 rgb(190, 181, 181) !important;
+    scrollbar-width: thin !important;
+}
+
+div.gm-style-iw-d div h3 {
     color: black;
+}
+
+div.gm-style-iw-d div p {
+    color: black;
+}
+
+.profile-pic {
+    height: 90px;
+    width: 120px;
+}
+
+.view-profile-btn {
+    height: 40px;
+    width: 90px;
+    background-color: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 3px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, .3);
+    cursor: pointer;
+    margin-top: 8px;
+    margin-bottom: 22px;
+    text-align: center;
+    color: #fff;
+    font-family: var(--main-font);
+    font-size: 16px;
+    padding-left: 5px;
+    padding-right: 5px;
 }

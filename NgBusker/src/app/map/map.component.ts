@@ -1,11 +1,12 @@
-import { AfterContentInit, AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MapService } from './map.service';
 import { LocationService } from './location.service';
 
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  styleUrls: ['./map.component.css'],
+  encapsulation:ViewEncapsulation.None
 })
 export class MapComponent implements AfterViewInit {
 

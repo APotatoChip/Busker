@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { UserService } from '../user/user.service';
 import { LocationService } from './location.service';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { LocationService } from './location.service';
 })
 export class TagService {
 
-  constructor(private locationService:LocationService) { }
+  constructor(private locationService:LocationService, private userService:UserService) { }
 
   TagYourselfControl(controlDiv: Element, map: google.maps.Map) {
     //Remove CSS from here
@@ -101,7 +102,7 @@ export class TagService {
    // Setup the click event listeners: 
   
  let count:number=0;
- let marker:google.maps.Marker; 
+ let marker:google.maps.Marker;
 
 
    
@@ -110,15 +111,62 @@ export class TagService {
 
 
 this.locationService.getCurrentLocation().subscribe((res)=>{
+  
   if(this.locationService.isPerforming==true){
     controlText.innerHTML ="Untag Yourself";
-              
     
     let coords= new google.maps.LatLng(res[0],res[1]);
-    const contentString = "<p>Yo</p>";
-  const infowindow = new google.maps.InfoWindow({
-    content: contentString,
+    
+    const innnerDivContainer = document.createElement("div");
+    innnerDivContainer.className="info-window";
+    
+   
+    
+    
+    
+    
+    
+    this.userService.getCurrentUserProfile().subscribe((user)=>{
+      console.log(user);
+      let {avatar, username,location}=user;
+      let nameElement=document.createElement("h3");
+      nameElement.innerHTML=username;
+      
+    let imageElement = document.createElement("img");
+    imageElement.classList.add("profile-pic");
+    imageElement.src=avatar;
+
+    let locationNameElement = document.createElement("p");
+    locationNameElement.innerHTML=location
+    let taggedTimeElement=document.createElement("p");
+    taggedTimeElement.innerHTML="3h ago";
+    let viewProfileBtnElement=document.createElement("button");
+    viewProfileBtnElement.classList.add("view-profile-btn");
+    viewProfileBtnElement.textContent="View Profile";
+    
+    innnerDivContainer.appendChild(imageElement);
+    innnerDivContainer.appendChild(locationNameElement);
+    innnerDivContainer.appendChild(taggedTimeElement);
+    innnerDivContainer.appendChild(viewProfileBtnElement);
+      
+      innnerDivContainer.appendChild(nameElement);
+
+
+
+
+});      
+
+
+    
+    
+    
+  var infowindow = new google.maps.InfoWindow({
+    content:  innnerDivContainer,
+    
   });
+
+
+  
 
   
 
@@ -165,10 +213,12 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
           if(marker.getMap()!==null){
            this.locationService.postCurrentLocation([lat,lng]).subscribe((res)=>{
 
-            const contentString = "<p>Yo</p>";
+            const innnerDivContainer =document.createElement("div");
+            innnerDivContainer.innerHTML="yo testhe";
+            innnerDivContainer.style.color="#000";
         
             const infowindow = new google.maps.InfoWindow({
-              content: contentString,
+              content: innnerDivContainer,
             });
             
             marker.addListener("click", () => {
