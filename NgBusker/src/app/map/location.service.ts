@@ -17,8 +17,12 @@ export class LocationService {
 
   get isPerforming():boolean{
 this.getCurrentLocation().subscribe((res)=>{
-this.currentLocation=res;
-
+  //try catch later
+  if(res){
+    this.currentLocation=res.location;
+  }else{
+    this.currentLocation=null;
+  }
 });
 
     return !!this.currentLocation;
@@ -30,17 +34,26 @@ this.currentLocation=res;
   getCurrentLocation(): Observable<any> {
     return this.http.get(`${apiUrl}/map/tag`, { withCredentials: true })
     .pipe(
-      tap(((location: any) => {this.currentLocation = location
+      tap(((loc: any) => {
+        // try catch later
+        if(loc){
+
+          this.currentLocation = loc.location;
+        }else{
+          throw new Error("No location response")
+        }
+        
       })),
-      catchError(() => { this.currentLocation = null; return of(null); })
+      catchError(() => {     
+         this.currentLocation = null; return of(null); })
     );
   }
   
   postCurrentLocation(data:Object):Observable<any>{
     return this.http.post<any>(`${apiUrl}/map/tag`, data,{withCredentials:true}).pipe(
-      tap((location:any) =>  {
+      tap((loc:any) =>  {
 
-        this.currentLocation=location;
+        this.currentLocation=loc.location;
       })
     );
   }
@@ -52,5 +65,9 @@ this.currentLocation=res;
       })
     );
   }
+
+  // getLocationTagTime():Observable<any>{
+  //   return 
+  // }
 
 }

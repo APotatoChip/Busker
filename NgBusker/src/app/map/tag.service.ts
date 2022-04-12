@@ -34,7 +34,7 @@ export class TagService {
     // Cheking if there is already a tag
     controlText.innerHTML ="Untag Yourself";
     // Getting the location coordiantes of the tag from the response
-    let coords= new google.maps.LatLng(res[0],res[1]);
+    let coords= new google.maps.LatLng(res.location[0],res.location[1]);
 
   
 var innerDivContainer = this.customControls.createInfoWindow(this.userService);

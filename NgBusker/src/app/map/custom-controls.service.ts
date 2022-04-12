@@ -46,9 +46,9 @@ export class CustomControlsService {
       innnerDivContainer.className="info-window";
       var infowindow:google.maps.InfoWindow;
       //Creating the elements for the info-window, retrieving info about them from the db through the userService
-      userService.getCurrentUserProfile().subscribe((user:any)=>{
-        let {avatar, username,location}=user;
-        let nameElement=document.createElement("h3");
+      let nameElement=document.createElement("h3");
+      this.userService.getCurrentUserProfile().subscribe((user:any)=>{
+        let {avatar, username}=user;
         nameElement.innerHTML=username;
         
       let imageElement = document.createElement("img");
@@ -57,10 +57,11 @@ export class CustomControlsService {
       let locationNameElement = document.createElement("p");
       // Getting the location and reverse geocoding it to retrieve the name of the place
          this.locationService.getCurrentLocation().subscribe((res)=>{
-          console.log(res);
+   
+          
           const latLng={
-            lat:parseFloat(res[0]),
-            lng: parseFloat(res[1])
+            lat:parseFloat(res.location[0]),
+            lng: parseFloat(res.location[1])
           }
                   const geoCoder= new google.maps.Geocoder();
                   geoCoder.geocode({location:latLng})
