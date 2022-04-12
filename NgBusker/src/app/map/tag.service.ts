@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { CustomControlsService } from './custom-controls.service';
 import { LocationService } from './location.service';
 
 @Injectable({
@@ -7,175 +8,47 @@ import { LocationService } from './location.service';
 })
 export class TagService {
 
-  constructor(private locationService:LocationService, private userService:UserService) { }
+  constructor(private locationService:LocationService, private userService:UserService, private customControls:CustomControlsService) { }
 
   TagYourselfControl(controlDiv: Element, map: google.maps.Map) {
-    //Remove CSS from here
-   // Set CSS for the control border.
-   const controlUI = document.createElement("div");
- 
+
+   var controlsArray:Array<HTMLElement>=this.customControls.createMapCustomControls();
    
-   controlUI.style.backgroundColor = "var(--accent)";
-   controlUI.style.border = "2px solid var(--accent)";
-   controlUI.style.borderRadius = "3px";
-   controlUI.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-   controlUI.style.cursor = "pointer";
-   controlUI.style.marginTop = "8px";
-   controlUI.style.marginBottom = "22px";
-   controlUI.style.textAlign = "center";
-   controlUI.style.display="block";
-   //controlUI.title = "Click to recenter the map";
-   //controlDiv.appendChild(controlUI);
- 
-   // Set CSS for the control interior.
-   const controlText = document.createElement("div");
- 
-   controlText.className="control-text";
-   controlText.style.color = "#fff";
-   controlText.style.fontFamily = "var(--main-font)";
-   controlText.style.fontSize = "16px";
-   controlText.style.lineHeight = "38px";
-   controlText.style.paddingLeft = "5px";
-   controlText.style.paddingRight = "5px";
-   controlText.innerHTML = "Tag Yourself";
-   controlUI.appendChild(controlText);
+   const controlUI:HTMLElement=controlsArray[0];
+   var controlText:HTMLElement = controlsArray[1];
+   const controlUIDone:HTMLElement=controlsArray[2];
+   const controlUICancel:HTMLElement=controlsArray[4];
 
-
-   // ---------------------------------
-   const controlUIDone = document.createElement("div");
- 
-   
-   controlUIDone.style.backgroundColor = "var(--accent)";
-   controlUIDone.style.border = "2px solid var(--accent)";
-   controlUIDone.style.borderRadius = "3px";
-   controlUIDone.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-   controlUIDone.style.cursor = "pointer";
-   controlUIDone.style.marginTop = "8px";
-   controlUIDone.style.marginBottom = "22px";
-   controlUIDone.style.textAlign = "center";
-   controlUIDone.style.display="none";
-   //controlUI.title = "Click to recenter the map";
-   //controlDiv.appendChild(controlUIDone);
- 
-   // Set CSS for the control interior.
-   const controlTextDone = document.createElement("div");
- 
-   controlTextDone.style.color = "#fff";
-   controlTextDone.style.fontFamily = "var(--main-font)";
-   controlTextDone.style.fontSize = "16px";
-   controlTextDone.style.lineHeight = "38px";
-   controlTextDone.style.paddingLeft = "5px";
-   controlTextDone.style.paddingRight = "5px";
-   controlTextDone.innerHTML = "Done";
-   controlUIDone.appendChild(controlTextDone);
-
-   // ---------------------------------
-   const controlUICancel = document.createElement("div");
- 
-   
-   controlUICancel.style.backgroundColor = "var(--accent)";
-   controlUICancel.style.border = "2px solid var(--accent)";
-   controlUICancel.style.borderRadius = "3px";
-   controlUICancel.style.boxShadow = "0 2px 6px rgba(0,0,0,.3)";
-   controlUICancel.style.cursor = "pointer";
-   controlUICancel.style.marginTop = "8px";
-   controlUICancel.style.marginBottom = "22px";
-   controlUICancel.style.textAlign = "center";
-   controlUICancel.style.display="none";
-   //controlUI.title = "Click to recenter the map";
-   //controlDiv.appendChild(controlUICancel);
- 
-   // Set CSS for the control interior.
-   const controlTextCancel = document.createElement("div");
- 
-   controlTextCancel.style.color = "#fff";
-   controlTextCancel.style.fontFamily = "var(--main-font)";
-   controlTextCancel.style.fontSize = "16px";
-   controlTextCancel.style.lineHeight = "38px";
-   controlTextCancel.style.paddingLeft = "5px";
-   controlTextCancel.style.paddingRight = "5px";
-   controlTextCancel.innerHTML = "Cancel";
-   controlUICancel.appendChild(controlTextCancel);
-
+   // Appending all control buttons to the main div container
    controlDiv.append(controlUI,controlUIDone,controlUICancel);
  
-   // Setup the click event listeners: 
-  
- let count:number=0;
- let marker:google.maps.Marker;
+   // Setup the click event listeners:
+  let count:number=0;
+  let marker:google.maps.Marker;
 
 
-   
-
- //       //initial position if any on reload
-
-
-this.locationService.getCurrentLocation().subscribe((res)=>{
+  // Loading initial position if any on page refresh
+  this.locationService.getCurrentLocation().subscribe((res)=>{
   
   if(this.locationService.isPerforming==true){
+    // Cheking if there is already a tag
     controlText.innerHTML ="Untag Yourself";
-    
+    // Getting the location coordiantes of the tag from the response
     let coords= new google.maps.LatLng(res[0],res[1]);
-    
-    const innnerDivContainer = document.createElement("div");
-    innnerDivContainer.className="info-window";
-    
-   
-    
-    
-    
-    
-    
-    this.userService.getCurrentUserProfile().subscribe((user)=>{
-      console.log(user);
-      let {avatar, username,location}=user;
-      let nameElement=document.createElement("h3");
-      nameElement.innerHTML=username;
-      
-    let imageElement = document.createElement("img");
-    imageElement.classList.add("profile-pic");
-    imageElement.src=avatar;
-
-    let locationNameElement = document.createElement("p");
-    locationNameElement.innerHTML=location
-    let taggedTimeElement=document.createElement("p");
-    taggedTimeElement.innerHTML="3h ago";
-    let viewProfileBtnElement=document.createElement("button");
-    viewProfileBtnElement.classList.add("view-profile-btn");
-    viewProfileBtnElement.textContent="View Profile";
-    
-    innnerDivContainer.appendChild(imageElement);
-    innnerDivContainer.appendChild(locationNameElement);
-    innnerDivContainer.appendChild(taggedTimeElement);
-    innnerDivContainer.appendChild(viewProfileBtnElement);
-      
-      innnerDivContainer.appendChild(nameElement);
-
-
-
-
-});      
-
-
-    
-    
-    
-  var infowindow = new google.maps.InfoWindow({
-    content:  innnerDivContainer,
-    
-  });
-
 
   
+var innerDivContainer = this.customControls.createInfoWindow(this.userService);
+var infowindow = new google.maps.InfoWindow({
+  content:  innerDivContainer,
+});
 
-  
-
+  // Creating marker for the lococation
       marker = new google.maps.Marker({
         position:coords,
       map:map
       })
     
-      
+  // Listener for the opening of info-window
       marker.addListener("click", () => {
         infowindow.open({
           anchor: marker,
@@ -186,39 +59,33 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
     
   }else{
    controlText.innerHTML="Tag Yourself"
-  }
-   
+  } 
  });
 
-
-
- //logic for the control and marker
-  
+ // Logic for the control and marker
+ // Changing button state depending on if theres already a tag or not 
    controlUI.addEventListener("click",(e)=>{
-
+     // Logic for untagged
      if(controlText.innerHTML==="Tag Yourself" ){      
-    
-   
-     
       if(this.locationService.isPerforming===false && count==0){
            controlUI.style.display="none";
            controlUIDone.style.display="block";
            controlUICancel.style.display="block";
         
+          // Event listener for done button
            controlUIDone.addEventListener("click",()=>{
                     
              controlUI.style.display="block";
              controlUIDone.style.display="none";
-           controlUICancel.style.display="none";
+            controlUICancel.style.display="none";
+
+            // Cheking whether the user tagged himself or not and if tagged saving the tag 
           if(marker.getMap()!==null){
            this.locationService.postCurrentLocation([lat,lng]).subscribe((res)=>{
-
-            const innnerDivContainer =document.createElement("div");
-            innnerDivContainer.innerHTML="yo testhe";
-            innnerDivContainer.style.color="#000";
-        
+             // Creating info window using the function from above
+            var innerDivContainer= this.customControls.createInfoWindow(this.userService);
             const infowindow = new google.maps.InfoWindow({
-              content: innnerDivContainer,
+              content: innerDivContainer,
             });
             
             marker.addListener("click", () => {
@@ -233,44 +100,46 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
            });
          }else{
            controlText.innerHTML="Tag Yourself"
+           // Stopping the user from spamming markers because only one allowed per user
            google.maps.event.clearListeners(map,"click");
-       
-         }  
-
+         } 
            })
 
+           // Event listener for the cancel button
            controlUICancel.addEventListener("click",()=>{
              controlUI.style.display="block";
              controlUIDone.style.display="none";
            controlUICancel.style.display="none"; 
+           // Checkin whether the user tagged himself or not and if tagged removing the tag
            if(marker.getMap()!==null){
              marker.setMap(null);
              count=0;
              google.maps.event.clearListeners(map,"click");
            } else{
+             // Stopping the user from spamming markers because its only one allowed per user
              google.maps.event.clearListeners(map,"click");
            }
-           
-           })
-             let lat:any;
-             let lng:any;
-           
-             
-             {
+           });
 
- map.addListener("click",(mapsMouseEvent:google.maps.MapMouseEvent)=>{
+
+             let lat:String | undefined;
+             let lng:String | undefined;
+             {
+      // Creating the tag marker if the user is not currently tagged 
+      // if so changing the control button state
+    map.addListener("click",(mapsMouseEvent:google.maps.MapMouseEvent)=>{
    if(this.locationService.isPerforming==false && count==0){   
      
                marker = new google.maps.Marker({
                  position:mapsMouseEvent.latLng,
                  map:map
                })
-
+            // Getting the mouse position
                 lat= marker.getPosition()?.lat().toString();
                 lng = marker.getPosition()?.lng().toString()
              count=1;       
            }else{
-            
+            // Preventing the user from spamming markers
              mapsMouseEvent.stop();
            }
      });
@@ -278,8 +147,8 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
    }  
  }  
 }else{
-  
  controlText.innerHTML="Untag Yourself"
+ // Untaggin self from the map and removing the marker
  this.locationService.deleteCurrentMarker().subscribe((res)=>{
    controlText.innerHTML="Tag Yourself"
    marker.setMap(null);
@@ -287,10 +156,7 @@ this.locationService.getCurrentLocation().subscribe((res)=>{
    google.maps.event.clearListeners(map,"click");
 })
 }
- 
-
 });
-
   }}
 
 
