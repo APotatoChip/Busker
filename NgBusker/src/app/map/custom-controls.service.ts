@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { UserService } from '../user/user.service';
+import { LocationService } from './location.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomControlsService {
 
-  constructor(private userService:UserService) { }
+  constructor(private userService:UserService, private locationService:LocationService) { }
   
    createMapCustomControls():Array<HTMLElement>{
     // Creating tag/untag control ui and text elements
@@ -53,9 +54,23 @@ export class CustomControlsService {
       let imageElement = document.createElement("img");
       imageElement.classList.add("profile-pic");
       imageElement.src=avatar;
-  
       let locationNameElement = document.createElement("p");
-      locationNameElement.innerHTML=location
+      // Getting the location and reverse geocoding it to retrieve the name of the place
+         this.locationService.getCurrentLocation().subscribe((res)=>{
+          console.log(res);
+          const latLng={
+            lat:parseFloat(res[0]),
+            lng: parseFloat(res[1])
+          }
+                  const geoCoder= new google.maps.Geocoder();
+                  geoCoder.geocode({location:latLng})
+                  .then((res)=>{
+                    locationNameElement.innerHTML=res.results[0].formatted_address;
+                    
+                  })    
+        });
+        
+      
       let taggedTimeElement=document.createElement("p");
       taggedTimeElement.innerHTML="3h ago";
       let viewProfileBtnElement=document.createElement("button");
