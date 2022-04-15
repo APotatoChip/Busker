@@ -6,8 +6,7 @@ import { UserService } from 'src/app/user/user.service';
 @Component({
   selector: 'app-sidenav-list',
   templateUrl: './sidenav-list.component.html',
-  styleUrls: ['./sidenav-list.component.css'],
-  encapsulation: ViewEncapsulation.None
+  styleUrls: ['./sidenav-list.component.css']
 })
 export class SidenavListComponent  {
 

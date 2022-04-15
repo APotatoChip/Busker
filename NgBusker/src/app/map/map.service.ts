@@ -9,8 +9,8 @@ export class MapService {
   
   constructor(private tagService:TagService) { }
 
-  //Initializing the map
-  initMap(mapRef:HTMLElement): void {
+  //Initializing the map 
+  initMap(mapRef:HTMLElement, centerControlDivRef:HTMLElement): void {
 
     const sofiaLngLat  = new google.maps.LatLng(42.698334, 23.319941);
     const mapOptions: google.maps.MapOptions = {
@@ -22,16 +22,17 @@ export class MapService {
 
     let map: google.maps.Map;
     let mapRefDiv:HTMLElement = mapRef;
+    let centerControlRefDiv:HTMLElement=centerControlDivRef;
     map = new google.maps.Map(mapRefDiv, mapOptions);
 
 
     // Create the DIV to hold the control and call the TagYourselfControl()
     // constructor passing in this DIV.
-    const centerControlDiv = document.createElement("div");
+   // const centerControlDiv = document.createElement("div");
   
-    this.tagService.TagYourselfControl(centerControlDiv, map);
+    this.tagService.TagYourselfControl(centerControlDivRef, map);
   
-    map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDiv);
+    map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDivRef);
    
 
     

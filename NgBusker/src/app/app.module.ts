@@ -18,6 +18,7 @@ import { MapComponent } from './map/map.component';
 import { UserComponent } from './user/user.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SearchComponent } from './search/search.component';
+import { InfoWindowComponent } from './info-window/info-window.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { SearchComponent } from './search/search.component';
     MapComponent,
     NotFoundComponent,
     SearchComponent,
+    InfoWindowComponent,
   ],
   imports: [
     BrowserModule,

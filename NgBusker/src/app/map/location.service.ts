@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
@@ -15,16 +15,12 @@ export class LocationService {
 
   currentLocation?:ILocation | null;
 
+  // check whether a busker has already tagged himself and if so returns true otherwise returns false
   get isPerforming():boolean{
 this.getCurrentLocation().subscribe((res)=>{
   //try catch later
-  if(res){
-    this.currentLocation=res.location;
-  }else{
-    this.currentLocation=null;
-  }
+    this.currentLocation=res?res.location:null;
 });
-
     return !!this.currentLocation;
   }
 
@@ -36,17 +32,10 @@ this.getCurrentLocation().subscribe((res)=>{
     .pipe(
       tap(((loc: any) => {
         // try catch later
-        if(loc){
-
-          this.currentLocation = loc.location;
-        }else{
-          throw new Error("No location response")
-        }
-        
-      })),
-      catchError(() => {     
-         this.currentLocation = null; return of(null); })
-    );
+        //console.log(loc);
+        loc?this.currentLocation=loc:this.currentLocation=null;
+      }
+    )))
   }
   
   postCurrentLocation(data:Object):Observable<any>{
@@ -66,8 +55,26 @@ this.getCurrentLocation().subscribe((res)=>{
     );
   }
 
-  // getLocationTagTime():Observable<any>{
-  //   return 
-  // }
+ getAllCurrentlyPerforming():Observable<any>{
+return this.http.get(`${apiUrl}/map/all`).pipe(
+  tap((res)=>{
+    //console.log(res);
+    
+  })
+)
+ }
+
+ getExactLocation(lcoId:any):Observable<any>{
+   return this.http.get(`${apiUrl}/map/exact/:location=`+encodeURIComponent(JSON.stringify(lcoId))
+   )
+ }
+
+ getAllTaggedUsers():Observable<any>{
+  return this.http.get(`${apiUrl}/map/users`).pipe(
+    tap((res)=>{
+    console.log(res);
+    })
+  )  
+ }
 
 }
