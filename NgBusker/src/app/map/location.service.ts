@@ -19,10 +19,12 @@ export class LocationService {
   get isPerforming():boolean{
 this.getCurrentLocation().subscribe((res)=>{
   //try catch later
-    this.currentLocation=res?res.location:null;
+    this.currentLocation=res ? res.location:null;
 });
+console.log(!!this.currentLocation);
     return !!this.currentLocation;
   }
+
 
   constructor(private http:HttpClient) { }
 

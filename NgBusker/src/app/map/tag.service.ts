@@ -28,36 +28,36 @@ export class TagService {
 
 
   // Loading initial position if any on page refresh
-  this.locationService.getAllCurrentlyPerforming().subscribe((res)=>{
-    var innerDivContainers = this.customControls.createInfoWindowAll(this.locationService);
-    //console.log(innerDivContainers);
-  //  console.log(innerDivContainers);
+//   this.locationService.getAllCurrentlyPerforming().subscribe((res)=>{
+//     var innerDivContainers = this.customControls.createInfoWindowAll(this.locationService);
+//     //console.log(innerDivContainers);
+//   //  console.log(innerDivContainers);
     
-    for(let i=0;i<res.length;i++){
+//     for(let i=0;i<res.length;i++){
 
-      let coords= new google.maps.LatLng(res[i].location[0],res[i].location[1]);
-var infowindow = new google.maps.InfoWindow({
-  content:  innerDivContainers[i],
-});
+//       let coords= new google.maps.LatLng(res[i].location[0],res[i].location[1]);
+// var infowindow = new google.maps.InfoWindow({
+//   content:  innerDivContainers[i],
+// });
 
-  // Creating marker for the lococation
-      marker = new google.maps.Marker({
-        position:coords,
-      map:map
-      })
+//   // Creating marker for the lococation
+//       marker = new google.maps.Marker({
+//         position:coords,
+//       map:map
+//       })
     
-  // Listener for the opening of info-window
-      marker.addListener("click", () => {
-        infowindow.open({
-          anchor: marker,
-          map,
-          shouldFocus: false,
-        });
-      }); 
-    }
+//   // Listener for the opening of info-window
+//       marker.addListener("click", () => {
+//         infowindow.open({
+//           anchor: marker,
+//           map,
+//           shouldFocus: false,
+//         });
+//       }); 
+//     }
 
     
-  })
+//   })
   this.locationService.getCurrentLocation().subscribe((res)=>{
   
   if(this.locationService.isPerforming==true){

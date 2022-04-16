@@ -14,10 +14,10 @@
         <div class="mapRef" #mapRef>
             <div class="centerControlDivRef" #centerControlDivRef>
                 {{isPerforming}}
-                <div *ngIf="isPerforming" class="controlUiRef control-ui tag-btn" #controlUiRef>
-                    <div class="controlTextRef control-text untag-txt" #controlTextRef>Untag Yourself</div>
+                <div class="controlUiRef control-ui tag-btn" #controlUiRef>
+                    <div *ngIf="isPerforming" class="controlTextRef control-text untag-txt" #controlTextRef>Untag Yourself</div>
+                    <div *ngIf="!isPerforming" class="controlTextRef control-text tag-txt" #controlTextRef>Tag Yourself</div>
                 </div>
-                <div class="controlTextRef control-text tag-txt" #controlTextRef>Tag Yourself</div>
                 <div class="controlUiRef control-ui done-btn" #controlUiRef>
                     <div class="controlTextRef control-text done-txt" #controlTextRef>Done</div>
                 </div>

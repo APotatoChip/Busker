@@ -17,30 +17,27 @@ export class MapComponent implements AfterViewInit{
   @ViewChild("centerControlDivRef") centralControlDivRef?:ElementRef;
   @ViewChild("controlUiRef") controlUiRef?:ElementRef;
   @ViewChild("controlTextRef") controlTextRef?:ElementRef;
-  isPerforming=false;
+  
 
+  
+  
+  isPerforming = false;
   constructor( private mapService:MapService,private locationService:LocationService) {
-    
-  }
-  ngAfterViewInit(): void {
-    //hacking the problem with async loading (not a good practice wtf am I doin? check later)
-    setTimeout(()=>{
-      this.mapService.initMap(this.mapRef?.nativeElement, this.centralControlDivRef?.nativeElement);
-    },1000)
-    
+    //  this.isPerforming=this.locationService.isPerforming;
   }
   
-// ngAfterViewChecked(): void {
-//     this.isPerforming=this.locationService.isPerforming
-// }
-  
-// ngDoCheck(): void {
-//   this.isPerforming=this.locationService.isPerforming;
+  // suing afterview init cause map doesnt initialize otherwise 
+    ngAfterViewInit(): void {
+
+    this.mapService.initMap(this.mapRef?.nativeElement, this.centralControlDivRef?.nativeElement);
+   //change detection for isPerfmoring because initial value is sometimes false cause of lifecycle hook
+      setTimeout(()=>{
+        this.isPerforming=this.locationService.isPerforming;
+      },50)
+     
     
-// }
- 
-   
-  }
+    
+  }  }
     
   
 
