@@ -9,7 +9,7 @@ import { LocationService } from './location.service';
 export class CustomControlsService {
 
   constructor(private userService:UserService, private locationService:LocationService) { }
-  
+  //should be removed
    createMapCustomControls():Array<HTMLElement>{
     // Creating tag/untag control ui and text elements
     const controlUI = document.createElement("div");

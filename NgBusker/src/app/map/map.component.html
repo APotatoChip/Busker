@@ -13,17 +13,20 @@
         <!-- Div Reference for Map init -->
         <div class="mapRef" #mapRef>
             <div class="centerControlDivRef" #centerControlDivRef>
-                {{isPerforming}}
-                <div class="controlUiRef control-ui tag-btn" #controlUiRef>
-                    <div *ngIf="isPerforming" class="controlTextRef control-text untag-txt" #controlTextRef>Untag Yourself</div>
-                    <div *ngIf="!isPerforming" class="controlTextRef control-text tag-txt" #controlTextRef>Tag Yourself</div>
+                {{isPerforming}} {{isInTagMode}}
+                <div *ngIf="isPerforming && !isInTagMode" (click)="isInTagMode=false" (click)="untag()" class="controlUiRef control-ui untag-btn" #controlUiUntagRef>
+                    <div class="controlTextRef control-text untag-txt" #controlTextRef>Untag Yourself</div>
                 </div>
-                <div class="controlUiRef control-ui done-btn" #controlUiRef>
-                    <div class="controlTextRef control-text done-txt" #controlTextRef>Done</div>
+                <div *ngIf="isInTagMode" (click)="isInTagMode=false" (click)="doneTag()" class="controlUiRef control-ui done-btn" #controlUiDoneRef>
+                    <div class="controlTextRef control-text done-txt" #controlDoneTextRef>Done</div>
                 </div>
-                <div class="controlUiRef control-ui cancel-btn" #controlUiRef>
-                    <div class="controlTextRef control-text cancel-txt" #controlTextRef>Cancel</div>
+                <div *ngIf="isInTagMode" (click)="isInTagMode=false" (click)="cancelTag()" class="controlUiRef control-ui cancel-btn" #controlUiCancelRef>
+                    <div class="controlTextRef control-text cancel-txt" #controlCancelTextRef>Cancel</div>
                 </div>
+                <div *ngIf="!isPerforming && !isInTagMode" (click)="isInTagMode=true" (click)="tag()" class="controlUiRef control-ui tag-btn" #controlUiTagRef>
+                    <div class="controlTextRef control-text tag-txt" #controlTextRef>Tag Yourself</div>
+                </div>
+
             </div>
         </div>
     </div>

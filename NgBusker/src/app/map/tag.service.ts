@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { ElementRef, Injectable } from '@angular/core';
 import { UserService } from '../user/user.service';
 import { CustomControlsService } from './custom-controls.service';
 import { LocationService } from './location.service';
@@ -9,6 +9,13 @@ import { LocationService } from './location.service';
 export class TagService {
 
   constructor(private locationService:LocationService, private userService:UserService, private customControls:CustomControlsService) { }
+
+  tag(controlUiTag:ElementRef,controlUiUntag:ElementRef,controlUiDone:ElementRef,controlUICancel:ElementRef, map:google.maps.Map,isPerforming:boolean){
+    let marker:google.maps.Marker;
+    controlUiTag.nativeElement.style.display="none";
+
+    controlUiUntag.nativeElement.style.display="block";
+  }
 
   TagYourselfControl(controlDiv: Element, map: google.maps.Map) {
 
@@ -23,7 +30,7 @@ export class TagService {
    controlDiv.append(controlUI,controlUIDone,controlUICancel);
  
    // Setup the click event listeners:
-  let count:number=0;
+ // let count:number=0;
   let marker:google.maps.Marker;
 
 
@@ -97,7 +104,7 @@ var infowindow = new google.maps.InfoWindow({
    controlUI.addEventListener("click",(e)=>{
      // Logic for untagged
      if(controlText.innerHTML==="Tag Yourself" ){      
-      if(this.locationService.isPerforming===false && count==0){
+      if(this.locationService.isPerforming===false){
            controlUI.style.display="none";
            controlUIDone.style.display="block";
            controlUICancel.style.display="block";
@@ -143,7 +150,7 @@ var infowindow = new google.maps.InfoWindow({
            // Checkin whether the user tagged himself or not and if tagged removing the tag
            if(marker.getMap()!==null){
              marker.setMap(null);
-             count=0;
+            // count=0;
              google.maps.event.clearListeners(map,"click");
            } else{
              // Stopping the user from spamming markers because its only one allowed per user
@@ -158,7 +165,7 @@ var infowindow = new google.maps.InfoWindow({
       // Creating the tag marker if the user is not currently tagged 
       // if so changing the control button state
     map.addListener("click",(mapsMouseEvent:google.maps.MapMouseEvent)=>{
-   if(this.locationService.isPerforming==false && count==0){   
+   if(this.locationService.isPerforming==false){   
      
                marker = new google.maps.Marker({
                  position:mapsMouseEvent.latLng,
@@ -167,7 +174,7 @@ var infowindow = new google.maps.InfoWindow({
             // Getting the mouse position
                 lat= marker.getPosition()?.lat().toString();
                 lng = marker.getPosition()?.lng().toString()
-             count=1;       
+           //  count=1;       
            }else{
             // Preventing the user from spamming markers
              mapsMouseEvent.stop();
@@ -182,11 +189,13 @@ var infowindow = new google.maps.InfoWindow({
  this.locationService.deleteCurrentMarker().subscribe((res)=>{
    controlText.innerHTML="Tag Yourself"
    marker.setMap(null);
-   count=0;
+   //count=0;
    google.maps.event.clearListeners(map,"click");
 })
 }
 });
   }}
+
+  //hide/display the buttons instead of changing their text
 
 

@@ -3,6 +3,7 @@ import { MapService } from './map.service';
 import { LocationService } from './location.service';
 import { ILocation } from '../shared/interfaces/location';
 import { NgContentAst } from '@angular/compiler';
+import { TagService } from './tag.service';
 
 @Component({
   selector: 'app-map',
@@ -10,37 +11,71 @@ import { NgContentAst } from '@angular/compiler';
   styleUrls: ['./map.component.css'],
   encapsulation:ViewEncapsulation.None
 })
-export class MapComponent implements AfterViewInit{
+export class MapComponent implements AfterViewInit {
 
   //review using ElementRef
   @ViewChild("mapRef") mapRef?: ElementRef;
   @ViewChild("centerControlDivRef") centralControlDivRef?:ElementRef;
-  @ViewChild("controlUiRef") controlUiRef?:ElementRef;
+  @ViewChild("controlUiTagRef") controlUiTagRef?:ElementRef;
+  @ViewChild("controlUiUntagRef") controlUiUntagRef?:ElementRef;
+  @ViewChild("controlUiCancelRef") controlUiCancelRef?:ElementRef;
+  @ViewChild("controlUiDoneRef") controlUiDoneRef?:ElementRef;
   @ViewChild("controlTextRef") controlTextRef?:ElementRef;
   
+  isPerforming:boolean = false;
+  isInTagMode:boolean=false;
+  map?:google.maps.Map;
+  constructor( private mapService:MapService,private locationService:LocationService, private tagService:TagService) {
 
-  
-  
-  isPerforming = false;
-  constructor( private mapService:MapService,private locationService:LocationService) {
-    //  this.isPerforming=this.locationService.isPerforming;
-  }
-  
+  };
+
   // suing afterview init cause map doesnt initialize otherwise 
-    ngAfterViewInit(): void {
-
-    this.mapService.initMap(this.mapRef?.nativeElement, this.centralControlDivRef?.nativeElement);
-   //change detection for isPerfmoring because initial value is sometimes false cause of lifecycle hook
+  ngAfterViewInit(): void {
+   this.map = this.initMap(this.mapRef?.nativeElement, this.centralControlDivRef?.nativeElement);
+   console.log(this.map);
+   
+    //change detection for isPerfmoring because initial value is sometimes false cause of lifecycle hook
+    // later check for the angular way implementation  
       setTimeout(()=>{
-        this.isPerforming=this.locationService.isPerforming;
-      },50)
-     
-    
-    
-  }  }
-    
+          this.isPerforming=this.locationService.isPerforming;
+},100) 
+}  
   
+    tag(){
+      console.log(this.isInTagMode);
+      
+    // this.tagService.tag(this.controlUiTagRef as any,this.controlUiUntagRef as any,this.controlUiDoneRef as any,this.controlUiCancelRef as any,this.map as any,this.isPerforming)
+    }
 
+    untag(){
+      
 
+    }
 
+    doneTag(){
 
+    }
+
+    cancelTag(){
+
+    }
+ //Function for initializing the map with center - Sofia
+ initMap(mapRef:any, centerControlDivRef:HTMLElement): google.maps.Map {
+  
+  const sofiaLngLat  = new google.maps.LatLng(42.698334, 23.319941);
+  const mapOptions: google.maps.MapOptions = {
+    center: sofiaLngLat,
+    zoom: 12,
+    mapId:'14d2223a1d38fa88',
+    disableDefaultUI:true
+  };
+
+  let map: google.maps.Map;
+  map = new google.maps.Map(mapRef, mapOptions);
+
+  this.tagService.TagYourselfControl(centerControlDivRef, map);
+  map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDivRef);
+return map;
+    }
+
+  }
