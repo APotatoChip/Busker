@@ -63,23 +63,27 @@ console.log(!!this.currentLocation);
  getAllCurrentlyPerforming():Observable<any>{
 return this.http.get(`${apiUrl}/map/all`).pipe(
   tap((res)=>{
-    //console.log(res);
+   // console.log(res);
     
   })
 )
  }
 
- getExactLocation(lcoId:any):Observable<any>{
-   return this.http.get(`${apiUrl}/map/exact/:location=`+encodeURIComponent(JSON.stringify(lcoId))
-   )
+ getUserById(userId:any):Observable<any>{
+  return this.http.get(`${apiUrl}/map/exact/:userId=`+encodeURIComponent(JSON.stringify(userId))
+  )
  }
+//  getExactLocation(lcoId:any):Observable<any>{
+//    return this.http.get(`${apiUrl}/map/exact/:location=`+encodeURIComponent(JSON.stringify(lcoId))
+//    )
+//  }
 
- getAllTaggedUsers():Observable<any>{
-  return this.http.get(`${apiUrl}/map/users`).pipe(
-    tap((res)=>{
-    console.log(res);
-    })
-  )  
- }
+//  getAllTaggedUsers():Observable<any>{
+//   return this.http.get(`${apiUrl}/map/users`).pipe(
+//     tap((res)=>{
+//     console.log(res);
+//     })
+//   )  
+//  }
 
 }

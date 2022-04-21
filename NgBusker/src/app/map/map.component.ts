@@ -55,6 +55,8 @@ export class MapComponent implements AfterViewInit {
   let map: google.maps.Map;
   map = new google.maps.Map(mapRef, mapOptions);
 
+  
+  this.mapService.getAllCurrentlyPerformingMarkers(map);
   this.tagService.TagYourselfControl(centerControlDivRef, map);
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDivRef);
 return map;

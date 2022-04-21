@@ -134,6 +134,7 @@ var infowindow = new google.maps.InfoWindow({
      
                marker = new google.maps.Marker({
                  position:mapsMouseEvent.latLng,
+                 icon:'../../assets/photos/map-icon.svg',
                  map:map
                })
             // Getting the mouse position
