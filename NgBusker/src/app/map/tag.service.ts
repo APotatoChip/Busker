@@ -9,13 +9,8 @@ import { LocationService } from './location.service';
 export class TagService {
 
   constructor(private locationService:LocationService, private userService:UserService, private customControls:CustomControlsService) { }
+ 
 
-  tag(controlUiTag:ElementRef,controlUiUntag:ElementRef,controlUiDone:ElementRef,controlUICancel:ElementRef, map:google.maps.Map,isPerforming:boolean){
-    let marker:google.maps.Marker;
-    controlUiTag.nativeElement.style.display="none";
-
-    controlUiUntag.nativeElement.style.display="block";
-  }
 
   TagYourselfControl(controlDiv: Element, map: google.maps.Map) {
 
@@ -34,37 +29,6 @@ export class TagService {
   let marker:google.maps.Marker;
 
 
-  // Loading initial position if any on page refresh
-//   this.locationService.getAllCurrentlyPerforming().subscribe((res)=>{
-//     var innerDivContainers = this.customControls.createInfoWindowAll(this.locationService);
-//     //console.log(innerDivContainers);
-//   //  console.log(innerDivContainers);
-    
-//     for(let i=0;i<res.length;i++){
-
-//       let coords= new google.maps.LatLng(res[i].location[0],res[i].location[1]);
-// var infowindow = new google.maps.InfoWindow({
-//   content:  innerDivContainers[i],
-// });
-
-//   // Creating marker for the lococation
-//       marker = new google.maps.Marker({
-//         position:coords,
-//       map:map
-//       })
-    
-//   // Listener for the opening of info-window
-//       marker.addListener("click", () => {
-//         infowindow.open({
-//           anchor: marker,
-//           map,
-//           shouldFocus: false,
-//         });
-//       }); 
-//     }
-
-    
-//   })
   this.locationService.getCurrentLocation().subscribe((res)=>{
   
   if(this.locationService.isPerforming==true){
@@ -82,6 +46,7 @@ var infowindow = new google.maps.InfoWindow({
   // Creating marker for the lococation
       marker = new google.maps.Marker({
         position:coords,
+        icon:'../../assets/photos/map-icon.svg',
       map:map
       })
     
@@ -198,4 +163,54 @@ var infowindow = new google.maps.InfoWindow({
 
   //hide/display the buttons instead of changing their text
 
+// for later
 
+  // tag(map:google.maps.Map,isPerforming:boolean){
+  //   console.log("yo");
+  //   let marker:google.maps.Marker;
+  // let markers:any=[];
+  //   let lat:String | undefined;
+  //   let lng:String | undefined;
+  //   async function hey(){
+  // // Creating the tag marker. Limit of one
+  //  map.addListener("click",(mapsMouseEvent:google.maps.MapMouseEvent)=>{
+   
+  //   // Instantiating the marker with the mouse event pos
+  //         marker =  new google.maps.Marker({
+  //           position:mapsMouseEvent.latLng,
+  //           map:map
+  //         })
+  //      // Getting the mouse position
+  //          lat= marker.getPosition()?.lat().toString();
+  //          lng = marker.getPosition()?.lng().toString();
+           
+  //    // Clearing the listeners to prevent spam
+  //     google.maps.event.clearListeners(map,"click");
+      
+      
+  
+  //   });
+    
+  //   }
+  
+  //   hey().then((res:any)=>{
+  //     console.log(res);
+      
+  //   });
+    
+    
+  
+    
+   
+  // }
+  // doneTag(controlUiDone:ElementRef,marker:google.maps.Marker, map:google.maps.Map,isPerforming:boolean){
+  //   // this.tag().testova();
+  //   //console.log(marker.getMap());
+    
+  
+  
+  // }
+    
+      
+    
+  

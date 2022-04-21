@@ -25,15 +25,14 @@ export class MapComponent implements AfterViewInit {
   isPerforming:boolean = false;
   isInTagMode:boolean=false;
   map?:google.maps.Map;
+
   constructor( private mapService:MapService,private locationService:LocationService, private tagService:TagService) {
 
   };
 
   // suing afterview init cause map doesnt initialize otherwise 
   ngAfterViewInit(): void {
-   this.map = this.initMap(this.mapRef?.nativeElement, this.centralControlDivRef?.nativeElement);
-   console.log(this.map);
-   
+   this.map = this.initMap(this.mapRef?.nativeElement, this.centralControlDivRef?.nativeElement);   
     //change detection for isPerfmoring because initial value is sometimes false cause of lifecycle hook
     // later check for the angular way implementation  
       setTimeout(()=>{
@@ -41,24 +40,7 @@ export class MapComponent implements AfterViewInit {
 },100) 
 }  
   
-    tag(){
-      console.log(this.isInTagMode);
-      
-    // this.tagService.tag(this.controlUiTagRef as any,this.controlUiUntagRef as any,this.controlUiDoneRef as any,this.controlUiCancelRef as any,this.map as any,this.isPerforming)
-    }
-
-    untag(){
-      
-
-    }
-
-    doneTag(){
-
-    }
-
-    cancelTag(){
-
-    }
+ 
  //Function for initializing the map with center - Sofia
  initMap(mapRef:any, centerControlDivRef:HTMLElement): google.maps.Map {
   
@@ -77,5 +59,17 @@ export class MapComponent implements AfterViewInit {
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDivRef);
 return map;
     }
+
+       // tag(){  
+    //   this.isInTagMode=true;
+    //   console.log( this.tagService.tag(this.map as google.maps.Map,this.isPerforming));
+  
+    // }
+
+
+    // untag(){
+    //   this.isInTagMode=false
+      
+    // }
 
   }

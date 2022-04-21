@@ -28,6 +28,7 @@ console.log(!!this.currentLocation);
 
   constructor(private http:HttpClient) { }
 
+  // for individual
 //returns array with the coordinates
   getCurrentLocation(): Observable<any> {
     return this.http.get(`${apiUrl}/map/tag`, { withCredentials: true })
@@ -56,6 +57,8 @@ console.log(!!this.currentLocation);
       })
     );
   }
+
+  // for all
 
  getAllCurrentlyPerforming():Observable<any>{
 return this.http.get(`${apiUrl}/map/all`).pipe(
