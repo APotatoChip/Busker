@@ -63,7 +63,7 @@ p {
     height: 100%;
 }
 
-.mapRef {
+::ng-deep .mapRef {
     margin: 5rem 3rem;
     border: 2px solid var(--accent);
     border-radius: 3%;
@@ -71,13 +71,13 @@ p {
     width: 100%
 }
 
-.gm-style-iw-d {
+::ng-deep .gm-style-iw-d {
     overflow: scroll;
-    scrollbar-color: #cc4c19 rgb(190, 181, 181) !important;
-    scrollbar-width: thin !important;
+    scrollbar-color: #cc4c19 rgb(190, 181, 181);
+    scrollbar-width: thin;
 }
 
-.control-ui {
+::ng-deep .control-ui {
     background-color: var(--accent);
     border: 2px solid var(--accent);
     border-radius: 3px;
@@ -89,7 +89,7 @@ p {
     display: block;
 }
 
-.control-text {
+::ng-deep .control-text {
     color: #fff;
     font-size: 16px;
     line-height: 38px;
@@ -98,20 +98,20 @@ p {
     font-family: var(--main-font);
 }
 
-div.gm-style-iw-d div h3 {
+::ng-deep div.gm-style-iw-d div h3 {
     color: black;
 }
 
-div.gm-style-iw-d div p {
+::ng-deep div.gm-style-iw-d div p {
     color: black;
 }
 
-.profile-pic {
+::ng-deep .profile-pic {
     height: 90px;
     width: 120px;
 }
 
-.view-profile-btn {
+::ng-deep .view-profile-btn {
     height: 40px;
     width: 90px;
     background-color: var(--accent);

@@ -7,7 +7,11 @@
 
         <!-- Back to top arrow -->
         <div class="back-to-top">
-            <a href="/#hero" (click)="onActivate()">
+            <a *ngIf="route=='/home'" (click)="onActivate()">
+                <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
+                </mat-icon>
+            </a>
+            <a *ngIf="route=='/map'" (click)="onActivate()">
                 <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
                 </mat-icon>
             </a>

@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild, ViewEncapsulation } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, ElementRef, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
 import { MapService } from './map.service';
 import { LocationService } from './location.service';
 import { ILocation } from '../shared/interfaces/location';
@@ -8,8 +8,7 @@ import { TagService } from './tag.service';
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css'],
-  encapsulation:ViewEncapsulation.None
+  styleUrls: ['./map.component.css']
 })
 export class MapComponent implements AfterViewInit {
 

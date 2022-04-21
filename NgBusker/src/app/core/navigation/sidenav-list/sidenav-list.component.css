@@ -1,22 +1,22 @@
-a {
+::ng-deep a {
     text-decoration: none;
     color: #fff;
 }
 
-span {
+::ng-deep span {
     color: #fff;
 }
 
-a:hover {
+::ng-deep a:hover {
     color: var(--accent);
 }
 
-.nav-caption {
+::ng-deep .nav-caption {
     display: inline-block;
     padding-left: 6px;
 }
 
-.mat-button,
+::ng-deep .mat-button,
 .mat-icon-button,
 .mat-stroked-button {
     color: #fff;

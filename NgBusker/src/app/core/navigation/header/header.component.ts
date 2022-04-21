@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 import * as AOS from 'aos';
 import { UserService } from 'src/app/user/user.service';
