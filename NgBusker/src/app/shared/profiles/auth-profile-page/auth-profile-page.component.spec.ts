@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewerViewerComponent } from './viewer-viewer.component';
+import { AuthProfilePageComponent } from './auth-profile-page.component';
 
-describe('ViewerViewerComponent', () => {
-  let component: ViewerViewerComponent;
-  let fixture: ComponentFixture<ViewerViewerComponent>;
+describe('AuthProfilePageComponent', () => {
+  let component: AuthProfilePageComponent;
+  let fixture: ComponentFixture<AuthProfilePageComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewerViewerComponent ]
+      declarations: [ AuthProfilePageComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ViewerViewerComponent);
+    fixture = TestBed.createComponent(AuthProfilePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

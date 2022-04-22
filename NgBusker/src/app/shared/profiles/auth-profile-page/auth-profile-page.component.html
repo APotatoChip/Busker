@@ -4,9 +4,11 @@
         <!-- Profile Image -->
         <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
         <!-- Profile Name -->
-        <p class="card-name">Lily-Grace Colley</p>
+        <p class="card-name">{{username}}</p>
+        <p *ngIf="isPerformer" class="card-type">Performer</p>
+        <p *ngIf="!isPerformer" class="card-type">Viewer</p>
         <!-- Socials  -->
-        <ul class="social-icons">
+        <ul *ngIf="isPerformer" class="social-icons">
 
             <li>
                 <a href="#">
@@ -31,10 +33,11 @@
         </ul>
     </div>
     <div class="btn-container">
-        <button class="btn draw-border">Follow</button>
-        <!-- <button class="btn draw-border">Unfollow</button> -->
-        <button class="btn draw-border">Message</button>
-        <button class="btn draw-border">Tip</button>
+        <button class="btn draw-border">Followers</button>
+        <button class="btn draw-border">Following</button>
+        <button class="btn draw-border">Messages</button>
+        <button *ngIf="isPerformer" class="btn draw-border">Tips</button>
+        <button class="btn draw-border">Edit Profile</button>
     </div>
 
 </div>

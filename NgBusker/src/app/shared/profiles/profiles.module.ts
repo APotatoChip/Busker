@@ -1,31 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BuskerComponent } from './busker/busker.component';
-import { BuskerViewerComponent } from './busker-viewer/busker-viewer.component';
-import { ViewerComponent } from './viewer/viewer.component';
-import { ViewerViewerComponent } from './viewer-viewer/viewer-viewer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
+import { AuthProfilePageComponent } from './auth-profile-page/auth-profile-page.component';
+import { UnauthProfilePageComponent } from './unauth-profile-page/unauth-profile-page.component';
 
 
 
 @NgModule({
   declarations: [
-    BuskerComponent,
-    BuskerViewerComponent,
-    ViewerComponent,
-    ViewerViewerComponent,
-    EditProfileComponent
+    EditProfileComponent,
+    AuthProfilePageComponent,
+    UnauthProfilePageComponent
   ],
   imports: [
     CommonModule,
     FontAwesomeModule
   ],
   exports:[
-    BuskerComponent,
-    BuskerViewerComponent,
-    ViewerComponent,
-    ViewerViewerComponent
+    AuthProfilePageComponent,
+    UnauthProfilePageComponent
   ]
 })
 export class ProfilesModule { }

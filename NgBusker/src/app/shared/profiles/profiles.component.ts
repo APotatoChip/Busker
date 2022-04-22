@@ -7,15 +7,13 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
-isPerformerType?:boolean;
+isPerformer?:boolean;
   constructor(private userService:UserService) { 
   
   }
 
   ngOnInit(): void {
-    
-    this.isPerformerType = this.userService.isPerformer;
-   
+    this.isPerformer = this.userService.isPerformer;
   }
 
 }

@@ -9,24 +9,12 @@ import { Router } from '@angular/router';
 
 
 export class FooterComponent implements OnInit {
-route:any;
-  constructor(private router:Router) { 
 
-  
-  }
+  constructor() { }
 
-  ngOnInit(): void {
-    this.route=this.router.url;
-    
-    
-  }
+  ngOnInit(): void {}
 
   onActivate() {
-            window.scrollTo({behavior:'smooth',top:0}); // how far to scroll on each step
-          
-  
-}
-
- 
-
+      window.scrollTo({behavior:'smooth',top:0}); // how far to scroll on each step
+  }
 }

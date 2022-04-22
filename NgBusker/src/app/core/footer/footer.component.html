@@ -7,14 +7,11 @@
 
         <!-- Back to top arrow -->
         <div class="back-to-top">
-            <a *ngIf="route=='/home'" (click)="onActivate()">
+            <a (click)="onActivate()">
                 <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
                 </mat-icon>
             </a>
-            <a *ngIf="route=='/map'" (click)="onActivate()">
-                <mat-icon class="icon-arrow" fontSet="fas" fontIcon="fa-chevron-up">
-                </mat-icon>
-            </a>
+
         </div>
 
         <!-- Social Medias -->
