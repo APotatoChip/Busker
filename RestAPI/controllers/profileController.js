@@ -17,19 +17,17 @@ module.exports = {
         },
         following(req, res, next) {
             res.json("following");
-        },
-        edit(req, res, next) {
-            res.json("edit");
-        },
+        }
 
 
     },
     put: {
         editProfile(req, res, next) {
+            console.log(req.body);
             const { _id: userId } = req.user;
-            const { username, email } = req.body;
+            // const { username, email } = req.body;
 
-            userModel.findOneAndUpdate({ _id: userId }, { username, email }, { runValidators: true, new: true })
+            User.findOneAndUpdate({ _id: userId }, req.body, { runValidators: true, new: true })
                 .then(x => { res.status(200).json(x) })
                 .catch(next);
         }

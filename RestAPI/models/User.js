@@ -47,6 +47,18 @@ module.exports = (mongoose, bcrypt) => {
             type: Schema.ObjectId,
             ref: 'Location',
             default: ""
+        },
+        instagram: {
+            type: String
+        },
+        facebook: {
+            type: String
+        },
+        twitter: {
+            type: String
+        },
+        youtube: {
+            type: String
         }
     });
 

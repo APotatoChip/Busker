@@ -5,7 +5,6 @@ module.exports = (router) => {
     router.get('/profile/followers', profileController.get.followers);
     router.get('/profile/following', profileController.get.following);
 
-    router.get('/profile/edit', profileController.get.edit);
 
     router.get('/profile/post', postController.get.allPosts);
     router.get('/profile/post/edit', postController.get.editPost);
