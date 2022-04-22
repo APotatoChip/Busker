@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../shared/interfaces';
 import {tap,catchError} from 'rxjs/operators';
+import { NgForm } from '@angular/forms';
 
 
 const apiUrl=environment.apiUrl;
@@ -66,6 +67,15 @@ export class UserService {
     );
   }
 
+  updateProfile(data: { username: string; instagram: string; facebook: string; twitter:string;youtube:string; }){
+    
+    return this.http.put<IUser>(`${apiUrl}/profile/edit`,data,{withCredentials:true}).pipe(
+      tap((user)=>{
+        this.currentUser=user;
+      })
+    )
+    
+  }
  
   }
 

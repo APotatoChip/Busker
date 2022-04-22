@@ -4,6 +4,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { EditProfileComponent } from './edit-profile/edit-profile.component';
 import { AuthProfilePageComponent } from './auth-profile-page/auth-profile-page.component';
 import { UnauthProfilePageComponent } from './unauth-profile-page/unauth-profile-page.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -15,7 +16,8 @@ import { UnauthProfilePageComponent } from './unauth-profile-page/unauth-profile
   ],
   imports: [
     CommonModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    FormsModule
   ],
   exports:[
     AuthProfilePageComponent,

@@ -10,4 +10,8 @@ export interface IUser extends IBase{
   posts:string[];
   followers:string[];
   following:string[];
+  instagram:string;
+  facebook:string;
+  twitter:string;
+  youtube:string;
 }

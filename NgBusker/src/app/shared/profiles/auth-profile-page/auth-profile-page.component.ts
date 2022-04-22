@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {  faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
 import { UserService } from 'src/app/user/user.service';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-auth-profile-page',
@@ -14,11 +15,38 @@ export class AuthProfilePageComponent implements OnInit {
   faYoutube=faYoutube;
   username?:String;
   isPerformer?:boolean;
-  constructor(private userService:UserService) { }
+  isInEditMode?:boolean;
+  
+  get user(){
+    return this.userService.currentUser;
+  }
+  constructor(private userService:UserService) { 
+    this.isInEditMode=false;
+
+  }
 
   ngOnInit(): void {
+    
+    
     this.isPerformer=this.userService.isPerformer;
     this.username=this.userService.currentUser?.username;
+    
+  }
+
+  updateProfile(form:NgForm){
+    console.log("hi");
+    if(form.invalid){
+  return;
+}
+
+this.userService.updateProfile(form.value).subscribe({
+  next:()=>{
+    this.isInEditMode=false;
+  },
+  error: (err) => {
+    console.error(err);
+  }
+});
   }
 
 }

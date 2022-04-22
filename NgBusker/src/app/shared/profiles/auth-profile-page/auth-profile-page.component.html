@@ -1,43 +1,87 @@
 <!-- Profile Card -->
 <div class="card-profile">
-    <div class="info-container">
-        <!-- Profile Image -->
-        <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
-        <!-- Profile Name -->
-        <p class="card-name">{{username}}</p>
-        <p *ngIf="isPerformer" class="card-type">Performer</p>
-        <p *ngIf="!isPerformer" class="card-type">Viewer</p>
-        <!-- Socials  -->
-        <ul *ngIf="isPerformer" class="social-icons">
+    <!-- Default Profile View -->
+    <ng-container *ngIf="!isInEditMode">
+        <div class="info-container">
+            <!-- Profile Image -->
+            <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
+            <!-- Profile Name -->
+            <p *ngIf="!isInEditMode" class="card-name">{{username}}</p>
+            <p class="card-type">{{user!.typeOptions | uppercase}}</p>
+            <!-- Socials  -->
+            <ul *ngIf="isPerformer" class="social-icons">
 
-            <li>
-                <a href="#">
-                    <fa-icon [icon]="faInstagram"></fa-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <fa-icon [icon]="faFacebook"></fa-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <fa-icon [icon]="faTwitter"></fa-icon>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <fa-icon [icon]="faYoutube"></fa-icon>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <div class="btn-container">
-        <button class="btn draw-border">Followers</button>
-        <button class="btn draw-border">Following</button>
-        <button class="btn draw-border">Messages</button>
-        <button *ngIf="isPerformer" class="btn draw-border">Tips</button>
-        <button class="btn draw-border">Edit Profile</button>
-    </div>
+                <li>
+                    <a href="{{user!.instagram}}">
+                        <fa-icon [icon]="faInstagram"></fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{user!.facebook}}">
+                        <fa-icon [icon]="faFacebook"></fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{user!.twitter}}">
+                        <fa-icon [icon]="faTwitter"></fa-icon>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{user!.youtube}}">
+                        <fa-icon [icon]="faYoutube"></fa-icon>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="btn-container">
+            <button class="btn draw-border">Followers</button>
+            <button class="btn draw-border">Following</button>
+            <button class="btn draw-border">Messages</button>
+            <button *ngIf="isPerformer" class="btn draw-border">Tips</button>
+            <button class="btn draw-border" (click)="isInEditMode=true">Edit Profile</button>
+        </div>
+    </ng-container>
 
+    <!-- Profile View in Edit Mode -->
+    <ng-container *ngIf="isInEditMode">
+        <form #form="ngForm" (ngSubmit)="updateProfile(form)">
+            <div class="info-container">
+                <!-- Profile Image -->
+                <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
+                <!-- Profile Name -->
+                <p>Username: </p>
+                <input type="text" name="username" id="username" [ngModel]="user!.username">
+                <p class="card-type">{{user!.typeOptions | uppercase}}</p>
+
+                <!-- Socials  -->
+                <ul *ngIf="isPerformer" class="social-icons" style="display: flex; flex-direction: column;">
+
+                    <li>
+                        <fa-icon [icon]="faInstagram"></fa-icon>
+                        <input type="text" name="instagram" id="instagram" [ngModel]="user!.instagram">
+                    </li>
+                    <li>
+                        <fa-icon [icon]="faFacebook"></fa-icon>
+                        <input type="text" name="facebook" id="facebook" [ngModel]="user!.facebook">
+                    </li>
+                    <li>
+                        <fa-icon [icon]="faTwitter"></fa-icon>
+
+                        <input type="text" name="twitter" id="twitter" [ngModel]="user!.twitter">
+                    </li>
+                    <li>
+                        <fa-icon [icon]="faYoutube"></fa-icon>
+
+                        <input type="text" name="youtube" id="youtube" [ngModel]="user!.youtube">
+                    </li>
+                </ul>
+            </div>
+            <div class="btn-container">
+
+
+                <button class="btn draw-border">Save Changes</button>
+                <button class="btn draw-border" (click)="isInEditMode=false">Cancel</button>
+            </div>
+        </form>
+    </ng-container>
 </div>
