@@ -5,6 +5,7 @@ const postController = require('./postController');
 const commentController = require('./commentController');
 const messageController = require('./messageController');
 const locationController = require('./locationController');
+const fileController = require('./fileController');
 
 
 module.exports = {
@@ -14,5 +15,7 @@ module.exports = {
     postController,
     commentController,
     messageController,
-    locationController
+    locationController,
+    fileController
+
 }

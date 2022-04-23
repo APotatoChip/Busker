@@ -1,7 +1,12 @@
-const { profileController, postController, commentController, messageController } = require('../controllers');
+const { profileController, postController, commentController, messageController, fileController } = require('../controllers');
 
 module.exports = (router) => {
     router.get('/profile', profileController.get.profile);
+
+    router.post("/upload", fileController.upload);
+    router.get("/files", fileController.getListFiles);
+    router.get("/files/:name", fileController.download);
+
     router.get('/profile/followers', profileController.get.followers);
     router.get('/profile/following', profileController.get.following);
 
