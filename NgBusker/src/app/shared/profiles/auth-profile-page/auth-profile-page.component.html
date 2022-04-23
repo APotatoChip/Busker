@@ -47,6 +47,8 @@
         <form #form="ngForm" (ngSubmit)="updateProfile(form)">
             <div class="info-container">
                 <!-- Profile Image -->
+                <p>Profile Picture: </p>
+                <input type="file" name="avatar" id="avatar" (change)="selectFile($event)">
                 <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
                 <!-- Profile Name -->
                 <p>Username: </p>
