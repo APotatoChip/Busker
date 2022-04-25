@@ -54,7 +54,7 @@ section {
     justify-content: center;
     text-align: center;
     width: 100%;
-    height: 89.2vh;
+    height: 100vh;
     background: url('../../../assets/photos/welcomePageFirstPhoto.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -154,12 +154,14 @@ button:hover {
 @media only screen and (max-width: 1200px) {
     .register-card {
         width: 40%;
+        height: 80%;
     }
 }
 
 @media only screen and (max-width: 800px) {
     .register-card {
         width: 60vw;
+        height: 70vh;
     }
     button {
         width: 40%;
