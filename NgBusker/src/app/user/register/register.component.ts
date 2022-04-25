@@ -7,8 +7,7 @@ import { UserService } from '../user.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'],
-  encapsulation: ViewEncapsulation.None //for input fields to show properly css
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
 
