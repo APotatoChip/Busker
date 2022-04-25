@@ -25,8 +25,6 @@ export class SidenavListComponent  {
     this.userService.logout();
   }
   public onSidenavClose=()=>{
-    
-    
     this.sidenavClose.emit();
   }
 

@@ -1,7 +1,7 @@
 <mat-toolbar id="hero">
 
     <!-- Burger Menu Button -->
-    <div fxHide.gt-xs>
+    <div fxHide fxShow.lt-md>
         <button mat-icon-button (click)="onToggleSidenav()">
             <mat-icon>menu</mat-icon>
         </button>
@@ -10,7 +10,7 @@
     <!-- Header Menu -->
 
     <!-- Logo Home Button -->
-    <div fxHide.xs>
+    <div fxHide fxShow.gt-sm>
         <a routerLink="/home">
             <svg width="123" height="53" viewBox="0 0 123 53" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M26.5 -4.57764e-05C19.5482 -4.57764e-05 13.3716 6.66059 13.3716 13.6146C13.3716 23.9541 23.8125 24.0244 26.5 39.75C29.1876 24.0244 40.1147 22.9313 40.1147 12.5919C40.1147 5.63783 33.4541 -4.57764e-05 26.5 -4.57764e-05ZM26.5 26.0137C24.0598 26.0137 13.3716 16.0548 13.3716 13.6146C13.3716 11.1744 24.0598 -4.57764e-05 26.5 -4.57764e-05C28.9402 -4.57764e-05 39.4194 8.75225 40.1147 12.5919C38.1887 -4.57764e-05 28.9402 26.0137 26.5 26.0137ZM53 53L38.1887 47.6403L26.5 53L14.1753 47.6403L2.28882e-05 53L8.83336 33.125L17.5784 29.627C18.4175 30.7665 19.2147 32.012 19.9214 33.4452L12.1414 36.5589L8.33206 45.1272L14.2327 42.8968L17.5585 36.963L16.1562 43.6852L25.4069 47.6359L26.5 43.1729L27.5269 47.6425L36.6915 43.4688L35.3267 36.7709L38.7982 43.1662L44.8314 45.3503L40.9911 36.5655L33.0831 33.4407C33.7875 32.0053 34.5869 30.7576 35.4283 29.6181L44.308 33.125L53 53Z" fill="#FF662B"/>
@@ -26,7 +26,7 @@
     </div>
 
     <!-- Header Menu Buttons -->
-    <div fxFlex fxLayoutAlign="end" fxHide.xs>
+    <div fxFlex fxLayoutAlign="end" fxHide fxShow.gt-sm>
         <ul class="navigation-items">
 
             <div fxFlex fxLayout="row" fxLayoutGap="15px" *ngIf="!isLogged">
