@@ -4,7 +4,9 @@
     <ng-container *ngIf="!isInEditMode">
         <div class="info-container">
             <!-- Profile Image -->
-            <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
+            <a href="/user/profile">
+                <img [src]="urlBlob" alt="Person" class="card-image">
+            </a>
             <!-- Profile Name -->
             <p *ngIf="!isInEditMode" class="card-name">{{username}}</p>
             <p class="card-type">{{user!.typeOptions | uppercase}}</p>
@@ -49,7 +51,7 @@
                 <!-- Profile Image -->
                 <p>Profile Picture: </p>
                 <input type="file" name="avatar" id="avatar" (change)="selectFile($event)">
-                <img src="../../../assets/photos/profile-busker.jpg" alt="Person" class="card-image">
+                <img src={{user?.avatar}} alt="Person" class="card-image">
                 <!-- Profile Name -->
                 <p>Username: </p>
                 <input type="text" name="username" id="username" [ngModel]="user!.username">

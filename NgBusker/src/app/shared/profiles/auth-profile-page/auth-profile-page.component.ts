@@ -3,6 +3,7 @@ import {  faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free
 import { UserService } from 'src/app/user/user.service';
 import {NgForm} from '@angular/forms';
 import { UploadFileService } from '../upload-file.service';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-auth-profile-page',
@@ -18,11 +19,13 @@ export class AuthProfilePageComponent implements OnInit {
   isPerformer?:boolean;
   isInEditMode?:boolean;
   selectedFile?:File;
+  imgUrl?:string;
+  urlBlob:any;
   
   get user(){
     return this.userService.currentUser;
   }
-  constructor(private userService:UserService,private uploadService:UploadFileService) { 
+  constructor(private userService:UserService,private uploadService:UploadFileService, private sanitizer: DomSanitizer) { 
     this.isInEditMode=false;
 
   }
@@ -32,6 +35,20 @@ export class AuthProfilePageComponent implements OnInit {
     
     this.isPerformer=this.userService.isPerformer;
     this.username=this.userService.currentUser?.username;
+    this.imgUrl=this.user?.avatar.split("\\")[2];
+    //retrieving the image from the backend static folder as a blob, sanitazing url and displaying it 
+    this.uploadService.getAvatar(this.imgUrl).subscribe((img)=>{
+      
+       const objectURL  =URL.createObjectURL(img);
+       const test = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+       this.urlBlob=test;
+       
+       return this.urlBlob
+
+    });
+    console.log(this.urlBlob);
+    
+    
     
   }
 
@@ -50,10 +67,11 @@ export class AuthProfilePageComponent implements OnInit {
 
 
 
-this.uploadService.getFiles().subscribe((Res:any)=>{
-  console.log(Res);
+// this.uploadService.getFiles().subscribe((Res:any)=>{
+//   console.log(Res);
   
-});
+// });
+
 this.uploadService.upload(this.selectedFile).subscribe((res:any)=>{
   //console.log(res);
   
@@ -70,12 +88,5 @@ this.userService.updateProfile(form.value).subscribe({
 });
   }
 
-}
-function selectFile(e: any) {
-  throw new Error('Function not implemented.');
-}
-
-function e(e: any) {
-  throw new Error('Function not implemented.');
 }
 
