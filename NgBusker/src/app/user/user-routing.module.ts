@@ -6,6 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import { AuthGuard } from '../core/guards/auth.guard';
+import { SearchComponent } from '../search/search.component';
+import { CurrentUserComponent } from '../shared/profiles/current-user/current-user.component';
+import { OtherUserComponent } from './other-user/other-user.component';
 
 
 
@@ -29,6 +32,10 @@ const routes: Routes = [
    canActivate:[AuthGuard]
   //  loadChildren:()=>import('../shared/shared.module').then(m=>m.SharedModule),
 
+},{
+  path:':userId',
+  component:OtherUserComponent,
+  canActivate:[AuthGuard]
 }
 ];
 

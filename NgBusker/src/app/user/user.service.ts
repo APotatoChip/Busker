@@ -67,7 +67,8 @@ export class UserService {
     );
   }
 
-  updateProfile(data: { username: string; instagram: string; facebook: string; twitter:string;youtube:string; }){
+  updateProfile(data: { username: string; avatar:any;instagram: string; facebook: string; twitter:string;youtube:string; }){
+    console.log(data);
     
     return this.http.put<IUser>(`${apiUrl}/profile/edit`,data,{withCredentials:true}).pipe(
       tap((user)=>{
