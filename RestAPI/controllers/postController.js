@@ -3,10 +3,11 @@ const { Post, User } = require("../models");
 module.exports = {
     get: {
         async allPosts(req, res, next) {
-
-            let userId = req.user._id;
-            let username = req.user.username;
+            // console.log(req.query.userId)
+            const userId = req.query.userId;
             const posts = await Post.find({ author: userId });
+            const user = await User.findOne({ _id: userId });
+            const username = user.username;
             res.json({ posts, username });
 
 
