@@ -6,6 +6,7 @@ module.exports = (router) => {
     router.post("/upload", fileController.upload);
     router.get("/files", fileController.getListFiles);
     router.get("/files/:name", fileController.download);
+    router.get("/file/:avatar", fileController.getAvatar);
 
     router.get('/profile/followers', profileController.get.followers);
     router.get('/profile/following', profileController.get.following);

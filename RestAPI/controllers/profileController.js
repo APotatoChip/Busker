@@ -23,7 +23,7 @@ module.exports = {
     },
     put: {
         editProfile(req, res, next) {
-            console.log(req.body);
+            //console.log(req.body);
             const { _id: userId } = req.user;
             // const { username, email } = req.body;
 
