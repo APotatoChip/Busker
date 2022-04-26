@@ -8,7 +8,7 @@ module.exports = {
         },
         map(req, res, next) {
             res.json("get map");
-        },
+        }
 
 
     },

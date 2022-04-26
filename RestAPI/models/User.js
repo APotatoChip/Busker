@@ -20,7 +20,7 @@ module.exports = (mongoose, bcrypt) => {
         },
         avatar: {
             type: String,
-            default: ""
+            default: "default-avatar-profile.jpg"
         },
         bio: {
             type: String,

@@ -15,6 +15,5 @@ module.exports = (router) => {
 
     router.delete('/map/tag', locationController.delete.currentMarker);
 
-
     return router;
 };
