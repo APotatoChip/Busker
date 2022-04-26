@@ -36,8 +36,10 @@ export class AuthProfilePageComponent implements OnInit {
     this.isPerformer=this.userService.isPerformer;
     this.username=this.userService.currentUser?.username;
     this.imgUrl=this.user?.avatar.split("\\")[2];
+    console.log(this.user?.avatar);
     //retrieving the image from the backend static folder as a blob, sanitazing url and displaying it 
     this.uploadService.getAvatar(this.imgUrl).subscribe((img)=>{
+      
       
        const objectURL  =URL.createObjectURL(img);
        const test = this.sanitizer.bypassSecurityTrustUrl(objectURL);
@@ -46,7 +48,7 @@ export class AuthProfilePageComponent implements OnInit {
        return this.urlBlob
 
     });
-    console.log(this.urlBlob);
+    
     
     
     
@@ -76,6 +78,7 @@ this.uploadService.upload(this.selectedFile).subscribe((res:any)=>{
   //console.log(res);
   
 })
+
 
 this.userService.updateProfile(form.value).subscribe({
   

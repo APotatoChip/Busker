@@ -50,8 +50,8 @@
             <div class="info-container">
                 <!-- Profile Image -->
                 <p>Profile Picture: </p>
-                <input type="file" name="avatar" id="avatar" (change)="selectFile($event)">
-                <img src={{user?.avatar}} alt="Person" class="card-image">
+                <input type="file" name="avatar" id="avatar" [ngModel]="user!.avatar" (change)="selectFile($event)">
+                <img [src]="urlBlob" alt="Person" class="card-image">
                 <!-- Profile Name -->
                 <p>Username: </p>
                 <input type="text" name="username" id="username" [ngModel]="user!.username">

@@ -1,0 +1,45 @@
+Profile Card
+<div class="card-profile">
+    <!-- Default Profile View -->
+
+    <div class="info-container">
+        <!-- Profile Image -->
+
+        <img [src]="" alt="Person" class="card-image">
+
+        <!-- Profile Name -->
+        <p class="card-name">{{username}}</p>
+        <p class="card-type">{{type | uppercase}}</p>
+        <!-- Socials  -->
+        <ul class="social-icons">
+
+            <li>
+                <a href="{{instagram}}">
+                    <fa-icon [icon]="faInstagram"></fa-icon>
+                </a>
+            </li>
+            <li>
+                <a href="{{facebook}}">
+                    <fa-icon [icon]="faFacebook"></fa-icon>
+                </a>
+            </li>
+            <li>
+                <a href="{{twitter}}">
+                    <fa-icon [icon]="faTwitter"></fa-icon>
+                </a>
+            </li>
+            <li>
+                <a href="{{youtube}}">
+                    <fa-icon [icon]="faYoutube"></fa-icon>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="btn-container">
+        <button class="btn draw-border">Follow</button>
+        <button class="btn draw-border">Message</button>
+        <button class="btn draw-border">Tip</button>
+    </div>
+
+
+</div>
