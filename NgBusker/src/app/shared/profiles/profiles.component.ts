@@ -21,7 +21,7 @@ isOther?:boolean;
     }else{
       this.isOther=true;
     }
-    console.log(this.isOther);
+    //console.log(this.isOther);
     
   }
 

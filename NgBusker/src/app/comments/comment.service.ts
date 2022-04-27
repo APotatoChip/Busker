@@ -13,10 +13,5 @@ export class CommentService {
 
   constructor(private http:HttpClient) { }
 
-  addCommentToPost(data:any):Observable<any>{
-console.log(data);
-    
-    const postId=data.postId;
-return this.http.post<any>(`${apiUrl}/profile/${postId}/comment`,data,{withCredentials:true});
-  }
+  
 }

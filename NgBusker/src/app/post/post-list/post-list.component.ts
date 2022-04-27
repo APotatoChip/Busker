@@ -31,7 +31,7 @@ user:any;
     this.postService.loadProfilePosts(this.userId).subscribe(res=>{
       this.postList=res.posts;
       this.username=res.username;
-      console.log(this.username);
+      //console.log(this.username);
       
 
       if(this.postList.length===0){

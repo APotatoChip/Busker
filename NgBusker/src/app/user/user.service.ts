@@ -77,6 +77,10 @@ export class UserService {
     )
     
   }
+
+  getUserById(userId:any):Observable<IUser>{
+    return this.http.get<IUser>(`${apiUrl}/user/${userId}`)
+  }
  
   }
 

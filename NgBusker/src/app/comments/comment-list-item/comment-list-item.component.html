@@ -1,15 +1,15 @@
 <div class="comment-main-level">
     <!-- Avatar -->
     <div class="comment-avatar">
-        <img src="../../../assets/photos/profile-busker.jpg" alt="">
+        <img [src]="urlBlob" alt="">
     </div>
     <!-- Comment Content -->
     <div class="comment-box">
         <div class="comment-head">
-            <h6 class="comment-name by-author">
-                <a href="../../../assets/photos/profile-busker.jpg">Agustin Ortiz</a>
-            </h6>
-            <span>hace 20 minutos</span>
+            <!-- <h6 class="comment-name by-author">
+            </h6> -->
+            <a routerLink="{{link}}">{{username}}</a>
+            <span>{{comment?.postedAt}}</span>
             <i class="fa fa-reply"></i>
             <i class="fa fa-heart"></i>
         </div>

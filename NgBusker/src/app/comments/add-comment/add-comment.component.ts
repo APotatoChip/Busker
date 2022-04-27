@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { IComment, IPost, IUser } from 'src/app/shared/interfaces';
+import { PostService } from 'src/app/shared/post.service';
 import { UploadFileService } from 'src/app/shared/profiles/upload-file.service';
 import { UserService } from 'src/app/user/user.service';
 import { CommentService } from '../comment.service';
@@ -17,7 +18,7 @@ export class AddCommentComponent implements OnInit {
 user:any;
 imgUrl:any;
 urlBlob:any;
-  constructor(private commentService:CommentService,private router:Router,private datePipe:DatePipe,private uploadService:UploadFileService,private sanitizer:DomSanitizer,private userService:UserService) { }
+  constructor(private postService:PostService,private router:Router,private datePipe:DatePipe,private uploadService:UploadFileService,private sanitizer:DomSanitizer,private userService:UserService) { }
 
   ngOnInit(): void {
     this.user=this.userService.currentUser;
@@ -42,8 +43,16 @@ urlBlob:any;
     formValue.postId=this.router.url.split("/")[3];
     formValue.likes=0;
     formValue.replyComments=[];
-    this.commentService.addCommentToPost(formValue);
+     
+    let currUrl = this.router.url;
+    this.postService.addCommentToPost(formValue).subscribe((res)=>{
+      this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+        this.router.navigate([currUrl]);
+        
+      
+    });
     
-  }
+  })
+}
 
 }

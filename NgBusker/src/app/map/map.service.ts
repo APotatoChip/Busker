@@ -41,7 +41,7 @@ export class MapService {
         var infowindow = new google.maps.InfoWindow({
           content:innerDivContainer
         })
-        console.log(innerDivContainer)
+       // console.log(innerDivContainer)
         marker.addListener("click", () => {
           infowindow.open({
             anchor: marker,
@@ -49,7 +49,7 @@ export class MapService {
             shouldFocus: false,
           });
         }); 
-        console.log(coords);
+        //console.log(coords);
         
         
       }

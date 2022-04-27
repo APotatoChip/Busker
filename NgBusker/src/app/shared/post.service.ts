@@ -44,4 +44,9 @@ export class PostService {
     return this.http.get<IComment[]>(`${apiUrl}/profile/${postId}/comment/${commentId}`)
   }
 
+  addCommentToPost(data:any):Observable<any>{
+        const postId=data.postId;
+    return this.http.post<any>(`${apiUrl}/profile/${postId}/comment`,data,{withCredentials:true});
+      }
+
 }

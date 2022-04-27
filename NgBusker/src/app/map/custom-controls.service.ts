@@ -118,7 +118,7 @@ export class CustomControlsService {
      this.locationService.getUserById(buskerId).subscribe((user:any)=>{
        
        let {avatar, username}=user[0];
-       console.log(user[0]);
+      // console.log(user[0]);
        nameElement.innerHTML=username;
        
      let imageElement = document.createElement("img");

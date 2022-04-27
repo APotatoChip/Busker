@@ -10,6 +10,7 @@ import { CommentListItemComponent } from './comment-list-item/comment-list-item.
 import { ReplyCommentItemComponent } from './reply-comment-item/reply-comment-item.component';
 
 import { PostService } from '../shared/post.service';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -26,6 +27,7 @@ import { PostService } from '../shared/post.service';
     ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
+    RouterModule
   ],
   providers:[
     PostService

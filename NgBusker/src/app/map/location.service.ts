@@ -24,7 +24,7 @@ this.getCurrentLocation().subscribe((res)=>{
   //try catch later
     this.currentLocation=res ? res.location:null;
 });
-console.log(!!this.currentLocation);
+//console.log(!!this.currentLocation);
     return !!this.currentLocation;
   }
 
