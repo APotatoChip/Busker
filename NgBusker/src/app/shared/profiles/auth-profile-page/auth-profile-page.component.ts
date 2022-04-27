@@ -4,6 +4,7 @@ import { UserService } from 'src/app/user/user.service';
 import {NgForm} from '@angular/forms';
 import { UploadFileService } from '../upload-file.service';
 import { DomSanitizer } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-auth-profile-page',
@@ -25,7 +26,7 @@ export class AuthProfilePageComponent implements OnInit {
   get user(){
     return this.userService.currentUser;
   }
-  constructor(private userService:UserService,private uploadService:UploadFileService, private sanitizer: DomSanitizer) { 
+  constructor(private router:Router,private userService:UserService,private uploadService:UploadFileService, private sanitizer: DomSanitizer) { 
     this.isInEditMode=false;
 
   }
@@ -84,10 +85,13 @@ this.userService.updateProfile(form.value).subscribe({
   
   next:()=>{
     this.isInEditMode=false;
+   window.location.reload();
+   
   },
   error: (err) => {
     console.error(err);
   }
+  
 });
   }
 

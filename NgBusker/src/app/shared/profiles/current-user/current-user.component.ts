@@ -3,13 +3,15 @@ import { Router } from '@angular/router';
 import { LocationService } from 'src/app/map/location.service';
 import { IUser } from '../../interfaces';
 import {  faInstagram, faFacebook, faTwitter, faYoutube} from '@fortawesome/free-brands-svg-icons';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UploadFileService } from '../upload-file.service';
 
 @Component({
   selector: 'app-current-user',
   templateUrl: './current-user.component.html',
   styleUrls: ['./current-user.component.css']
 })
-export class CurrentUserComponent implements OnInit,OnDestroy {
+export class CurrentUserComponent implements OnInit {
 username?:any;
 type?:any;
 avatar?:any;
@@ -22,17 +24,16 @@ faInstagram = faInstagram;
   faFacebook=faFacebook;
   faTwitter=faTwitter;
   faYoutube=faYoutube;
-
+imgUrl?:string;
+urlBlob?:any;
    
   
-  constructor(private locationService:LocationService,private router:Router) {
+  constructor(private locationService:LocationService,private router:Router, private sanitizer:DomSanitizer,private uploadService:UploadFileService) {
    
     
     
    }
-  ngOnDestroy(): void {
-    localStorage.clear();
-  }
+  
 
   ngOnInit(): void {
     
@@ -40,7 +41,7 @@ faInstagram = faInstagram;
     this.userId = this.router.url.split("/")[2];
     
     this.locationService.getUserById(this.userId).subscribe((currUser:any)=>{
-      console.log(currUser[0]);
+      
       
       localStorage.setItem("current-user-username",currUser[0].username);
       localStorage.setItem("current-user-avatar",currUser[0].avatar);
@@ -54,6 +55,19 @@ faInstagram = faInstagram;
    
    this.username=localStorage.getItem("current-user-username");
    this.avatar=localStorage.getItem("current-user-avatar");
+   this.imgUrl=this.avatar.split("\\")[2];
+   //console.log(this.user?.avatar);
+   //retrieving the image from the backend static folder as a blob, sanitazing url and displaying it 
+   this.uploadService.getAvatar(this.imgUrl).subscribe((img)=>{
+     
+     
+      const objectURL  =URL.createObjectURL(img);
+      const test = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+      this.urlBlob=test;
+      
+      return this.urlBlob
+
+   });
    this.type=localStorage.getItem("current-user-type-options");
    this.twitter=localStorage.getItem("current-user-twitter");
    this.facebook=localStorage.getItem("current-user-facebook");

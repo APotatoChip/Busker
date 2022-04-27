@@ -48,8 +48,6 @@ urlBlob:any;
     this.postService.addCommentToPost(formValue).subscribe((res)=>{
       this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
         this.router.navigate([currUrl]);
-        
-      
     });
     
   })
