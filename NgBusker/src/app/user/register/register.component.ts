@@ -33,12 +33,12 @@ typeOptions=[{name:"Busker", id:1,checked:false}, {name:"Viewer", id:2,checked:f
     this.isLoading=true;
   
     const {email,username,password,typeOptions} = formValue;
-    console.log(email,username,password,typeOptions);
+  //  console.log(email,username,password,typeOptions);
 
     this.userService.register({email,username,password,typeOptions}).subscribe({
       next:()=>{
         this.isLoading=false;
-        this.router.navigate(['/user/profile']);
+        this.router.navigate(['/user/login']);
       },
       error:(err)=>{
         console.error(err);

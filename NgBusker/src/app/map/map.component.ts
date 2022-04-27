@@ -4,6 +4,8 @@ import { LocationService } from './location.service';
 import { ILocation } from '../shared/interfaces/location';
 import { NgContentAst } from '@angular/compiler';
 import { TagService } from './tag.service';
+import { IUser } from '../shared/interfaces';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-map',
@@ -24,8 +26,10 @@ export class MapComponent implements AfterViewInit {
   isPerforming:boolean = false;
   isInTagMode:boolean=false;
   map?:google.maps.Map;
+  user?:any;
+  isPerformer?:boolean=false;
 
-  constructor( private mapService:MapService,private locationService:LocationService, private tagService:TagService) {
+  constructor(private userService:UserService, private mapService:MapService,private locationService:LocationService, private tagService:TagService) {
 
   };
 
@@ -56,7 +60,13 @@ export class MapComponent implements AfterViewInit {
 
   
   this.mapService.getAllCurrentlyPerformingMarkers(map);
-  this.tagService.TagYourselfControl(centerControlDivRef, map);
+  this.user=this.userService.currentUser;
+  if(this.user.typeOptions=="performer"){
+    this.isPerformer=true;
+  }else{
+    this.isPerformer=false;
+  }
+  this.tagService.TagYourselfControl(centerControlDivRef, map,this.isPerformer);
   map.controls[google.maps.ControlPosition.BOTTOM_CENTER].push(centerControlDivRef);
 return map;
     }

@@ -12,7 +12,7 @@ export class TagService {
  
 
 
-  TagYourselfControl(controlDiv: Element, map: google.maps.Map) {
+  TagYourselfControl(controlDiv: Element, map: google.maps.Map, isPerformer:boolean) {
 
    var controlsArray:Array<HTMLElement>=this.customControls.createMapCustomControls();
    
@@ -23,6 +23,10 @@ export class TagService {
 
    // Appending all control buttons to the main div container
    controlDiv.append(controlUI,controlUIDone,controlUICancel);
+   if(isPerformer==false){
+    controlUI.classList.add("disabled");
+    
+   }
  
    // Setup the click event listeners:
  // let count:number=0;

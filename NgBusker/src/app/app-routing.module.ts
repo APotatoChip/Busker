@@ -25,12 +25,10 @@ const routes: Routes = [
   {
     path:"map",
     component:MapComponent,
-    data:{isLogged:true},
-    canActivate:[AuthGuard]
   },{
     path:'user',
     loadChildren:()=>import('./user/user.module').then(m=>m.UserModule),
-    component:UserComponent,
+    component:UserComponent
   
   },
   {

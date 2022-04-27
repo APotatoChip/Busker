@@ -2,6 +2,11 @@ section {
     padding: 0;
 }
 
+::ng-deep.disabled {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
 img {
     width: 100%;
     max-width: 100%;
@@ -17,6 +22,18 @@ p {
     color: var(--body-font-color);
 }
 
+.p-performing {
+    color: #fff;
+    background-color: black;
+    margin: 0;
+    padding: 3rem 0 0 0;
+    text-align: center;
+}
+
+.p-performing span {
+    color: #cc4c19
+}
+
 .container {
     width: 100%;
     max-width: 122.5rem;
@@ -24,6 +41,7 @@ p {
     padding: 0;
     color: var(--body-font-color);
     display: flex;
+    flex-direction: column;
     align-self: center;
     justify-content: center;
     background-color: black;
@@ -68,7 +86,8 @@ p {
     border: 2px solid var(--accent);
     border-radius: 3%;
     height: 400px;
-    width: 100%
+    width: 80%;
+    align-self: center;
 }
 
 ::ng-deep .gm-style-iw-d {

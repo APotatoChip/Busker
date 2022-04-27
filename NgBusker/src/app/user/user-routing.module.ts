@@ -35,6 +35,7 @@ const routes: Routes = [
 },{
   path:':userId',
   component:OtherUserComponent,
+  data:{isLogged:true},
   canActivate:[AuthGuard]
 }
 ];
