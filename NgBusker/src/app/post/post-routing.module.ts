@@ -16,6 +16,13 @@ const routes: Routes = [
     canActivate:[AuthGuard],
     
   },
+  {
+    path:':userId/:postId/comment',
+    component:PostComponent,
+    data:{isLogged:true},
+    canActivate:[AuthGuard],
+    
+  },
 ];
 
 @NgModule({

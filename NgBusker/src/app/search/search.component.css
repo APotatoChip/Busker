@@ -24,6 +24,7 @@ input {
 body,
 .search-bar {
     display: flex;
+    padding-top: 8rem;
 }
 
 body {

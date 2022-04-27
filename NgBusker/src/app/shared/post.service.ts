@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -29,8 +29,10 @@ export class PostService {
   createPost(data:any):Observable<IPost>{
     return this.http.post<IPost>(`${apiUrl}/profile/post`,data, {withCredentials:true});
   }
-  loadProfilePosts():Observable<any> {    
-    return this.http.get<any>(`${apiUrl}/profile/post`,{withCredentials:true});
+  loadProfilePosts(userId:any):Observable<any> {    
+    
+    let params = new HttpParams().set("userId",userId);
+    return this.http.get<any>(`${apiUrl}/profile/post`,{withCredentials:true,params:params});
   }
   loadCurrentPost(postId:string):Observable<any>{
     return this.http.get<any>(`${apiUrl}/profile/${postId}`)

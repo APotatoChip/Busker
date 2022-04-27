@@ -1,4 +1,10 @@
-<app-auth-profile-page></app-auth-profile-page>
+<div *ngIf="!isOther">
+    <app-auth-profile-page>
+    </app-auth-profile-page>
+</div>
 
+<div *ngIf="isOther">
+    <app-current-user></app-current-user>
+</div>
 
 <!-- ToDo unauth profiles -->

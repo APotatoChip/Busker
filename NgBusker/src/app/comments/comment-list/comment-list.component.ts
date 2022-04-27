@@ -32,6 +32,7 @@ pathId:string;
     this.postService.loadCurrentComments(this.pathId).subscribe(cmts=>{
       this.commentsList=cmts;
     
+      //console.log(this.pathId);
       
     })
   }

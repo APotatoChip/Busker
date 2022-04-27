@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { environment } from 'src/environments/environment';
+import { IUser } from '../shared/interfaces';
 import { ILocation } from '../shared/interfaces/location';
 
 const apiUrl=environment.apiUrl;
@@ -15,6 +16,8 @@ export class LocationService {
 
   currentLocation?:ILocation | null;
 
+
+  
   // check whether a busker has already tagged himself and if so returns true otherwise returns false
   get isPerforming():boolean{
 this.getCurrentLocation().subscribe((res)=>{
@@ -70,8 +73,12 @@ return this.http.get(`${apiUrl}/map/all`).pipe(
  }
 
  getUserById(userId:any):Observable<any>{
-  return this.http.get(`${apiUrl}/map/exact/:userId=`+encodeURIComponent(JSON.stringify(userId))
+  return this.http.get(`${apiUrl}/map/exact/:userId=`+encodeURIComponent(JSON.stringify(userId))).pipe(
+    tap((res)=>{
+      
+    })
   )
+  
  }
 //  getExactLocation(lcoId:any):Observable<any>{
 //    return this.http.get(`${apiUrl}/map/exact/:location=`+encodeURIComponent(JSON.stringify(lcoId))

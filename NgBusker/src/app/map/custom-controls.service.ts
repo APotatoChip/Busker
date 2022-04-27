@@ -1,5 +1,7 @@
 import { HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
+import { UploadFileService } from '../shared/profiles/upload-file.service';
 import { UserService } from '../user/user.service';
 import { LocationService } from './location.service';
 
@@ -8,7 +10,7 @@ import { LocationService } from './location.service';
 })
 export class CustomControlsService {
 
-  constructor(private userService:UserService, private locationService:LocationService) { }
+  constructor(private userService:UserService, private locationService:LocationService, private sanitizer:DomSanitizer, private uploadService:UploadFileService) { }
   //should be removed
    createMapCustomControls():Array<HTMLElement>{
     // Creating tag/untag control ui and text elements
@@ -54,7 +56,23 @@ export class CustomControlsService {
         
       let imageElement = document.createElement("img");
       imageElement.classList.add("profile-pic");
-      imageElement.src=avatar;
+      //imageElement.src=avatar;
+      let currUser=this.userService.currentUser;
+      //property binding later do display image + refactor -> template
+      let imgUrl=currUser?.avatar.split("\\")[2];
+      //retrieving the image from the backend static folder as a blob, sanitazing url and displaying it 
+      
+      this.uploadService.getAvatar(imgUrl).subscribe((img:any)=>{
+        
+         const objectURL  =URL.createObjectURL(img);
+         const test = this.sanitizer.bypassSecurityTrustUrl(objectURL);
+         //this.urlBlob=test;
+         
+         imageElement.src=test as any;
+         return imageElement;
+  
+      });
+      
       let locationNameElement = document.createElement("p");
       // Getting the location and reverse geocoding it to retrieve the name of the place
          this.locationService.getCurrentLocation().subscribe((res)=>{
@@ -73,15 +91,17 @@ export class CustomControlsService {
       
       let taggedTimeElement=document.createElement("p");
       taggedTimeElement.innerHTML="3h ago";
-      let viewProfileBtnElement=document.createElement("button");
+      let viewProfileBtnElement=document.createElement("a");
       viewProfileBtnElement.classList.add("view-profile-btn");
       viewProfileBtnElement.textContent="View Profile";
+      viewProfileBtnElement.href="/user/profile";
+     
       
       innnerDivContainer.appendChild(imageElement);
+      innnerDivContainer.appendChild(nameElement);
       innnerDivContainer.appendChild(locationNameElement);
       innnerDivContainer.appendChild(taggedTimeElement);
       innnerDivContainer.appendChild(viewProfileBtnElement);
-      innnerDivContainer.appendChild(nameElement);
       // Instantiating the new info-window with the elements from above
       
     });      
@@ -98,7 +118,7 @@ export class CustomControlsService {
      this.locationService.getUserById(buskerId).subscribe((user:any)=>{
        
        let {avatar, username}=user[0];
-       console.log(username);
+       console.log(user[0]);
        nameElement.innerHTML=username;
        
      let imageElement = document.createElement("img");
@@ -122,15 +142,16 @@ export class CustomControlsService {
      
      let taggedTimeElement=document.createElement("p");
      taggedTimeElement.innerHTML=markedAt;
-     let viewProfileBtnElement=document.createElement("button");
+     let viewProfileBtnElement=document.createElement("a");
      viewProfileBtnElement.classList.add("view-profile-btn");
      viewProfileBtnElement.textContent="View Profile";
+     viewProfileBtnElement.href=`/user/${user[0]._id}`;
      
      innnerDivContainer.appendChild(imageElement);
+     innnerDivContainer.appendChild(nameElement);
      innnerDivContainer.appendChild(locationNameElement);
      innnerDivContainer.appendChild(taggedTimeElement);
      innnerDivContainer.appendChild(viewProfileBtnElement);
-     innnerDivContainer.appendChild(nameElement);
      // Instantiating the new info-window with the elements from above
      
    });      

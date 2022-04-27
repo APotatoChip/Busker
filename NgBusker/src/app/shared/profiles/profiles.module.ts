@@ -5,6 +5,8 @@ import { AuthProfilePageComponent } from './auth-profile-page/auth-profile-page.
 import { UnauthProfilePageComponent } from './unauth-profile-page/unauth-profile-page.component';
 import { FormsModule } from '@angular/forms';
 import { CurrentUserComponent } from './current-user/current-user.component';
+import { PostListComponent } from 'src/app/post/post-list/post-list.component';
+import { PostModule } from 'src/app/post/post.module';
 
 
 
@@ -17,11 +19,12 @@ import { CurrentUserComponent } from './current-user/current-user.component';
   imports: [
     CommonModule,
     FontAwesomeModule,
-    FormsModule
+    FormsModule, 
   ],
   exports:[
     AuthProfilePageComponent,
-    UnauthProfilePageComponent
+    UnauthProfilePageComponent,
+    CurrentUserComponent
   ]
 })
 export class ProfilesModule { }

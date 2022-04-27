@@ -1,11 +1,11 @@
 <!-- Add Comment -->
 <div class="add-comment">
     <!-- Avatar -->
-    <div class="add-comment-avatar"><img src="../../../assets/photos/profile-busker.jpg" alt=""></div>
+    <div class="add-comment-avatar"><img [src]="urlBlob" alt=""></div>
     <!-- Comment -->
-    <form>
+    <form #f="ngForm" (ngSubmit)="submitCommentFormHandler(f.value)">
         <div class="add-comment-box">
-            <textarea class="add-comment-textarea" rows="3" placeholder="Enter your comment here..."></textarea>
+            <textarea name="textContent" id="comment-input" #commentInput="ngModel" ngModel class="add-comment-textarea" rows="3" placeholder="Enter your comment here..."></textarea>
             <button class="add-comment-post">Post</button>
         </div>
     </form>

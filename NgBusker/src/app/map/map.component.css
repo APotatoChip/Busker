@@ -45,7 +45,7 @@ p {
     font-size: 3rem;
     font-family: var(--main-font);
     font-weight: bold;
-    color: var(--base-font-color);
+    color: #fff;
     width: 80%;
     max-width: 80%;
     letter-spacing: 2px;
