@@ -26,8 +26,8 @@ module.exports = (router) => {
     router.put('/profile/:postId/comment/like', commentController.put.likeComment);
     router.put('/profile/:postId/comment/:commentId/like', commentController.put.likeReply);
     router.put('/profile/edit', profileController.put.editProfile);
-    router.post('/profile/post', postController.post.create);
     router.post('/profile/:postId/comment', commentController.post.comment);
+    router.post('/profile/post', postController.post.create);
 
     router.post('/profile/:postId/comment/:commentId', commentController.post.replyComment);
     router.put('/profile/:postId', postController.put.editPost);

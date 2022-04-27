@@ -3,10 +3,15 @@ module.exports = {
     get: {
         postComments(req, res, next) {
             const id = req.path.split("/")[2];
-
+            console.log(id)
             Comment.find({ postId: id })
-                .then(cmts => res.json(cmts))
-                // res.json("cmts");
+                .then((cmts) => {
+                    console.log(cmts)
+
+                    res.json(cmts)
+                })
+
+            // res.json("cmts");
         },
         replyComment(req, res, next) {
             const id = req.path.split("/")[4];
@@ -31,11 +36,12 @@ module.exports = {
     },
     post: {
         comment(req, res, next) {
+            console.log("yo form comment");
             const currPostId = req.params.postId;
-
+            console.log(currPostId)
             let currComment = "";
             let commentsArr = [];
-            Comment.create({...req.body, author: req.user._id, postedAt: Date.now(), postId: currPostId })
+            Comment.create({...req.body })
                 .then((currentComment) => {
 
                     currComment = currentComment;
@@ -43,6 +49,7 @@ module.exports = {
                 }).then(() => {
                     Post.findOne({ _id: currPostId })
                         .then((foundPost) => {
+                            // console.log(foundPost)
                             foundPost.comments.push(currComment);
                             commentsArr = foundPost.comments;
                         })
@@ -50,6 +57,7 @@ module.exports = {
                             Post.updateOne({ _id: currPostId }, { $set: { comments: commentsArr } })
                                 .then((updates) => {
                                     // console.log(updates);
+
                                     res.json("comment added to the post")
                                 })
 
