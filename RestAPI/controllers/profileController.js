@@ -17,6 +17,12 @@ module.exports = {
         },
         following(req, res, next) {
             res.json("following");
+        },
+        userById(req, res, next) {
+            let userId = req.params.userId;
+            User.findOne({ _id: userId }).then((user) => {
+                res.json(user);
+            })
         }
 
 

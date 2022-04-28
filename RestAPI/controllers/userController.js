@@ -66,10 +66,11 @@ module.exports = {
                     return User.create({ username, password, email, typeOptions });
                 })
                 .then((createdUser) => {
+                    console.log(createdUser);
                     res.json("post register");
                 })
                 .catch((e) => {
-                    // console.log(e);
+                    console.log(e);
 
                 });
 

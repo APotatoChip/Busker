@@ -20,7 +20,7 @@ module.exports = (mongoose, bcrypt) => {
         },
         avatar: {
             type: String,
-            default: "default-avatar-profile.jpg"
+            default: "C:\\fakepath\\default-avatar-profile.jpg"
         },
         bio: {
             type: String,
@@ -46,7 +46,7 @@ module.exports = (mongoose, bcrypt) => {
         location: {
             type: Schema.ObjectId,
             ref: 'Location',
-            default: ""
+            default: null
         },
         instagram: {
             type: String

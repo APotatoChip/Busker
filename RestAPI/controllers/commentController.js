@@ -3,11 +3,8 @@ module.exports = {
     get: {
         postComments(req, res, next) {
             const id = req.path.split("/")[2];
-            console.log(id)
             Comment.find({ postId: id })
                 .then((cmts) => {
-                    console.log(cmts)
-
                     res.json(cmts)
                 })
 
@@ -15,7 +12,6 @@ module.exports = {
         },
         replyComment(req, res, next) {
             const id = req.path.split("/")[4];
-            // console.log(id);
 
             ReplyComment.find({ _id: id })
                 .then((cmt) => {
@@ -36,9 +32,8 @@ module.exports = {
     },
     post: {
         comment(req, res, next) {
-            console.log("yo form comment");
+
             const currPostId = req.params.postId;
-            console.log(currPostId)
             let currComment = "";
             let commentsArr = [];
             Comment.create({...req.body })

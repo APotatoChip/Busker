@@ -1,4 +1,4 @@
-const { profileController, postController, commentController, messageController, fileController } = require('../controllers');
+const { profileController, postController, commentController, messageController, fileController, userController } = require('../controllers');
 
 module.exports = (router) => {
     router.get('/profile', profileController.get.profile);
@@ -36,5 +36,6 @@ module.exports = (router) => {
     router.delete('/profile/:postId/comment/delte', commentController.delete.deleteComment);
     router.delete('/profile/:postId/comment/:commentId/delete', commentController.delete.deleteReplyComment);
 
+    router.get('/user/:userId', profileController.get.userById);
     return router;
 };
