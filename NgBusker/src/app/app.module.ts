@@ -13,12 +13,13 @@ import { CoreModule } from './core/core.module';
 import { GoogleMapsModule } from '@angular/google-maps';
 
 import { AppComponent } from './app.component';
-import { HeroComponent } from './hero/hero.component';
-import { MapComponent } from './map/map.component';
-import { UserComponent } from './user/user.component';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { SearchComponent } from './search/search.component';
-import { InfoWindowComponent } from './info-window/info-window.component';
+import { HeroComponent } from './feature/hero/hero.component';
+import { MapComponent } from './feature/map/map.component';
+import { UserComponent } from './feature/user/user.component';
+import { NotFoundComponent } from './feature/not-found/not-found.component';
+import { SearchComponent } from './feature/search/search.component';
+import { SharedModule } from './shared/shared.module';
+import { FeatureModule } from './feature/feature.module';
 
 
 @NgModule({
@@ -29,7 +30,6 @@ import { InfoWindowComponent } from './info-window/info-window.component';
     MapComponent,
     NotFoundComponent,
     SearchComponent,
-    InfoWindowComponent,
   ],
   imports: [
     BrowserModule,
@@ -40,7 +40,9 @@ import { InfoWindowComponent } from './info-window/info-window.component';
     MaterialModule,
     FlexLayoutModule,
     AppRoutingModule,
-    CoreModule
+    CoreModule,
+    SharedModule,
+    FeatureModule
   ],
   providers: [],
   exports:[],

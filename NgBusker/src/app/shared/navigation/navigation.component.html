@@ -1,0 +1,8 @@
+<div class="container" fxFlex>
+    <mat-sidenav-container>
+        <mat-sidenav #sidenav role="navigation" fixedInViewport="true">
+            <app-sidenav-list (sidenavClose)="sidenav.close()"></app-sidenav-list>
+        </mat-sidenav>
+    </mat-sidenav-container>
+    <app-header isLogged="isLogged" (sidenavToggle)="sidenav.toggle()"></app-header>
+</div>

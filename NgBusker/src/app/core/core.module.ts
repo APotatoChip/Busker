@@ -1,38 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MaterialModule } from '../material/material.module'
-
-import { UserRoutingModule } from '../user/user-routing.module';
-import { NavigationModule } from './navigation/navigation.module';
-
-import { FooterComponent } from './footer/footer.component';
-import { NavigationComponent } from './navigation/navigation.component';
-
-import { UserService } from '../user/user.service';
 import { AuthGuard } from './guards/auth.guard';
+import { UploadFileService } from './services/upload-file.service';
+import { UserService } from '../feature/user/user.service';
+import { PostService } from './services/post.service';
+import { CommentService } from './services/comment.service';
 
 
 
 @NgModule({
-  declarations: [
-    FooterComponent,
-    NavigationComponent
-  ],
+  declarations: [ ],
   imports: [
-    CommonModule,
-    NavigationModule,  
-    MaterialModule,
-    FlexLayoutModule,
-    UserRoutingModule
+    CommonModule,  
   ],
   providers:[
-  
-    AuthGuard
+    AuthGuard,
+    UploadFileService,
+    UserService,
+    PostService,
+    CommentService
   ],
-  exports:[
-    FooterComponent,
-    NavigationComponent
-  ]
+  exports:[ ]
 })
 export class CoreModule { }

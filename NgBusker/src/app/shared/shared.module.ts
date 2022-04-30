@@ -1,31 +1,35 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-
-import { UserRoutingModule } from '../user/user-routing.module';
-import { ProfilesComponent } from './profiles/profiles.component';
-import { ProfilesModule } from './profiles/profiles.module';
+import { UserRoutingModule } from '../feature/user/user-routing.module';
 import { LoaderComponent } from './loader/loader.component';
 import { RePasswordValidatorDirective } from './re-password-validator.directive';
+import { MaterialModule } from '../material/material.module';
+import { NavigationModule } from './navigation/navigation.module';
+import { NavigationComponent } from './navigation/navigation.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
 @NgModule({
   declarations: [
-    ProfilesComponent,
+    NavigationComponent,
+    FooterComponent,
     LoaderComponent,
-    RePasswordValidatorDirective
+    RePasswordValidatorDirective,
   ],
   imports: [
     CommonModule,
+    MaterialModule,
     FontAwesomeModule,
     UserRoutingModule,
-    ProfilesModule
+    NavigationModule
   ],
   exports:[
-  ProfilesComponent,
+    NavigationComponent,
+    FooterComponent,
   LoaderComponent,
-  RePasswordValidatorDirective
+  RePasswordValidatorDirective,
   ]
 })
 export class SharedModule { }
