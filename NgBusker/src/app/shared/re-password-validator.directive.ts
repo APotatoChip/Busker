@@ -1,5 +1,5 @@
 import { Directive,Input } from '@angular/core';
-import { AbstractControl, ValidationErrors, Validator, NG_VALIDATORS, FormGroup } from '@angular/forms';
+import { AbstractControl, ValidationErrors, Validator, NG_VALIDATORS, UntypedFormGroup } from '@angular/forms';
 import { rePasswordValidator } from './validators';
 
 @Directive({
@@ -16,7 +16,7 @@ export class RePasswordValidatorDirective implements Validator {
   
 @Input() pass?:string;
 
-  validate(formGroup:FormGroup):ValidationErrors{
+  validate(formGroup:UntypedFormGroup):ValidationErrors{
     
   let formParentControls=formGroup.parent?.controls as any;
 

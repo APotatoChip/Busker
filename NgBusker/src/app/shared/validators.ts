@@ -1,4 +1,4 @@
-import { AbstractControl, ValidationErrors, ValidatorFn,FormGroup } from "@angular/forms";
+import { AbstractControl, ValidationErrors, ValidatorFn,UntypedFormGroup } from "@angular/forms";
 
 // export function rePasswordValidatorFactory(targetControl:AbstractControl):ValidatorFn{
 //     return function rePasswordValidator(control:AbstractControl): ValidationErrors | null{
@@ -8,7 +8,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn,FormGroup } from "@angul
 // }
 
 export function rePasswordValidator(pass:string, rePass:string): ValidationErrors | null {
-    return (formGroup: FormGroup) => {
+    return (formGroup: UntypedFormGroup) => {
         const control = formGroup.controls[pass];
         const matchingControl = formGroup.controls[rePass];
         const areTheSame = control === matchingControl;
